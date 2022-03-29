@@ -18,8 +18,6 @@ struct ContentView: View {
 
     var body: some View {
         
-        Text("Hello").padding()
-        
         NavigationView {
             List {
                 ForEach(items) { item in
