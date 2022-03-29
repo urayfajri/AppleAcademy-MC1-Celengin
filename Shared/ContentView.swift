@@ -17,6 +17,9 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
+        
+        Text("Hello").padding()
+        
         NavigationView {
             List {
                 ForEach(items) { item in
