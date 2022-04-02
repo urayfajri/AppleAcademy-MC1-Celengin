@@ -24,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="-242" y="1710"/>
         </scene>
-        <!--Item-->
+        <!--See All Goals-->
         <scene sceneID="lBO-l9-iu9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ml8-bL-ddE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="oZA-G2-a0q"/>
+                    <tabBarItem key="tabBarItem" title="See All Goals" selectedImage="list.bullet" catalog="system" id="oZA-G2-a0q"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tHB-iD-61p">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -77,11 +77,11 @@
             </objects>
             <point key="canvasLocation" x="319" y="69"/>
         </scene>
-        <!--Item-->
+        <!--Overall Progress-->
         <scene sceneID="eBZ-ck-9KG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sgs-ae-4UV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="pbN-zj-dIS"/>
+                    <tabBarItem key="tabBarItem" title="Overall Progress" selectedImage="chart.pie.fill" catalog="system" id="pbN-zj-dIS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bVe-F6-0cD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -98,6 +98,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chart.pie.fill" catalog="system" width="128" height="121"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
