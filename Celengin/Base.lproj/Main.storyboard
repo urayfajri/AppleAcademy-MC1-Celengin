@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iEi-c8-ylT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -18,10 +18,83 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Xja-cv-a33"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="68"/>
+            <point key="canvasLocation" x="-242" y="1710"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="lBO-l9-iu9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ml8-bL-ddE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="oZA-G2-a0q"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tHB-iD-61p">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TIR-gH-bCE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Uy-A9-wCY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241" y="846"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pkp-vA-hZR">
+            <objects>
+                <viewController id="nq8-O0-pNW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xdX-9g-rQD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zv7-2t-z1g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4uo-dc-h1s"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IXu-SX-eXA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="816" y="1710"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="9RA-pI-ACF">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iEi-c8-ylT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Ck-Og-sHv">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Ml8-bL-ddE" kind="relationship" relationship="viewControllers" id="Syb-lr-FkI"/>
+                        <segue destination="sgs-ae-4UV" kind="relationship" relationship="viewControllers" id="R0P-rG-8zD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9h1-od-zl1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="319" y="69"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="eBZ-ck-9KG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sgs-ae-4UV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="pbN-zj-dIS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bVe-F6-0cD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nq8-O0-pNW" kind="relationship" relationship="rootViewController" id="YJc-Di-6Oe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hI2-DB-Ax0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.94202898550736" y="847.76785714285711"/>
         </scene>
     </scenes>
     <resources>
