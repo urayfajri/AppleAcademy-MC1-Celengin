@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14D2407227F8783D00F53282 /* GraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2407127F8783D00F53282 /* GraphController.swift */; };
 		14DCD31227F32C79001319FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD31127F32C79001319FF /* AppDelegate.swift */; };
 		14DCD31427F32C79001319FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD31327F32C79001319FF /* SceneDelegate.swift */; };
 		14DCD31627F32C79001319FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD31527F32C79001319FF /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14D2407127F8783D00F53282 /* GraphController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphController.swift; sourceTree = "<group>"; };
 		14DCD30E27F32C79001319FF /* Celengin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Celengin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DCD31127F32C79001319FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14DCD31327F32C79001319FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				14DCD31F27F32C7A001319FF /* LaunchScreen.storyboard */,
 				14DCD32227F32C7A001319FF /* Info.plist */,
 				14DCD31A27F32C79001319FF /* Celengin.xcdatamodeld */,
+				14D2407127F8783D00F53282 /* GraphController.swift */,
 			);
 			path = Celengin;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				14DCD31627F32C79001319FF /* ViewController.swift in Sources */,
 				14DCD31227F32C79001319FF /* AppDelegate.swift in Sources */,
 				14DCD31C27F32C79001319FF /* Celengin.xcdatamodeld in Sources */,
+				14D2407227F8783D00F53282 /* GraphController.swift in Sources */,
 				14DCD31427F32C79001319FF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
