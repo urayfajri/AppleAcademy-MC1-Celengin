@@ -35,16 +35,16 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="goal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Goals" inverseName="user" inverseEntity="Goals"/>
         <fetchedProperty name="daily_breakdown" optional="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="User"/>
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Goals" predicateString="type LIKE [c] &quot;Daily&quot; AND user == $FETCH_SOURCE"/>
         </fetchedProperty>
         <fetchedProperty name="monthly_breakdown" optional="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="User"/>
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Goals" predicateString="type LIKE [c] &quot;Monthly&quot; AND user == $FETCH_SOURCE"/>
         </fetchedProperty>
         <fetchedProperty name="weekly_breakdown" optional="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="User"/>
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Goals" predicateString="type LIKE [c] &quot;Weekly&quot; AND user == $FETCH_SOURCE"/>
         </fetchedProperty>
         <fetchedProperty name="yearly_breakdoown" optional="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="User"/>
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Goals" predicateString="type LIKE [c] &quot;Yearly&quot; AND user == $FETCH_SOURCE"/>
         </fetchedProperty>
     </entity>
     <elements>
