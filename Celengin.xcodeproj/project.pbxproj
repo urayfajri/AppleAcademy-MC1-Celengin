@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		14B5D73F27FC5D2900542A31 /* goalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D73E27FC5D2900542A31 /* goalCell.swift */; };
-		14B5D74A27FC5EFC00542A31 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D74027FC5EFC00542A31 /* User+CoreDataClass.swift */; };
-		14B5D74B27FC5EFC00542A31 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D74127FC5EFC00542A31 /* User+CoreDataProperties.swift */; };
 		14B5D74C27FC5EFC00542A31 /* Goals+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D74227FC5EFC00542A31 /* Goals+CoreDataClass.swift */; };
 		14B5D74D27FC5EFC00542A31 /* Goals+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D74327FC5EFC00542A31 /* Goals+CoreDataProperties.swift */; };
 		14B5D74E27FC5EFC00542A31 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D74427FC5EFC00542A31 /* Expense+CoreDataClass.swift */; };
@@ -50,8 +48,6 @@
 
 /* Begin PBXFileReference section */
 		14B5D73E27FC5D2900542A31 /* goalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goalCell.swift; sourceTree = "<group>"; };
-		14B5D74027FC5EFC00542A31 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		14B5D74127FC5EFC00542A31 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14B5D74227FC5EFC00542A31 /* Goals+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goals+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14B5D74327FC5EFC00542A31 /* Goals+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goals+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14B5D74427FC5EFC00542A31 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -125,8 +121,6 @@
 		14DCD31027F32C79001319FF /* Celengin */ = {
 			isa = PBXGroup;
 			children = (
-				14B5D74027FC5EFC00542A31 /* User+CoreDataClass.swift */,
-				14B5D74127FC5EFC00542A31 /* User+CoreDataProperties.swift */,
 				14B5D74227FC5EFC00542A31 /* Goals+CoreDataClass.swift */,
 				14B5D74327FC5EFC00542A31 /* Goals+CoreDataProperties.swift */,
 				14B5D74427FC5EFC00542A31 /* Expense+CoreDataClass.swift */,
@@ -303,7 +297,6 @@
 				14B5D75027FC5EFC00542A31 /* Income+CoreDataClass.swift in Sources */,
 				14DCD31227F32C79001319FF /* AppDelegate.swift in Sources */,
 				14B5D74E27FC5EFC00542A31 /* Expense+CoreDataClass.swift in Sources */,
-				14B5D74B27FC5EFC00542A31 /* User+CoreDataProperties.swift in Sources */,
 				14DCD31C27F32C79001319FF /* Celengin.xcdatamodeld in Sources */,
 				14D2407227F8783D00F53282 /* GraphController.swift in Sources */,
 				14B5D73F27FC5D2900542A31 /* goalCell.swift in Sources */,
@@ -312,7 +305,6 @@
 				14DCD31427F32C79001319FF /* SceneDelegate.swift in Sources */,
 				14B5D74C27FC5EFC00542A31 /* Goals+CoreDataClass.swift in Sources */,
 				14B5D75127FC5EFC00542A31 /* Income+CoreDataProperties.swift in Sources */,
-				14B5D74A27FC5EFC00542A31 /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
