@@ -16,7 +16,6 @@
         <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="target" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="transaction" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transaction" inverseName="goal" inverseEntity="Transaction"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify"/>
     </entity>
     <entity name="Income" representedClassName=".Income" syncable="YES">
         <attribute name="add_notes" optional="YES" attributeType="String"/>
@@ -33,7 +32,7 @@
     </entity>
     <elements>
         <element name="Expense" positionX="-18" positionY="27" width="128" height="104"/>
-        <element name="Goals" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="Goals" positionX="-63" positionY="-18" width="128" height="149"/>
         <element name="Income" positionX="-36" positionY="9" width="128" height="104"/>
         <element name="Transaction" positionX="-54" positionY="-9" width="128" height="89"/>
     </elements>
