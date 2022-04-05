@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
@@ -22,6 +23,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
         dummyData()
         getAllItems()
+        
+        if(datas.isEmpty)
+        {
+            goalTable.isHidden = true
+            let label = UILabel()
+            label.text = "You haven't created any goal. Start creating one now!"
+            label.textColor = .gray
+            label.textAlignment = .center
+            label.frame = CGRect(x: 0, y: view.frame.size.height / 2, width: view.frame.size.width, height: 100)
+            view.addSubview(label)
+        }
         
         // Do any additional setup after loading the view.
         // test
@@ -98,9 +110,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func getAllItems()
     {
+        let fetchRequest: NSFetchRequest<Goals> = Goals.fetchRequest()
+        
+        let deadlineSort = NSSortDescriptor(key: "deadline", ascending: false)
+        let progressSort = NSSortDescriptor(key: "progress", ascending: false)
+        
+        fetchRequest.sortDescriptors = [deadlineSort, progressSort]
         do
         {
-            datas = try context.fetch(Goals.fetchRequest())
+            datas = try context.fetch(fetchRequest)
             
             DispatchQueue.main.async
             {
