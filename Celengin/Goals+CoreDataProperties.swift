@@ -24,7 +24,6 @@ extension Goals {
     @NSManaged public var status: Bool
     @NSManaged public var target: Int64
     @NSManaged public var transaction: NSSet?
-    @NSManaged public var user: User?
 
 }
 
