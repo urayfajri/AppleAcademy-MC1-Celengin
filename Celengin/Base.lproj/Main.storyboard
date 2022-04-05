@@ -15,20 +15,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search goal..." translatesAutoresizingMaskIntoConstraints="NO" id="oPw-se-mep">
+                                <rect key="frame" x="4" y="156" width="406" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWb-xu-03t">
+                                <rect key="frame" x="20" y="104" width="138" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oPw-se-mep" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="18a-Xm-nPk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IWb-xu-03t" secondAttribute="trailing" constant="256" id="BkQ-oB-0zp"/>
+                            <constraint firstItem="oPw-se-mep" firstAttribute="top" secondItem="IWb-xu-03t" secondAttribute="bottom" constant="13" id="XB3-MK-VAo"/>
+                            <constraint firstItem="oPw-se-mep" firstAttribute="top" secondItem="IWb-xu-03t" secondAttribute="bottom" constant="13" id="YCA-Bp-BsZ"/>
+                            <constraint firstItem="IWb-xu-03t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ckI-kN-QHC"/>
+                            <constraint firstItem="IWb-xu-03t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="sNO-ag-GG4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oPw-se-mep" secondAttribute="trailing" constant="4" id="z23-bm-ps5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xja-cv-a33"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242" y="1710"/>
+            <point key="canvasLocation" x="-242.0289855072464" y="1709.5982142857142"/>
         </scene>
         <!--See All Goals-->
         <scene sceneID="lBO-l9-iu9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ml8-bL-ddE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="See All Goals" selectedImage="list.bullet" catalog="system" id="oZA-G2-a0q"/>
+                    <tabBarItem key="tabBarItem" title="See All Goals" image="list.bullet" catalog="system" selectedImage="list.bullet" id="oZA-G2-a0q"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tHB-iD-61p">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -82,7 +103,7 @@
         <scene sceneID="eBZ-ck-9KG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sgs-ae-4UV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Overall Progress" selectedImage="chart.pie.fill" catalog="system" id="pbN-zj-dIS"/>
+                    <tabBarItem key="tabBarItem" title="Overall Progress" image="chart.pie.fill" catalog="system" selectedImage="chart.pie.fill" id="pbN-zj-dIS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bVe-F6-0cD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
