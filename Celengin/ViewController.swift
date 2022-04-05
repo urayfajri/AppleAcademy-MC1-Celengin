@@ -34,9 +34,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             label.frame = CGRect(x: 0, y: view.frame.size.height / 2, width: view.frame.size.width, height: 100)
             view.addSubview(label)
         }
-        
-        // Do any additional setup after loading the view.
-        // test
     }
     
     @objc func tapAdd()
