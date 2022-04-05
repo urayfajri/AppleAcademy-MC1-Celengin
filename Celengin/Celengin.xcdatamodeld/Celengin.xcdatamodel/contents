@@ -34,9 +34,6 @@
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="goal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Goals" inverseName="user" inverseEntity="Goals"/>
-        <fetchedProperty name="daily_breakdown" optional="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="Goals" predicateString="type LIKE [c] &quot;Daily&quot; AND user == $FETCH_SOURCE"/>
-        </fetchedProperty>
         <fetchedProperty name="monthly_breakdown" optional="YES">
             <fetchRequest name="fetchedPropertyFetchRequest" entity="Goals" predicateString="type LIKE [c] &quot;Monthly&quot; AND user == $FETCH_SOURCE"/>
         </fetchedProperty>
@@ -52,6 +49,6 @@
         <element name="Goals" positionX="-63" positionY="-18" width="128" height="164"/>
         <element name="Income" positionX="-36" positionY="9" width="128" height="104"/>
         <element name="Transaction" positionX="-54" positionY="-9" width="128" height="89"/>
-        <element name="User" positionX="0" positionY="45" width="128" height="125"/>
+        <element name="User" positionX="0" positionY="45" width="128" height="110"/>
     </elements>
 </model>
