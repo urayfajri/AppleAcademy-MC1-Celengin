@@ -16,9 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search goal..." translatesAutoresizingMaskIntoConstraints="NO" id="oPw-se-mep">
+                            <searchBar contentMode="redraw" placeholder="Search goals..." translatesAutoresizingMaskIntoConstraints="NO" id="oPw-se-mep">
                                 <rect key="frame" x="4" y="156" width="406" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ktG-ni-jXz"/>
+                                </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWb-xu-03t">
                                 <rect key="frame" x="20" y="104" width="210" height="39"/>
@@ -95,6 +98,7 @@
                     <navigationItem key="navigationItem" id="Xja-cv-a33"/>
                     <connections>
                         <outlet property="goalTable" destination="AQf-Ci-89y" id="xhg-wh-7GX"/>
+                        <outlet property="searchView" destination="oPw-se-mep" id="jzD-XH-f1T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
