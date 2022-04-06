@@ -63,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         let goals = datas[indexPath.row]
-        let pinActionTitle = goals.status ? "Unpin" : "Pin"
+        let pinActionTitle = goals.status ? "Unpi" : "Pin"
         
         let pinAction = UITableViewRowAction(style: .normal, title: pinActionTitle) { _ , indexPath in
             self.datas[indexPath.row].status.toggle()
