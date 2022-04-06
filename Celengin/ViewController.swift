@@ -23,6 +23,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
         dummyData()
         getAllItems()
+        goalTable.rowHeight = UITableView.automaticDimension
+        goalTable.estimatedRowHeight = 600
         
         if(datas.isEmpty)
         {
@@ -44,6 +46,40 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { _ , indexPath in
+            let alertControl = UIAlertController(title: "Delete Item", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+            alertControl.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
+                self.datas.remove(at: indexPath.row)
+                self.goalTable.deleteRows(at: [indexPath], with: .automatic)
+            }))
+            
+            alertControl.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
+                alertControl.dismiss(animated: true, completion: nil)
+            }))
+            
+            self.present(alertControl, animated: true)
+        }
+        
+        let goals = datas[indexPath.row]
+        let pinActionTitle = goals.status ? "Unpin" : "Pin"
+        
+        let pinAction = UITableViewRowAction(style: .normal, title: pinActionTitle) { _ , indexPath in
+            self.datas[indexPath.row].status.toggle()
+            let cell = (self.goalTable.cellForRow(at: indexPath) as? goalCell)!
+            cell.pin.isHidden = self.datas[indexPath.row].status ? false: true
+            self.getAllItems()
+        }
+        
+        pinAction.backgroundColor = .darkGray
+        
+        return [deleteAction, pinAction]
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datas.count
     }
@@ -63,6 +99,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let decimals = Float(Float(data.progress) / Float(data.target))
         
         let percentage = Int(decimals * 100)
+        
+        cell.pin.isHidden = data.status ? false : true
         
         cell.percent.text = "\(percentage)%"
         return cell
@@ -91,7 +129,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         goals3.target = 20000000
         goals3.breakdown = "Monthly"
         goals3.progress = 5000000
-        goals3.status = false
+        goals3.status = true
         goals3.add_notes = "Semangat"
         
         var dateComp = DateComponents()
@@ -112,10 +150,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         let fetchRequest: NSFetchRequest<Goals> = Goals.fetchRequest()
         
+        let pinnedSort = NSSortDescriptor(key: "status", ascending: false)
         let deadlineSort = NSSortDescriptor(key: "deadline", ascending: false)
         let progressSort = NSSortDescriptor(key: "progress", ascending: false)
         
-        fetchRequest.sortDescriptors = [deadlineSort, progressSort]
+        fetchRequest.sortDescriptors = [pinnedSort, deadlineSort, progressSort]
         do
         {
             datas = try context.fetch(fetchRequest)

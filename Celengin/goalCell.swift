@@ -12,6 +12,7 @@ class goalCell: UITableViewCell {
     @IBOutlet weak var goalName: UILabel!
     @IBOutlet weak var deadline: UILabel!
     @IBOutlet weak var percent: UILabel!
+    @IBOutlet weak var pin: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
