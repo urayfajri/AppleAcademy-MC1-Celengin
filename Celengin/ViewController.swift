@@ -8,10 +8,11 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
 
 
     @IBOutlet weak var goalTable: UITableView!
+    @IBOutlet weak var searchView: UISearchBar!
     private var datas = [Goals]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -21,6 +22,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapAdd))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
+    
+      
+        
         dummyData()
         getAllItems()
         goalTable.rowHeight = UITableView.automaticDimension
@@ -167,7 +171,50 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             //error
         }
     }
-
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        searchView.showsCancelButton = true
+        
+        if searchText == ""
+        {
+            getAllItems()
+        }
+        
+        else
+        {
+            datas = []
+            
+            do
+            {
+                let filteredRequest: NSFetchRequest<Goals> = Goals.fetchRequest()
+                let pred = NSPredicate(format: "name CONTAINS '\(searchText)'")
+                
+                filteredRequest.predicate = pred
+                
+                self.datas = try context.fetch(filteredRequest)
+                
+                DispatchQueue.main.async {
+                    self.goalTable.reloadData()
+                }
+            }
+            
+            catch
+            {
+                
+            }
+        }
+        
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchView.text = ""
+        searchView.endEditing(true)
+        getAllItems()
+        searchView.showsCancelButton = false
+    }
+    
 
 }
 
