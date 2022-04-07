@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		14A7328327FF06DA00D27FC4 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 14A7328227FF06DA00D27FC4 /* Charts */; };
+		14A7328527FF14D800D27FC4 /* SaveMoneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A7328427FF14D800D27FC4 /* SaveMoneyController.swift */; };
+		14A7328727FF14EF00D27FC4 /* WithDrawMoneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A7328627FF14EF00D27FC4 /* WithDrawMoneyController.swift */; };
+		14A7328927FF154600D27FC4 /* TransactionRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A7328827FF154600D27FC4 /* TransactionRecordController.swift */; };
 		14B5D73F27FC5D2900542A31 /* goalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D73E27FC5D2900542A31 /* goalCell.swift */; };
 		14B5D74C27FC5EFC00542A31 /* Goals+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D74227FC5EFC00542A31 /* Goals+CoreDataClass.swift */; };
 		14B5D74D27FC5EFC00542A31 /* Goals+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D74327FC5EFC00542A31 /* Goals+CoreDataProperties.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14A7328427FF14D800D27FC4 /* SaveMoneyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMoneyController.swift; sourceTree = "<group>"; };
+		14A7328627FF14EF00D27FC4 /* WithDrawMoneyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawMoneyController.swift; sourceTree = "<group>"; };
+		14A7328827FF154600D27FC4 /* TransactionRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRecordController.swift; sourceTree = "<group>"; };
 		14B5D73E27FC5D2900542A31 /* goalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goalCell.swift; sourceTree = "<group>"; };
 		14B5D74227FC5EFC00542A31 /* Goals+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goals+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14B5D74327FC5EFC00542A31 /* Goals+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goals+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -147,6 +153,9 @@
 				14D2407127F8783D00F53282 /* GraphController.swift */,
 				14B5D73E27FC5D2900542A31 /* goalCell.swift */,
 				200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */,
+				14A7328427FF14D800D27FC4 /* SaveMoneyController.swift */,
+				14A7328627FF14EF00D27FC4 /* WithDrawMoneyController.swift */,
+				14A7328827FF154600D27FC4 /* TransactionRecordController.swift */,
 			);
 			path = Celengin;
 			sourceTree = "<group>";
@@ -311,7 +320,9 @@
 				14B5D75227FC5EFC00542A31 /* Transaction+CoreDataClass.swift in Sources */,
 				14B5D75027FC5EFC00542A31 /* Income+CoreDataClass.swift in Sources */,
 				14DCD31227F32C79001319FF /* AppDelegate.swift in Sources */,
+				14A7328527FF14D800D27FC4 /* SaveMoneyController.swift in Sources */,
 				14B5D74E27FC5EFC00542A31 /* Expense+CoreDataClass.swift in Sources */,
+				14A7328727FF14EF00D27FC4 /* WithDrawMoneyController.swift in Sources */,
 				14DCD31C27F32C79001319FF /* Celengin.xcdatamodeld in Sources */,
 				14D2407227F8783D00F53282 /* GraphController.swift in Sources */,
 				14B5D73F27FC5D2900542A31 /* goalCell.swift in Sources */,
@@ -321,6 +332,7 @@
 				14DCD31427F32C79001319FF /* SceneDelegate.swift in Sources */,
 				14B5D74C27FC5EFC00542A31 /* Goals+CoreDataClass.swift in Sources */,
 				14B5D75127FC5EFC00542A31 /* Income+CoreDataProperties.swift in Sources */,
+				14A7328927FF154600D27FC4 /* TransactionRecordController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
