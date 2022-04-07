@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A7328327FF06DA00D27FC4 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 14A7328227FF06DA00D27FC4 /* Charts */; };
 		14B5D73F27FC5D2900542A31 /* goalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D73E27FC5D2900542A31 /* goalCell.swift */; };
 		14B5D74C27FC5EFC00542A31 /* Goals+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D74227FC5EFC00542A31 /* Goals+CoreDataClass.swift */; };
 		14B5D74D27FC5EFC00542A31 /* Goals+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5D74327FC5EFC00542A31 /* Goals+CoreDataProperties.swift */; };
@@ -82,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A7328327FF06DA00D27FC4 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +184,9 @@
 			dependencies = (
 			);
 			name = Celengin;
+			packageProductDependencies = (
+				14A7328227FF06DA00D27FC4 /* Charts */,
+			);
 			productName = Celengin;
 			productReference = 14DCD30E27F32C79001319FF /* Celengin.app */;
 			productType = "com.apple.product-type.application";
@@ -254,6 +259,9 @@
 				Base,
 			);
 			mainGroup = 14DCD30527F32C79001319FF;
+			packageReferences = (
+				14A7328127FF06DA00D27FC4 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = 14DCD30F27F32C79001319FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -656,6 +664,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		14A7328127FF06DA00D27FC4 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		14A7328227FF06DA00D27FC4 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14A7328127FF06DA00D27FC4 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		14DCD31A27F32C79001319FF /* Celengin.xcdatamodeld */ = {

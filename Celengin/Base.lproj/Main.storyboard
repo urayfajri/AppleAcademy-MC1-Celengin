@@ -331,9 +331,9 @@
                                 <rect key="frame" x="20" y="130" width="374" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Weekly"/>
-                                    <segment title="Monthly"/>
-                                    <segment title="Yearly"/>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                    <segment title="Year"/>
                                 </segments>
                                 <connections>
                                     <action selector="didChangeSegment:" destination="nq8-O0-pNW" eventType="valueChanged" id="Bc9-Cs-Q9M"/>
@@ -345,6 +345,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4uo-dc-h1s"/>
                     <connections>
+                        <outlet property="goalTextField" destination="XcL-dI-Cmf" id="4Ta-Fl-nia"/>
                         <outlet property="showButton" destination="Tbs-1D-Gbv" id="uNd-Ay-9m7"/>
                     </connections>
                 </viewController>
