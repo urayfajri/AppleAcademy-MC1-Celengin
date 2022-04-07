@@ -28,6 +28,7 @@
 		14DCD33627F32C7A001319FF /* CelenginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD33527F32C7A001319FF /* CelenginUITests.swift */; };
 		14DCD33827F32C7A001319FF /* CelenginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */; };
 		200AD3F327FEAAFE0056B420 /* FormAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */; };
+		BEE0191327FDF18000FC6107 /* GoalsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		14DCD33527F32C7A001319FF /* CelenginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelenginUITests.swift; sourceTree = "<group>"; };
 		14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelenginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddViewController.swift; sourceTree = "<group>"; };
+		BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				14DCD31127F32C79001319FF /* AppDelegate.swift */,
 				14DCD31327F32C79001319FF /* SceneDelegate.swift */,
 				14DCD31527F32C79001319FF /* ViewController.swift */,
+				BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */,
 				14DCD31727F32C79001319FF /* Main.storyboard */,
 				14DCD31D27F32C7A001319FF /* Assets.xcassets */,
 				14DCD31F27F32C7A001319FF /* LaunchScreen.storyboard */,
@@ -304,6 +307,7 @@
 				14DCD31C27F32C79001319FF /* Celengin.xcdatamodeld in Sources */,
 				14D2407227F8783D00F53282 /* GraphController.swift in Sources */,
 				14B5D73F27FC5D2900542A31 /* goalCell.swift in Sources */,
+				BEE0191327FDF18000FC6107 /* GoalsDetailController.swift in Sources */,
 				14B5D74D27FC5EFC00542A31 /* Goals+CoreDataProperties.swift in Sources */,
 				14B5D74F27FC5EFC00542A31 /* Expense+CoreDataProperties.swift in Sources */,
 				14DCD31427F32C79001319FF /* SceneDelegate.swift in Sources */,
