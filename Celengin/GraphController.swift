@@ -8,22 +8,32 @@
 import UIKit
 
 class GraphController: UIViewController {
+    
+    @IBOutlet weak var showButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        showButton.backgroundColor = .darkGray
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl)
+    {
+        if sender.selectedSegmentIndex == 0
+        {
+            
+        }
+        
+        else if sender.selectedSegmentIndex == 1
+        {
+            
+        }
+        
+        else
+        {
+            
+        }
     }
-    */
-
+    
 }
