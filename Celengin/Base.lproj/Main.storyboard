@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iEi-c8-ylT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iEi-c8-ylT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -114,7 +114,7 @@
         <!--Goals Detail Controller-->
         <scene sceneID="ILG-la-15C">
             <objects>
-                <viewController id="F4m-Tt-MWZ" customClass="GoalsDetailController" customModule="Celengin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="goal_detail" id="F4m-Tt-MWZ" customClass="GoalsDetailController" customModule="Celengin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JNf-UR-zi0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -243,12 +243,12 @@
                                 <rect key="frame" x="47" y="445" width="38" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1XP-pc-Pux">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1XP-pc-Pux">
                                 <rect key="frame" x="93" y="490" width="213" height="4"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anda telah menabung Rp XXXXXX dari total Rp XXXXXX" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXn-XE-fOb">
-                                <rect key="frame" x="93" y="482" width="268" height="70"/>
+                                <rect key="frame" x="93" y="481" width="268" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
                                 <nil key="textColor"/>
@@ -264,6 +264,7 @@
                         <outlet property="goalsName" destination="Y6Q-WZ-39f" id="iiX-8g-fh3"/>
                         <outlet property="notes" destination="gvA-o4-87g" id="QBt-xb-UcX"/>
                         <outlet property="overallProgress" destination="1XP-pc-Pux" id="TnY-ai-y3w"/>
+                        <outlet property="savingProgress" destination="uXn-XE-fOb" id="Il1-2H-FLb"/>
                         <outlet property="target" destination="Oxj-f4-jqz" id="Ojs-hs-Tl7"/>
                         <outlet property="totalTarget" destination="XFO-9m-Fs4" id="1La-t9-Qhs"/>
                     </connections>

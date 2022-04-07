@@ -40,10 +40,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    @objc func tapAdd()
-    {
-        
-    }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -103,6 +99,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.percent.text = "\(percentage)%"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let currData = datas[indexPath.row]
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "goal_detail") as! GoalsDetailController
+        vc.str_name = currData.name!
+        vc.str_totalTarget = "Rp. \(currData.target)"
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d M, YY"
+        let str_deadline = dateFormatter.string(from: currData.deadline!)
+        vc.str_deadline = "\(str_deadline)"
+        vc.str_notes = currData.add_notes!
+
+        let progress = Float(Float(currData.progress) / Float(currData.target))
+
+        vc.progress = progress
+        vc.str_progress = "Anda telah menabung Rp. \(currData.progress) dari total Rp. \(currData.target)"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func dummyData()
