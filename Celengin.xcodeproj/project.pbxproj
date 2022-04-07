@@ -137,7 +137,7 @@
 				14DCD31327F32C79001319FF /* SceneDelegate.swift */,
 				14DCD31527F32C79001319FF /* ViewController.swift */,
 				BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */,
-				BEE0191427FEE58100FC6107 /* New Group */,
+				14DCD31727F32C79001319FF /* Main.storyboard */,
 				14DCD31D27F32C7A001319FF /* Assets.xcassets */,
 				14DCD31F27F32C7A001319FF /* LaunchScreen.storyboard */,
 				14DCD32227F32C7A001319FF /* Info.plist */,
@@ -164,14 +164,6 @@
 				14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */,
 			);
 			path = CelenginUITests;
-			sourceTree = "<group>";
-		};
-		BEE0191427FEE58100FC6107 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				14DCD31727F32C79001319FF /* Main.storyboard */,
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

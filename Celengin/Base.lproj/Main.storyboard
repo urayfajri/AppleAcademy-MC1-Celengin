@@ -96,7 +96,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xja-cv-a33">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="hrt-wa-mZN"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="hrt-wa-mZN">
+                            <connections>
+                                <segue destination="kBN-HL-Kh5" kind="show" id="NHf-m1-4UN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="goalTable" destination="AQf-Ci-89y" id="xhg-wh-7GX"/>
@@ -266,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cy3-nQ-cEU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668.11594202898561" y="2456.9196428571427"/>
+            <point key="canvasLocation" x="704" y="3218"/>
         </scene>
         <!--My Goals-->
         <scene sceneID="lBO-l9-iu9">
@@ -379,6 +383,22 @@
             </objects>
             <point key="canvasLocation" x="815.94202898550736" y="847.76785714285711"/>
         </scene>
+        <!--Add Goal-->
+        <scene sceneID="vO9-9V-eyE">
+            <objects>
+                <viewController id="kBN-HL-Kh5" customClass="FormAddViewController" customModule="Celengin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Qu-el-rMl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nGR-qk-wYm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Goal" id="mDd-Gh-Edo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2es-Cb-Sba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-242" y="2432"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="XSI-f1-cJs">
             <objects>
@@ -395,7 +415,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1o-YY-Bhc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242.0289855072464" y="2456.9196428571427"/>
+            <point key="canvasLocation" x="-272" y="3218"/>
         </scene>
     </scenes>
     <resources>
