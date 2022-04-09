@@ -17,12 +17,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapAdd))
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
-
+        
         dummyData()
         getAllItems()
         goalTable.rowHeight = UITableView.automaticDimension
@@ -41,16 +42,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let goals = datas[indexPath.row]
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { _ , indexPath in
             let alertControl = UIAlertController(title: "Delete Item", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
             alertControl.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
-                self.datas.remove(at: indexPath.row)
-                self.goalTable.deleteRows(at: [indexPath], with: .automatic)
+                self.deleteItem(item: goals)
             }))
             
             alertControl.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
@@ -60,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.present(alertControl, animated: true)
         }
         
-        let goals = datas[indexPath.row]
+    
         let pinActionTitle = goals.status ? "Unpin" : "Pin"
         
         let pinAction = UITableViewRowAction(style: .normal, title: pinActionTitle) { _ , indexPath in
@@ -83,7 +86,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let data = datas[indexPath.row]
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMM, YY"
+        dateFormatter.dateFormat = "d MMMM, YY"
         
         let cell = (tableView.dequeueReusableCell(withIdentifier: "goal_cell", for: indexPath) as? goalCell)!
         cell.goalName.text = data.name
@@ -109,7 +112,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         vc.str_totalTarget = "Rp. \(currData.target)"
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d M, YY"
+        dateFormatter.dateFormat = "d MMMM, YY"
         let str_deadline = dateFormatter.string(from: currData.deadline!)
         vc.str_deadline = "\(str_deadline)"
         vc.str_notes = currData.add_notes!
@@ -159,6 +162,43 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         goals1.deadline = userCalendar.date(from: dateComp)
         goals2.deadline = userCalendar.date(from: dateComp)
         goals3.deadline = userCalendar.date(from: dateComp)
+        
+        var dateIncome = DateComponents()
+        dateIncome.year = 2022
+        dateIncome.month = 2
+        dateIncome.day = 20
+        dateIncome.timeZone = TimeZone(abbreviation: "GMT")
+        dateIncome.hour = 12
+        dateIncome.minute = 34
+         
+        let income1 = Income(context: context)
+        income1.name = "Nabung Bulan Februari"
+        income1.amount = 2600000
+        income1.source = "Gaji Bulan Feb"
+        income1.add_notes = "Tambah 2 setengah juta"
+        income1.date = userCalendar.date(from: dateIncome)
+        income1.goal = goals2
+        
+        dateIncome.month = 3
+        
+        let income2 = Income(context: context)
+        income2.name = "Nabung Bulan Maret"
+        income2.amount = 2500000
+        income2.source = "Gaji Bulan Maret"
+        income2.add_notes = "Tambah 2 setengah juta"
+        income2.date = userCalendar.date(from: dateIncome)
+        income2.goal = goals2
+        
+        dateIncome.month = 4
+        
+        let income3 = Income(context: context)
+        income3.name = "Nabung Bulan April"
+        income3.amount = 5000000
+        income3.source = "Gaji Bulan April"
+        income3.add_notes = "Tambah 5 juta"
+        income3.date = userCalendar.date(from: dateIncome)
+        income3.goal = goals2
+        
     }
     
     func getAllItems()
@@ -183,6 +223,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         catch
         {
             //error
+        }
+    }
+    
+    func deleteItem(item: Goals)
+    {
+        context.delete(item)
+        
+        do
+        {
+            try context.save()
+            getAllItems()
+        }
+        catch
+        {
+            
         }
     }
     
