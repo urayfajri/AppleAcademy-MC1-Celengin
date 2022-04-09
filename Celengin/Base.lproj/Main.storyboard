@@ -448,13 +448,13 @@
                                 <rect key="frame" x="20" y="88" width="350" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Dto-QQ-csc">
-                                        <rect key="frame" x="0.0" y="20" width="350" height="831"/>
+                                        <rect key="frame" x="0.0" y="20" width="350" height="712.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rMb-Ew-tiC">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="750"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="631.33333333333337"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bUG-5r-MeH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="80.333333333333329"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2W-pE-y1j">
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
@@ -471,18 +471,15 @@
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="validate Goal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgV-mc-hKd">
-                                                                <rect key="frame" x="0.0" y="67" width="350" height="13"/>
+                                                                <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="gjW-1t-nVd"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FqY-W5-ZE6">
-                                                        <rect key="frame" x="0.0" y="100" width="350" height="80"/>
+                                                        <rect key="frame" x="0.0" y="100.33333333333334" width="350" height="80.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VU4-tB-AKc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
@@ -499,18 +496,15 @@
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="validate Goal Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5M0-8j-NaR">
-                                                                <rect key="frame" x="0.0" y="67" width="350" height="13"/>
+                                                                <rect key="frame" x="0.0" y="66.999999999999972" width="350" height="13.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="SZy-aU-utG"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uyP-iC-Kv3">
-                                                        <rect key="frame" x="0.0" y="200" width="350" height="80"/>
+                                                        <rect key="frame" x="0.0" y="200.66666666666669" width="350" height="80.333333333333314"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqd-cQ-QW9">
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
@@ -527,18 +521,15 @@
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="validate Goal Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KX-3q-7qb">
-                                                                <rect key="frame" x="0.0" y="67" width="350" height="13"/>
+                                                                <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="fbO-Z1-kIE"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-eW-zXN">
-                                                        <rect key="frame" x="0.0" y="300" width="350" height="200"/>
+                                                        <rect key="frame" x="0.0" y="301" width="350" height="80.333333333333314"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Breakdown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPw-5k-JRf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
@@ -548,23 +539,22 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8bZ-kM-qUK">
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="34" id="Xle-Vl-0tR"/>
-                                                                </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="goalBreakdownChanged:" destination="kBN-HL-Kh5" eventType="editingChanged" id="aDd-1f-tSl"/>
+                                                                </connections>
                                                             </textField>
-                                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0L-GT-hH4">
-                                                                <rect key="frame" x="0.0" y="67" width="350" height="133"/>
-                                                            </pickerView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate Goal Breakdwon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0T-Ig-I0M">
+                                                                <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="200" id="cjo-8p-rLH"/>
-                                                            <constraint firstItem="8bZ-kM-qUK" firstAttribute="top" secondItem="1b8-eW-zXN" secondAttribute="top" constant="28" id="qjT-p3-rxc"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c0d-os-toR">
-                                                        <rect key="frame" x="0.0" y="520" width="350" height="230"/>
+                                                        <rect key="frame" x="0.0" y="401.33333333333326" width="350" height="230"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5d-CB-6vp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
@@ -573,7 +563,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lGy-fb-PHJ">
-                                                                <rect key="frame" x="0.0" y="28" width="350" height="202"/>
+                                                                <rect key="frame" x="0.0" y="28.000000000000057" width="350" height="202"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -587,7 +577,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzB-ip-UaP">
-                                                <rect key="frame" x="0.0" y="800" width="350" height="31"/>
+                                                <rect key="frame" x="0.0" y="681.33333333333337" width="350" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Submit Goal"/>
                                                 <connections>
@@ -620,11 +610,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Goal" id="mDd-Gh-Edo"/>
                     <connections>
+                        <outlet property="goalBreakdownTextField" destination="8bZ-kM-qUK" id="ZSl-iE-F24"/>
                         <outlet property="goalDeadlineTextField" destination="lGl-Es-ZYa" id="Qc1-No-B34"/>
                         <outlet property="goalNameTextField" destination="goE-cA-YM3" id="XI7-xc-VMB"/>
                         <outlet property="goalNotesTextView" destination="lGy-fb-PHJ" id="rcN-op-xl4"/>
                         <outlet property="goalTargetTextField" destination="UPF-L9-tvS" id="JqO-sQ-hf1"/>
                         <outlet property="submitGoalButton" destination="UzB-ip-UaP" id="ieZ-1F-FZz"/>
+                        <outlet property="validateGoalBreakdown" destination="s0T-Ig-I0M" id="Oki-L5-fuQ"/>
                         <outlet property="validateGoalDeadline" destination="6KX-3q-7qb" id="udH-Sf-OU4"/>
                         <outlet property="validateGoalName" destination="pgV-mc-hKd" id="AZu-rG-04A"/>
                         <outlet property="validateGoalTarget" destination="5M0-8j-NaR" id="4Pi-3g-xKq"/>

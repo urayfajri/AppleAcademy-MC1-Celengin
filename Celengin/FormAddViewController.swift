@@ -7,29 +7,32 @@
 
 import UIKit
 
-class FormAddViewController: UIViewController {
+class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var goalNameTextField: UITextField!
     @IBOutlet weak var goalTargetTextField: UITextField!
     @IBOutlet weak var goalDeadlineTextField: UITextField!
+    @IBOutlet weak var goalBreakdownTextField: UITextField!
     @IBOutlet weak var goalNotesTextView: UITextView!
-    
     
     @IBOutlet weak var validateGoalName: UILabel!
     @IBOutlet weak var validateGoalTarget: UILabel!
     @IBOutlet weak var validateGoalDeadline: UILabel!
+    @IBOutlet weak var validateGoalBreakdown: UILabel!
     
     @IBOutlet weak var submitGoalButton: UIButton!
     
     var datePicker: UIDatePicker!
+    var pickerView = UIPickerView()
+    
+    let breakdownList = ["Weekly", "Monthly", "Yearly"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setUpElements()
-        setUpDatePicker()
         resetForm()
+        setUpElements()
     }
     
     func setUpElements() {
@@ -38,6 +41,9 @@ class FormAddViewController: UIViewController {
         Utilities.styleTextField(goalTargetTextField)
         Utilities.styleTextView(goalNotesTextView)
         Utilities.styleFilledButton(submitGoalButton)
+        
+        setUpDatePicker()
+        setBreakdown()
     }
     
     func resetForm() {
@@ -46,6 +52,7 @@ class FormAddViewController: UIViewController {
         validateGoalName.isHidden = false
         validateGoalTarget.isHidden = false
         validateGoalDeadline.isHidden = false
+        validateGoalBreakdown.isHidden = true
         
         // message validation
         validateGoalName.text = "Goal Name is Required"
@@ -56,6 +63,7 @@ class FormAddViewController: UIViewController {
         goalNameTextField.text = ""
         goalTargetTextField.text = ""
         goalDeadlineTextField.text = ""
+        goalBreakdownTextField.text = "Monthly"
         goalNotesTextView.text = ""
         
     }
@@ -80,6 +88,45 @@ class FormAddViewController: UIViewController {
         toolBar.setItems([spaceButton, doneButton], animated: true)
 
         self.goalDeadlineTextField.inputAccessoryView = toolBar
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return breakdownList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return breakdownList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        goalBreakdownTextField.text = breakdownList[row]
+        
+        if let goalBreakdown = goalBreakdownTextField.text
+        {
+            if let errorMessage = invalidGoalBreakdown(goalBreakdown)
+            {
+                validateGoalBreakdown.text = errorMessage
+                validateGoalBreakdown.isHidden = false
+            } else
+            {
+                validateGoalBreakdown.isHidden = true
+            }
+        }
+        checkValidForm()
+    }
+    
+    func setBreakdown() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        goalBreakdownTextField.inputView = pickerView
+        
+        // Default value
+        goalBreakdownTextField.text = breakdownList[1]
     }
 
     @objc func dateChanged(){
@@ -151,6 +198,21 @@ class FormAddViewController: UIViewController {
         checkValidForm()
     }
     
+    @IBAction func goalBreakdownChanged(_ sender: Any) {
+        if let goalBreakdown = goalBreakdownTextField.text
+        {
+            if let errorMessage = invalidGoalBreakdown(goalBreakdown)
+            {
+                validateGoalBreakdown.text = errorMessage
+                validateGoalBreakdown.isHidden = false
+            } else
+            {
+                validateGoalBreakdown.isHidden = true
+            }
+        }
+        checkValidForm()
+    }
+    
     @IBAction func submitGoalTapped(_ sender: Any) {
         if goalNotesTextView.text.isEmpty
         {
@@ -193,8 +255,22 @@ class FormAddViewController: UIViewController {
         return nil
     }
     
+    func invalidGoalBreakdown(_ value: String) -> String? {
+        
+        if value.isEmpty
+        {
+            return "Goal Breakdown is Required"
+        }
+            
+        if !(value == "Weekly" || value == "Monthly" || value == "Yearly")
+        {
+            return "Goal Breakdown is not available"
+        }
+        return nil
+    }
+    
     func checkValidForm() {
-        if(validateGoalName.isHidden && validateGoalTarget.isHidden && validateGoalDeadline.isHidden)
+        if(validateGoalName.isHidden && validateGoalTarget.isHidden && validateGoalDeadline.isHidden && validateGoalBreakdown.isHidden)
         {
             submitGoalButton.isEnabled = true
         }

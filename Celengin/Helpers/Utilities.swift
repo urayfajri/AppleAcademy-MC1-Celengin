@@ -16,7 +16,7 @@ class Utilities {
         // Create the bottom line
         let bottomLine = CALayer()
         
-        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height + 2, width: textfield.frame.width, height: 2)
+        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 12, width: textfield.frame.width, height: 1)
         
         bottomLine.backgroundColor = UIColor.systemGray5.cgColor
         
@@ -30,31 +30,21 @@ class Utilities {
     
     static func styleTextView(_ textview:UITextView) {
         
-        
         // Add border on text field
         textview.layer.cornerRadius = 5
         textview.layer.borderWidth = 1
         textview.layer.borderColor = UIColor.systemGray6.cgColor
-        
 
     }
     
     
     
     static func styleFilledButton(_ button:UIButton) {
-        
+
         // Filled rounded corner style
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.blue
     }
     
-    static func styleHollowButton(_ button:UIButton) {
-        
-        // Hollow rounded corner style
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.cornerRadius = 25.0
-        button.tintColor = UIColor.black
-    }
     
 }
