@@ -12,23 +12,24 @@ class FormAddViewController: UIViewController {
 
     @IBOutlet weak var goalNameTextField: UITextField!
     @IBOutlet weak var goalTargetTextField: UITextField!
+    @IBOutlet weak var goalDeadlineTextField: UITextField!
+    @IBOutlet weak var goalNotesTextView: UITextView!
     
     @IBOutlet weak var validateGoalNameTextField: UILabel!
     @IBOutlet weak var validateGoalTargetTextField: UILabel!
-    @IBOutlet weak var goalDeadlineTextField: UITextField!
+    @IBOutlet weak var validateGoalDeadlineTextField: UILabel!
     
-    @IBOutlet weak var goalNotesTextView: UITextView!
     
     @IBOutlet weak var submitGoalButton: UIButton!
     
-    let datePicker = UIDatePicker()
+    var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setUpElements()
-        createDatePicker()
+        setUpDatePicker()
         resetForm()
     }
     
@@ -45,33 +46,65 @@ class FormAddViewController: UIViewController {
         
         validateGoalNameTextField.isHidden = false
         validateGoalTargetTextField.isHidden = false
-        
+        validateGoalDeadlineTextField.isHidden = false
         
         // message validation
         validateGoalNameTextField.text = "Goal Name is Required"
         validateGoalTargetTextField.text = "Goal Target is Required"
+        validateGoalDeadlineTextField.text = "Goal Deadline is Required"
         
         // empty text field
         goalNameTextField.text = ""
         goalTargetTextField.text = ""
+        goalDeadlineTextField.text = ""
         goalNotesTextView.text = ""
         
     }
     
-    func createDatePicker() {
-        //toolbar
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
+    func setUpDatePicker() {
+
+        datePicker = UIDatePicker.init(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200))
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(self.dateChanged), for: .allEvents)
+
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
+
+        self.goalDeadlineTextField.inputView = datePicker
+        let toolBar: UIToolbar = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
         
-        //bar button
-        let dateBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
-        toolbar.setItems([dateBtn], animated: true)
+        let spaceButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action:nil)
+
+        let doneButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.tapOnDoneBut))
+
+        toolBar.setItems([spaceButton, doneButton], animated: true)
+
+        self.goalDeadlineTextField.inputAccessoryView = toolBar
+    }
+
+    @objc func dateChanged(){
+        let dateFormat = DateFormatter()
         
-        //assign toolbar
-        goalDeadlineTextField.inputAccessoryView = toolbar
+        dateFormat.dateStyle = .medium
+        self.goalDeadlineTextField.text = dateFormat.string(from: datePicker.date)
         
-        //assign date picker to the text field
-        goalDeadlineTextField.inputView = datePicker
+        if let goalDeadline = self.goalDeadlineTextField.text
+        {
+            if let errorMessage = invalidGoalDeadline(goalDeadline)
+            {
+                validateGoalDeadlineTextField.text = errorMessage
+                validateGoalDeadlineTextField.isHidden = false
+            } else
+            {
+                validateGoalDeadlineTextField.isHidden = true
+            }
+        }
+        checkValidForm()
+    }
+
+    @objc func tapOnDoneBut() {
+        goalDeadlineTextField.resignFirstResponder()
     }
     
     @IBAction func goalNameChanged(_ sender: Any) {
@@ -106,6 +139,23 @@ class FormAddViewController: UIViewController {
         checkValidForm()
     }
     
+
+    @IBAction func goalDeadlineChanged(_ sender: Any) {
+        
+        if let goalDeadline = goalDeadlineTextField.text
+        {
+            if let errorMessage = invalidGoalDeadline(goalDeadline)
+            {
+                validateGoalDeadlineTextField.text = errorMessage
+                validateGoalDeadlineTextField.isHidden = false
+            } else
+            {
+                validateGoalDeadlineTextField.isHidden = true
+            }
+        }
+        checkValidForm()
+    }
+    
     @IBAction func submitGoalTapped(_ sender: Any) {
         if goalNotesTextView.text.isEmpty
         {
@@ -113,6 +163,15 @@ class FormAddViewController: UIViewController {
         }
         
         resetForm()
+    }
+    
+    func invalidGoalName(_ value: String) -> String? {
+        
+        if value.isEmpty
+        {
+            return "Goal Name is Required"
+        }
+        return nil
     }
     
     func invalidGoalTarget(_ value: String) -> String? {
@@ -129,17 +188,17 @@ class FormAddViewController: UIViewController {
         return nil
     }
     
-    func invalidGoalName(_ value: String) -> String? {
+    func invalidGoalDeadline(_ value: String) -> String? {
         
         if value.isEmpty
         {
-            return "Goal Name is Required"
+            return "Goal Deadline is Required"
         }
         return nil
     }
     
     func checkValidForm() {
-        if(validateGoalNameTextField.isHidden && validateGoalTargetTextField.isHidden)
+        if(validateGoalNameTextField.isHidden && validateGoalTargetTextField.isHidden && validateGoalDeadlineTextField.isHidden)
         {
             submitGoalButton.isEnabled = true
         }
