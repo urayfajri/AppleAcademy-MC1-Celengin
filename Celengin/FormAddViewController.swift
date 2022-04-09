@@ -15,11 +15,13 @@ class FormAddViewController: UIViewController {
     
     @IBOutlet weak var validateGoalNameTextField: UILabel!
     @IBOutlet weak var validateGoalTargetTextField: UILabel!
+    @IBOutlet weak var goalDeadlineTextField: UITextField!
     
     @IBOutlet weak var goalNotesTextView: UITextView!
     
     @IBOutlet weak var submitGoalButton: UIButton!
     
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +53,24 @@ class FormAddViewController: UIViewController {
         // empty text field
         goalNameTextField.text = ""
         goalTargetTextField.text = ""
+        goalNotesTextView.text = ""
         
+    }
+    
+    func createDatePicker() {
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        //bar button
+        let dateBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+        toolbar.setItems([dateBtn], animated: true)
+        
+        //assign toolbar
+        goalDeadlineTextField.inputAccessoryView = toolbar
+        
+        //assign date picker to the text field
+        goalDeadlineTextField.inputView = datePicker
     }
     
     @IBAction func goalNameChanged(_ sender: Any) {
@@ -87,6 +106,11 @@ class FormAddViewController: UIViewController {
     }
     
     @IBAction func submitGoalTapped(_ sender: Any) {
+        if goalNotesTextView.text.isEmpty
+        {
+            goalNotesTextView.text = ""
+        }
+        
         resetForm()
     }
     

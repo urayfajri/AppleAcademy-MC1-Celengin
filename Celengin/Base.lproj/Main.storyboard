@@ -574,6 +574,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Goal" id="mDd-Gh-Edo"/>
                     <connections>
+                        <outlet property="goalDeadlineTextField" destination="hlM-Pu-vVu" id="ygf-Uo-eXm"/>
                         <outlet property="goalNameTextField" destination="rbb-53-zoW" id="qPU-mE-8sU"/>
                         <outlet property="goalNotesTextView" destination="gjn-2a-zbr" id="rmn-Wt-L6F"/>
                         <outlet property="goalTargetTextField" destination="5kH-S0-gSp" id="LcE-I7-9vd"/>
