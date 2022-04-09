@@ -16,6 +16,8 @@ class FormAddViewController: UIViewController {
     @IBOutlet weak var validateGoalNameTextField: UILabel!
     @IBOutlet weak var validateGoalTargetTextField: UILabel!
     
+    @IBOutlet weak var goalNotesTextView: UITextView!
+    
     @IBOutlet weak var submitGoalButton: UIButton!
     
     
@@ -31,6 +33,8 @@ class FormAddViewController: UIViewController {
         
         Utilities.styleTextField(goalNameTextField)
         Utilities.styleTextField(goalTargetTextField)
+        Utilities.styleTextView(goalNotesTextView)
+        Utilities.styleFilledButton(submitGoalButton)
     }
     
     func resetForm() {
