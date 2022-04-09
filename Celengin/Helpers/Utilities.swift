@@ -16,7 +16,7 @@ class Utilities {
         // Create the bottom line
         let bottomLine = CALayer()
         
-        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 10, width: textfield.frame.width, height: 2)
+        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height + 2, width: textfield.frame.width, height: 2)
         
         bottomLine.backgroundColor = UIColor.systemGray5.cgColor
         

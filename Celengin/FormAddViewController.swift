@@ -9,16 +9,15 @@ import UIKit
 
 class FormAddViewController: UIViewController {
     
-
     @IBOutlet weak var goalNameTextField: UITextField!
     @IBOutlet weak var goalTargetTextField: UITextField!
     @IBOutlet weak var goalDeadlineTextField: UITextField!
     @IBOutlet weak var goalNotesTextView: UITextView!
     
-    @IBOutlet weak var validateGoalNameTextField: UILabel!
-    @IBOutlet weak var validateGoalTargetTextField: UILabel!
-    @IBOutlet weak var validateGoalDeadlineTextField: UILabel!
     
+    @IBOutlet weak var validateGoalName: UILabel!
+    @IBOutlet weak var validateGoalTarget: UILabel!
+    @IBOutlet weak var validateGoalDeadline: UILabel!
     
     @IBOutlet weak var submitGoalButton: UIButton!
     
@@ -44,14 +43,14 @@ class FormAddViewController: UIViewController {
     func resetForm() {
         submitGoalButton.isEnabled = false
         
-        validateGoalNameTextField.isHidden = false
-        validateGoalTargetTextField.isHidden = false
-        validateGoalDeadlineTextField.isHidden = false
+        validateGoalName.isHidden = false
+        validateGoalTarget.isHidden = false
+        validateGoalDeadline.isHidden = false
         
         // message validation
-        validateGoalNameTextField.text = "Goal Name is Required"
-        validateGoalTargetTextField.text = "Goal Target is Required"
-        validateGoalDeadlineTextField.text = "Goal Deadline is Required"
+        validateGoalName.text = "Goal Name is Required"
+        validateGoalTarget.text = "Goal Target is Required"
+        validateGoalDeadline.text = "Goal Deadline is Required"
         
         // empty text field
         goalNameTextField.text = ""
@@ -93,11 +92,11 @@ class FormAddViewController: UIViewController {
         {
             if let errorMessage = invalidGoalDeadline(goalDeadline)
             {
-                validateGoalDeadlineTextField.text = errorMessage
-                validateGoalDeadlineTextField.isHidden = false
+                validateGoalDeadline.text = errorMessage
+                validateGoalDeadline.isHidden = false
             } else
             {
-                validateGoalDeadlineTextField.isHidden = true
+                validateGoalDeadline.isHidden = true
             }
         }
         checkValidForm()
@@ -108,49 +107,45 @@ class FormAddViewController: UIViewController {
     }
     
     @IBAction func goalNameChanged(_ sender: Any) {
-        
         if let goalName = goalNameTextField.text
         {
             if let errorMessage = invalidGoalName(goalName)
             {
-                validateGoalNameTextField.text = errorMessage
-                validateGoalNameTextField.isHidden = false
+                validateGoalName.text = errorMessage
+                validateGoalName.isHidden = false
             } else
             {
-                validateGoalNameTextField.isHidden = true
+                validateGoalName.isHidden = true
             }
         }
         checkValidForm()
     }
     
     @IBAction func goalTargetChanged(_ sender: Any) {
-        
         if let goalTarget = goalTargetTextField.text
         {
             if let errorMessage = invalidGoalTarget(goalTarget)
             {
-                validateGoalTargetTextField.text = errorMessage
-                validateGoalTargetTextField.isHidden = false
+                validateGoalTarget.text = errorMessage
+                validateGoalTarget.isHidden = false
             } else
             {
-                validateGoalTargetTextField.isHidden = true
+                validateGoalTarget.isHidden = true
             }
         }
         checkValidForm()
     }
     
-
     @IBAction func goalDeadlineChanged(_ sender: Any) {
-        
         if let goalDeadline = goalDeadlineTextField.text
         {
             if let errorMessage = invalidGoalDeadline(goalDeadline)
             {
-                validateGoalDeadlineTextField.text = errorMessage
-                validateGoalDeadlineTextField.isHidden = false
+                validateGoalDeadline.text = errorMessage
+                validateGoalDeadline.isHidden = false
             } else
             {
-                validateGoalDeadlineTextField.isHidden = true
+                validateGoalDeadline.isHidden = true
             }
         }
         checkValidForm()
@@ -161,9 +156,10 @@ class FormAddViewController: UIViewController {
         {
             goalNotesTextView.text = ""
         }
-        
+
         resetForm()
     }
+    
     
     func invalidGoalName(_ value: String) -> String? {
         
@@ -198,7 +194,7 @@ class FormAddViewController: UIViewController {
     }
     
     func checkValidForm() {
-        if(validateGoalNameTextField.isHidden && validateGoalTargetTextField.isHidden && validateGoalDeadlineTextField.isHidden)
+        if(validateGoalName.isHidden && validateGoalTarget.isHidden && validateGoalDeadline.isHidden)
         {
             submitGoalButton.isEnabled = true
         }
