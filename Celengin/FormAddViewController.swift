@@ -23,7 +23,14 @@ class FormAddViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setUpElements()
         resetForm()
+    }
+    
+    func setUpElements() {
+        
+        Utilities.styleTextField(goalNameTextField)
+        Utilities.styleTextField(goalTargetTextField)
     }
     
     func resetForm() {

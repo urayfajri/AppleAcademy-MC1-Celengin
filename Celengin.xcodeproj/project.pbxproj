@@ -32,6 +32,7 @@
 		14DCD33627F32C7A001319FF /* CelenginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD33527F32C7A001319FF /* CelenginUITests.swift */; };
 		14DCD33827F32C7A001319FF /* CelenginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */; };
 		200AD3F327FEAAFE0056B420 /* FormAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */; };
+		2023AB3A2801389000B9550B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023AB392801389000B9550B /* Utilities.swift */; };
 		BEE0191327FDF18000FC6107 /* GoalsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		14DCD33527F32C7A001319FF /* CelenginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelenginUITests.swift; sourceTree = "<group>"; };
 		14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelenginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddViewController.swift; sourceTree = "<group>"; };
+		2023AB392801389000B9550B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 		14DCD31027F32C79001319FF /* Celengin */ = {
 			isa = PBXGroup;
 			children = (
+				2023AB382801382200B9550B /* Helpers */,
 				14B5D74227FC5EFC00542A31 /* Goals+CoreDataClass.swift */,
 				14B5D74327FC5EFC00542A31 /* Goals+CoreDataProperties.swift */,
 				14B5D74427FC5EFC00542A31 /* Expense+CoreDataClass.swift */,
@@ -175,6 +178,14 @@
 				14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */,
 			);
 			path = CelenginUITests;
+			sourceTree = "<group>";
+		};
+		2023AB382801382200B9550B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2023AB392801389000B9550B /* Utilities.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +343,7 @@
 				14DCD31427F32C79001319FF /* SceneDelegate.swift in Sources */,
 				14B5D74C27FC5EFC00542A31 /* Goals+CoreDataClass.swift in Sources */,
 				14B5D75127FC5EFC00542A31 /* Income+CoreDataProperties.swift in Sources */,
+				2023AB3A2801389000B9550B /* Utilities.swift in Sources */,
 				14A7328927FF154600D27FC4 /* TransactionRecordController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
