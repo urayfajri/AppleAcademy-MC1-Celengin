@@ -177,6 +177,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="buttonAddExpense:" destination="F4m-Tt-MWZ" eventType="touchUpInside" id="cfm-G0-bU3"/>
+                                    <segue destination="dMo-G3-K1F" kind="show" id="4hu-Qp-Fl8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Target" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxj-f4-jqz">
@@ -625,6 +626,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gv5-ZR-9f5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1533.8461538461538" y="2431.990521327014"/>
+        </scene>
+        <!--Add Expense-->
+        <scene sceneID="FDO-sO-hkn">
+            <objects>
+                <viewController id="dMo-G3-K1F" customClass="FormAddExpenseViewController" customModule="Celengin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dWj-65-Gdw">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l22-2D-WXW">
+                                <rect key="frame" x="0.0" y="88" width="390" height="700"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="2EI-tv-k9p"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="0Fa-dN-PnU"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ISe-7h-8g1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Expense" id="5bs-BK-PG4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tMO-UM-AjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2556.9230769230767" y="2431.990521327014"/>
         </scene>
         <!--Add Goal-->
         <scene sceneID="vO9-9V-eyE">

@@ -34,6 +34,7 @@
 		200AD3F327FEAAFE0056B420 /* FormAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */; };
 		201E77D92802E3830029CCC2 /* FormAddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */; };
 		2023AB3A2801389000B9550B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023AB392801389000B9550B /* Utilities.swift */; };
+		202BCD46280383B6005140AC /* FormAddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202BCD45280383B6005140AC /* FormAddExpenseViewController.swift */; };
 		BEE0191327FDF18000FC6107 /* GoalsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddViewController.swift; sourceTree = "<group>"; };
 		201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddIncomeViewController.swift; sourceTree = "<group>"; };
 		2023AB392801389000B9550B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		202BCD45280383B6005140AC /* FormAddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddExpenseViewController.swift; sourceTree = "<group>"; };
 		BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 				14A7328627FF14EF00D27FC4 /* WithDrawMoneyController.swift */,
 				14A7328827FF154600D27FC4 /* TransactionRecordController.swift */,
 				201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */,
+				202BCD45280383B6005140AC /* FormAddExpenseViewController.swift */,
 			);
 			path = Celengin;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				14B5D75027FC5EFC00542A31 /* Income+CoreDataClass.swift in Sources */,
 				14DCD31227F32C79001319FF /* AppDelegate.swift in Sources */,
 				14A7328527FF14D800D27FC4 /* SaveMoneyController.swift in Sources */,
+				202BCD46280383B6005140AC /* FormAddExpenseViewController.swift in Sources */,
 				14B5D74E27FC5EFC00542A31 /* Expense+CoreDataClass.swift in Sources */,
 				14A7328727FF14EF00D27FC4 /* WithDrawMoneyController.swift in Sources */,
 				14DCD31C27F32C79001319FF /* Celengin.xcdatamodeld in Sources */,
