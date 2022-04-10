@@ -492,6 +492,9 @@
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="transactionAmountChanged:" destination="4MQ-BA-xBD" eventType="editingChanged" id="8pk-XU-aiW"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate amount of money" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBq-6O-FIe">
                                                                 <rect key="frame" x="0.0" y="66.999999999999972" width="350" height="13.333333333333329"/>
@@ -514,6 +517,9 @@
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="transactionDateChanged:" destination="4MQ-BA-xBD" eventType="editingChanged" id="w3A-XA-Tza"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-rf-y3u">
                                                                 <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
@@ -536,6 +542,9 @@
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="transactionSourceChanged:" destination="4MQ-BA-xBD" eventType="editingChanged" id="FJm-n9-qXc"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifb-87-dJZ">
                                                                 <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
@@ -602,8 +611,15 @@
                     <navigationItem key="navigationItem" title="Add Income" id="MgT-jv-EX6"/>
                     <connections>
                         <outlet property="saveIncomeButton" destination="YLf-Gc-8Bd" id="HRH-Ib-4UD"/>
+                        <outlet property="transactionAmountTextField" destination="A85-TI-xaf" id="ZXS-R2-Hqs"/>
+                        <outlet property="transactionDateTextField" destination="ae9-e2-iIJ" id="hpx-IE-Rkx"/>
                         <outlet property="transactionNameTextField" destination="Le9-nD-j16" id="Q4O-Zi-51b"/>
+                        <outlet property="transactionNotesTextView" destination="DbK-GM-cjj" id="vw8-mA-Vnj"/>
+                        <outlet property="transactionSourceTextField" destination="jjA-hq-K15" id="mk0-xQ-cQg"/>
+                        <outlet property="validateTransactionAmount" destination="ZBq-6O-FIe" id="4RG-mh-Db8"/>
+                        <outlet property="validateTransactionDate" destination="bd3-rf-y3u" id="NTw-Je-T9I"/>
                         <outlet property="validateTransactionName" destination="gHm-l3-ap7" id="bYS-9Q-5gd"/>
+                        <outlet property="validateTransactionSource" destination="ifb-87-dJZ" id="Unp-K7-Dk4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gv5-ZR-9f5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
