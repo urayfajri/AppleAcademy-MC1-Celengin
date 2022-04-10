@@ -32,6 +32,7 @@
 		14DCD33627F32C7A001319FF /* CelenginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD33527F32C7A001319FF /* CelenginUITests.swift */; };
 		14DCD33827F32C7A001319FF /* CelenginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */; };
 		200AD3F327FEAAFE0056B420 /* FormAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */; };
+		201E77D92802E3830029CCC2 /* FormAddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */; };
 		2023AB3A2801389000B9550B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023AB392801389000B9550B /* Utilities.swift */; };
 		BEE0191327FDF18000FC6107 /* GoalsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		14DCD33527F32C7A001319FF /* CelenginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelenginUITests.swift; sourceTree = "<group>"; };
 		14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelenginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddViewController.swift; sourceTree = "<group>"; };
+		201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddIncomeViewController.swift; sourceTree = "<group>"; };
 		2023AB392801389000B9550B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 				14A7328427FF14D800D27FC4 /* SaveMoneyController.swift */,
 				14A7328627FF14EF00D27FC4 /* WithDrawMoneyController.swift */,
 				14A7328827FF154600D27FC4 /* TransactionRecordController.swift */,
+				201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */,
 			);
 			path = Celengin;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				14B5D75127FC5EFC00542A31 /* Income+CoreDataProperties.swift in Sources */,
 				2023AB3A2801389000B9550B /* Utilities.swift in Sources */,
 				14A7328927FF154600D27FC4 /* TransactionRecordController.swift in Sources */,
+				201E77D92802E3830029CCC2 /* FormAddIncomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -142,6 +142,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="buttonAddIncome:" destination="F4m-Tt-MWZ" eventType="touchUpInside" id="0Jq-Wm-n58"/>
+                                    <segue destination="4MQ-BA-xBD" kind="show" id="CfP-6A-0pX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57X-mo-bOx">
@@ -435,6 +436,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hI2-DB-Ax0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="815.94202898550736" y="847.76785714285711"/>
+        </scene>
+        <!--Add Income-->
+        <scene sceneID="oUq-de-3Fe">
+            <objects>
+                <viewController id="4MQ-BA-xBD" customClass="FormAddIncomeViewController" customModule="Celengin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pYr-RY-iO9">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5A-Th-PtM">
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="NZp-bf-kZ7"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="2Kn-nG-Gcz"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xb7-L7-Qrb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Income" id="MgT-jv-EX6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gv5-ZR-9f5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533.8461538461538" y="2431.990521327014"/>
         </scene>
         <!--Add Goal-->
         <scene sceneID="vO9-9V-eyE">
