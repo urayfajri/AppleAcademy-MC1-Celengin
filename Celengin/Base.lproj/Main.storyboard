@@ -536,6 +536,30 @@
             </objects>
             <point key="canvasLocation" x="1534.7826086956522" y="3217.6339285714284"/>
         </scene>
+        <!--Form Edit Transaction View Controller-->
+        <scene sceneID="2Ta-P8-KO0">
+            <objects>
+                <viewController storyboardIdentifier="formEditTransaction" id="NSW-Ai-QN9" customClass="FormEditTransactionViewController" customModule="Celengin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="90d-yv-fRV">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ini form edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqU-Oj-ktK">
+                                <rect key="frame" x="150" y="167" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4wp-E3-3qn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1En-po-Wi4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2557" y="3218"/>
+        </scene>
         <!--My Goals-->
         <scene sceneID="lBO-l9-iu9">
             <objects>

@@ -164,6 +164,8 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: {_ in
                 
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "formEditTransaction") as! FormEditTransactionViewController
+                      self.navigationController?.pushViewController(vc, animated: true)
             }))
             
             sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {[weak self]_ in
@@ -180,7 +182,8 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             let sheet = UIAlertController(title: "Edit", message: nil, preferredStyle: .actionSheet)
             sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: {_ in
-                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "formEditTransaction") as! FormEditTransactionViewController
+                      self.navigationController?.pushViewController(vc, animated: true)
             }))
             
             sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {[weak self]_ in

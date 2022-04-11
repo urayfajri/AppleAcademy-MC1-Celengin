@@ -32,6 +32,7 @@
 		201E77D92802E3830029CCC2 /* FormAddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */; };
 		2023AB3A2801389000B9550B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023AB392801389000B9550B /* Utilities.swift */; };
 		202BCD46280383B6005140AC /* FormAddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202BCD45280383B6005140AC /* FormAddExpenseViewController.swift */; };
+		202BCD4828045C48005140AC /* FormEditTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202BCD4728045C48005140AC /* FormEditTransactionViewController.swift */; };
 		BE6B089128043D860036AFD7 /* EditGoalsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B089028043D860036AFD7 /* EditGoalsController.swift */; };
 		BEE0191327FDF18000FC6107 /* GoalsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddIncomeViewController.swift; sourceTree = "<group>"; };
 		2023AB392801389000B9550B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		202BCD45280383B6005140AC /* FormAddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddExpenseViewController.swift; sourceTree = "<group>"; };
+		202BCD4728045C48005140AC /* FormEditTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEditTransactionViewController.swift; sourceTree = "<group>"; };
 		BE6B089028043D860036AFD7 /* EditGoalsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGoalsController.swift; sourceTree = "<group>"; };
 		BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 				201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */,
 				202BCD45280383B6005140AC /* FormAddExpenseViewController.swift */,
 				14A7328A28002DDC00D27FC4 /* incomeOutcomeCell.swift */,
+				202BCD4728045C48005140AC /* FormEditTransactionViewController.swift */,
 			);
 			path = Celengin;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				200AD3F327FEAAFE0056B420 /* FormAddViewController.swift in Sources */,
 				202BCD46280383B6005140AC /* FormAddExpenseViewController.swift in Sources */,
 				14DCD31627F32C79001319FF /* ViewController.swift in Sources */,
+				202BCD4828045C48005140AC /* FormEditTransactionViewController.swift in Sources */,
 				14DCD31227F32C79001319FF /* AppDelegate.swift in Sources */,
 				14A7328527FF14D800D27FC4 /* SaveMoneyController.swift in Sources */,
 				14A7328727FF14EF00D27FC4 /* WithDrawMoneyController.swift in Sources */,
