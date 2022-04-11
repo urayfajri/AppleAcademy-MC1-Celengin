@@ -32,7 +32,7 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
         super.viewDidLoad()
         
         let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(tapTrash))
-        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(tapEdit))
         navigationItem.rightBarButtonItems = [trashButton, editButton]
         
         goalsName.text = str_name
@@ -44,8 +44,23 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
         
         }
     @objc func tapTrash(){
-        let vc = UIViewController()
+//        let vc = UIViewController()
+//        navigationController?.pushViewController(vc, animated: true)
+        let alertControl = UIAlertController(title: "Delete Item", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+        alertControl.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
+            alertControl.dismiss(animated: true, completion: nil)
+        }))
+        alertControl.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
+            alertControl.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alertControl, animated: true)
+    }
+    
+    @objc func tapEdit(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "edit_goal") as! EditGoalsController
         navigationController?.pushViewController(vc, animated: true)
+        vc.title = "Edit Goals"
     }
     
     @IBAction func didPressRecord()
