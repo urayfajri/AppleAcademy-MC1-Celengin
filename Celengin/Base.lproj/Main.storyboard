@@ -336,6 +336,9 @@
                                                                 </fragment>
                                                             </attributedString>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="didPressRecord" destination="F4m-Tt-MWZ" eventType="touchUpInside" id="MEi-BH-DY2"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
