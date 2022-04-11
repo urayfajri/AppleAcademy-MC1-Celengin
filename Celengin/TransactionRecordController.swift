@@ -42,11 +42,11 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         incomes = []
         var allIncome = [Transaction]()
         let fetchReq: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-//        let pred = NSPredicate(format: "type == income")
+        let pred = NSPredicate(format: "type CONTAINS 'Income'")
         let sortByDate = NSSortDescriptor(key: "date", ascending: false)
         
         fetchReq.sortDescriptors = [sortByDate]
-//        fetchReq.predicate = pred
+        fetchReq.predicate = pred
         
         do
         {
@@ -72,11 +72,11 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         outcomes = []
         var allOutcome = [Transaction]()
         let fetchReq: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-//        let pred = NSPredicate(format: "type == outcome")
+        let pred = NSPredicate(format: "type CONTAINS 'Outcome'")
         let sortByDate = NSSortDescriptor(key: "date", ascending: false)
         
         fetchReq.sortDescriptors = [sortByDate]
-//        fetchReq.predicate = pred
+        fetchReq.predicate = pred
         
         do
         {

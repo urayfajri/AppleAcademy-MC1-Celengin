@@ -171,7 +171,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         dateIncome.hour = 12
         dateIncome.minute = 34
         
+        let income1 = Transaction(context: context)
+        income1.name = "Gaji Bulan Februari"
+        income1.amount = 2500000
+        income1.date = userCalendar.date(from: dateIncome)
+        income1.resources = "Gaji Feb"
+        income1.notes = "Nambah 2 setengah"
+        income1.type = "Income"
         
+        let outcome1 = Transaction(context: context)
+        outcome1.name = "Beli pulsa"
+        outcome1.amount = 100000
+        outcome1.date = userCalendar.date(from: dateIncome)
+        outcome1.resources = "Pulsa Telkomsel"
+        outcome1.notes = "Beli pulsa telkomsel 100000"
+        outcome1.type = "Outcome"
+        
+        goals1.addToTransaction(income1)
+        goals1.addToTransaction(outcome1)
     }
     
     func getAllItems()
