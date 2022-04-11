@@ -183,10 +183,12 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
                 
             }))
             
-            sheet.addAction(UIAlertAction(title: "Delete", style: .default, handler: {[weak self]_ in
+            sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {[weak self]_ in
                 self?.deleteTransaction(item: item)
                 collectionView.reloadData()
             }))
+            
+            present(sheet, animated: true)
         }
         
 
