@@ -2,7 +2,7 @@
 //  Transaction+CoreDataProperties.swift
 //  Celengin
 //
-//  Created by Kathleen Febiola Susanto on 05/04/22.
+//  Created by Kathleen Febiola Susanto on 11/04/22.
 //
 //
 
@@ -16,10 +16,13 @@ extension Transaction {
         return NSFetchRequest<Transaction>(entityName: "Transaction")
     }
 
+    @NSManaged public var name: String?
+    @NSManaged public var amount: Int64
     @NSManaged public var date: Date?
-    @NSManaged public var goal: Goals?
-    @NSManaged public var is_expense: Expense?
-    @NSManaged public var is_income: Income?
+    @NSManaged public var resource: String?
+    @NSManaged public var notes: String?
+    @NSManaged public var type: String?
+    @NSManaged public var goals: Transaction?
 
 }
 

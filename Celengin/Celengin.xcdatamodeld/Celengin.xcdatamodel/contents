@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Expense" representedClassName=".Expense" syncable="YES">
-        <attribute name="add_notes" optional="YES" attributeType="String"/>
-        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="needs" optional="YES" attributeType="String"/>
-        <relationship name="transaction" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Transaction" inverseName="is_expense" inverseEntity="Transaction"/>
-    </entity>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Goals" representedClassName=".Goals" syncable="YES">
         <attribute name="add_notes" optional="YES" attributeType="String"/>
         <attribute name="breakdown" optional="YES" attributeType="String"/>
@@ -15,25 +8,19 @@
         <attribute name="progress" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="target" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="transaction" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transaction" inverseName="goal" inverseEntity="Transaction"/>
+        <relationship name="transaction" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Goals" inverseName="transaction" inverseEntity="Goals"/>
     </entity>
-    <entity name="Income" representedClassName=".Income" syncable="YES">
-        <attribute name="add_notes" optional="YES" attributeType="String"/>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="source" optional="YES" attributeType="String"/>
-        <relationship name="transaction" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Transaction" inverseName="is_income" inverseEntity="Transaction"/>
-    </entity>
-    <entity name="Transaction" representedClassName=".Transaction" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goals" inverseName="transaction" inverseEntity="Goals"/>
-        <relationship name="is_expense" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Expense" inverseName="transaction" inverseEntity="Expense"/>
-        <relationship name="is_income" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Income" inverseName="transaction" inverseEntity="Income"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="resource" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="goals" inverseEntity="Transaction"/>
     </entity>
     <elements>
-        <element name="Expense" positionX="-18" positionY="27" width="128" height="104"/>
         <element name="Goals" positionX="-63" positionY="-18" width="128" height="149"/>
-        <element name="Income" positionX="-36" positionY="9" width="128" height="104"/>
-        <element name="Transaction" positionX="-54" positionY="-9" width="128" height="89"/>
+        <element name="Transaction" positionX="-63" positionY="45" width="128" height="134"/>
     </elements>
 </model>

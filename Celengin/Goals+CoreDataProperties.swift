@@ -2,7 +2,7 @@
 //  Goals+CoreDataProperties.swift
 //  Celengin
 //
-//  Created by Kathleen Febiola Susanto on 05/04/22.
+//  Created by Kathleen Febiola Susanto on 11/04/22.
 //
 //
 
@@ -31,10 +31,10 @@ extension Goals {
 extension Goals {
 
     @objc(addTransactionObject:)
-    @NSManaged public func addToTransaction(_ value: Transaction)
+    @NSManaged public func addToTransaction(_ value: Goals)
 
     @objc(removeTransactionObject:)
-    @NSManaged public func removeFromTransaction(_ value: Transaction)
+    @NSManaged public func removeFromTransaction(_ value: Goals)
 
     @objc(addTransaction:)
     @NSManaged public func addToTransaction(_ values: NSSet)
