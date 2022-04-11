@@ -8,19 +8,19 @@
         <attribute name="progress" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="target" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="transaction" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Goals" inverseName="transaction" inverseEntity="Goals"/>
+        <relationship name="transaction" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transaction" inverseName="goals" inverseEntity="Transaction"/>
     </entity>
     <entity name="Transaction" representedClassName="Transaction" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
-        <attribute name="resource" optional="YES" attributeType="String"/>
+        <attribute name="resources" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
-        <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="goals" inverseEntity="Transaction"/>
+        <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goals" inverseName="transaction" inverseEntity="Goals"/>
     </entity>
     <elements>
         <element name="Goals" positionX="-63" positionY="-18" width="128" height="149"/>
-        <element name="Transaction" positionX="-63" positionY="45" width="128" height="134"/>
+        <element name="Transaction" positionX="-54" positionY="63" width="128" height="134"/>
     </elements>
 </model>

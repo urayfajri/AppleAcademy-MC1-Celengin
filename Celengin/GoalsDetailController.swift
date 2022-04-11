@@ -18,12 +18,15 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     @IBOutlet weak var notes: UILabel!
     @IBOutlet weak var savingProgress: UILabel!
     
+    
     var str_totalTarget: String = ""
     var str_deadline: String = ""
     var str_name: String = ""
     var str_notes: String = ""
     var str_progress: String = ""
     var progress: Float = 0
+    
+    @IBOutlet weak var transactionRecordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,13 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     @objc func tapTrash(){
         let vc = UIViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func didPressRecord()
+    {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "record_sb") as! TransactionRecordController
+        vc.goalName = str_name
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 
