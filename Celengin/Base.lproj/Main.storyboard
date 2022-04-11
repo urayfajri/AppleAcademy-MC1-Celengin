@@ -544,21 +544,189 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ini form edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqU-Oj-ktK">
-                                <rect key="frame" x="150" y="167" width="91" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePW-wc-eXT">
+                                <rect key="frame" x="20" y="64" width="350" height="716"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="0gD-Tn-87x">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="838"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="V36-RF-cgW">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="728"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qm8-0X-7vg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="28.666666666666668"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-5g-dTi">
+                                                        <rect key="frame" x="0.0" y="68.666666666666686" width="350" height="659.33333333333326"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pqW-yd-bLT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="80.333333333333329"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-fG-Tvs">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Edit Transaction Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eEk-7Z-5Vb">
+                                                                        <rect key="frame" x="0.0" y="28" width="350" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <connections>
+                                                                            <action selector="transactionNameChanged:" destination="NSW-Ai-QN9" eventType="editingChanged" id="izw-WK-5g0"/>
+                                                                        </connections>
+                                                                    </textField>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IST-8Z-9kt">
+                                                                        <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Scf-SI-En4">
+                                                                <rect key="frame" x="0.0" y="100.33333333333334" width="350" height="80.333333333333343"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount of Money" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRl-ed-uku">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Edit Amount of Money" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ja0-ED-9yH">
+                                                                        <rect key="frame" x="0.0" y="28" width="350" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <connections>
+                                                                            <action selector="transactionAmountChanged:" destination="NSW-Ai-QN9" eventType="editingChanged" id="fdz-qF-Qmb"/>
+                                                                        </connections>
+                                                                    </textField>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt5-3p-yOu">
+                                                                        <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iVn-1j-12n">
+                                                                <rect key="frame" x="0.0" y="200.66666666666666" width="350" height="80.333333333333343"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qs-HO-G6b">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bw8-cR-GhU">
+                                                                        <rect key="frame" x="0.0" y="28" width="350" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgi-OW-zqA">
+                                                                        <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aXx-fj-Qti">
+                                                                <rect key="frame" x="0.0" y="301" width="350" height="80.333333333333314"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Resource" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTO-EB-GgE">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="217-tP-dcl">
+                                                                        <rect key="frame" x="0.0" y="28" width="350" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction resource" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ox-gS-9DV">
+                                                                        <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JAk-Ad-ZSv">
+                                                                <rect key="frame" x="0.0" y="401.33333333333337" width="350" height="258"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brD-dz-jaL">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bEY-5u-Hsp">
+                                                                        <rect key="frame" x="0.0" y="28" width="350" height="230"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="230" id="njM-fz-TV1"/>
+                                                                        </constraints>
+                                                                        <color key="textColor" systemColor="labelColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    </textView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-75-Wqn">
+                                                <rect key="frame" x="0.0" y="788" width="350" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="6Lo-Sf-JHj"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Save Edits"/>
+                                                <connections>
+                                                    <action selector="saveEditsTapped:" destination="NSW-Ai-QN9" eventType="touchUpInside" id="EDx-Kn-3g0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0gD-Tn-87x" firstAttribute="width" secondItem="9Pf-MK-Zpi" secondAttribute="width" id="3bT-qc-nR0"/>
+                                    <constraint firstItem="0gD-Tn-87x" firstAttribute="top" secondItem="aDi-Gd-svT" secondAttribute="top" id="L5n-xL-CiP"/>
+                                    <constraint firstItem="0gD-Tn-87x" firstAttribute="bottom" secondItem="aDi-Gd-svT" secondAttribute="bottom" id="Utv-6L-r9G"/>
+                                    <constraint firstItem="0gD-Tn-87x" firstAttribute="leading" secondItem="aDi-Gd-svT" secondAttribute="leading" id="iHI-Y9-d1g"/>
+                                    <constraint firstItem="0gD-Tn-87x" firstAttribute="trailing" secondItem="aDi-Gd-svT" secondAttribute="trailing" id="xeE-Kr-kVr"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="aDi-Gd-svT"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="9Pf-MK-Zpi"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4wp-E3-3qn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4wp-E3-3qn" firstAttribute="bottom" secondItem="ePW-wc-eXT" secondAttribute="bottom" constant="30" id="2bh-2l-PYS"/>
+                            <constraint firstItem="ePW-wc-eXT" firstAttribute="leading" secondItem="4wp-E3-3qn" secondAttribute="leading" constant="20" id="Efr-pd-7vW"/>
+                            <constraint firstItem="4wp-E3-3qn" firstAttribute="trailing" secondItem="ePW-wc-eXT" secondAttribute="trailing" constant="20" id="VRz-RA-J7Q"/>
+                            <constraint firstItem="ePW-wc-eXT" firstAttribute="top" secondItem="4wp-E3-3qn" secondAttribute="top" constant="20" id="qFR-0q-udZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="saveEditsButton" destination="4Sc-75-Wqn" id="6Tn-rI-7kw"/>
+                        <outlet property="transactionAmountTextField" destination="Ja0-ED-9yH" id="UY3-gE-mZz"/>
+                        <outlet property="transactionNameTextField" destination="eEk-7Z-5Vb" id="hOk-hP-IKJ"/>
+                        <outlet property="transactionTypeLabel" destination="qm8-0X-7vg" id="iFF-lo-Znv"/>
+                        <outlet property="validateTransactionAmount" destination="mt5-3p-yOu" id="BdM-hP-wnV"/>
+                        <outlet property="validateTransactionName" destination="IST-8Z-9kt" id="bNg-6b-Wwk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1En-po-Wi4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557" y="3218"/>
+            <point key="canvasLocation" x="2556.9230769230767" y="3217.5355450236966"/>
         </scene>
         <!--My Goals-->
         <scene sceneID="lBO-l9-iu9">
