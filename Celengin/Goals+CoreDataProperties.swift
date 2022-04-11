@@ -2,7 +2,11 @@
 //  Goals+CoreDataProperties.swift
 //  Celengin
 //
+<<<<<<< HEAD
 //  Created by Kathleen Febiola Susanto on 11/04/22.
+=======
+//  Created by Kathleen Febiola Susanto on 09/04/22.
+>>>>>>> 4816fac (Transaction Record and Change Database)
 //
 //
 
@@ -23,11 +27,12 @@ extension Goals {
     @NSManaged public var progress: Int64
     @NSManaged public var status: Bool
     @NSManaged public var target: Int64
-    @NSManaged public var transaction: NSSet?
+    @NSManaged public var expenses: NSSet?
+    @NSManaged public var incomes: NSSet?
 
 }
 
-// MARK: Generated accessors for transaction
+// MARK: Generated accessors for expenses
 extension Goals {
 
     @objc(addTransactionObject:)
@@ -36,11 +41,28 @@ extension Goals {
     @objc(removeTransactionObject:)
     @NSManaged public func removeFromTransaction(_ value: Goals)
 
-    @objc(addTransaction:)
-    @NSManaged public func addToTransaction(_ values: NSSet)
+    @objc(addExpenses:)
+    @NSManaged public func addToExpenses(_ values: NSSet)
 
-    @objc(removeTransaction:)
-    @NSManaged public func removeFromTransaction(_ values: NSSet)
+    @objc(removeExpenses:)
+    @NSManaged public func removeFromExpenses(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for incomes
+extension Goals {
+
+    @objc(addIncomesObject:)
+    @NSManaged public func addToIncomes(_ value: Income)
+
+    @objc(removeIncomesObject:)
+    @NSManaged public func removeFromIncomes(_ value: Income)
+
+    @objc(addIncomes:)
+    @NSManaged public func addToIncomes(_ values: NSSet)
+
+    @objc(removeIncomes:)
+    @NSManaged public func removeFromIncomes(_ values: NSSet)
 
 }
 

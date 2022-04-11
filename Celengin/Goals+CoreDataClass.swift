@@ -2,8 +2,7 @@
 //  Goals+CoreDataClass.swift
 //  Celengin
 //
-//  Created by Kathleen Febiola Susanto on 11/04/22.
-//
+//  Created by Kathleen Febiola Susanto on 09/04/22.
 //
 
 import Foundation
