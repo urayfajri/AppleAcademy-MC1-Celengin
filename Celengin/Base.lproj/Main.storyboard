@@ -657,6 +657,9 @@
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="transactionNameChanged:" destination="dMo-G3-K1F" eventType="editingChanged" id="3vb-Lr-5U5"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate Transaction Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSt-21-jLh">
                                                                 <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
@@ -679,6 +682,9 @@
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="transactionAmountChanged:" destination="dMo-G3-K1F" eventType="editingChanged" id="gZ2-oP-idn"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate amount of money" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urv-Ca-mFL">
                                                                 <rect key="frame" x="0.0" y="66.999999999999972" width="350" height="13.333333333333329"/>
@@ -701,6 +707,9 @@
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="transactionDateChanged:" destination="dMo-G3-K1F" eventType="editingChanged" id="sTn-OS-CJR"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAt-dn-SbJ">
                                                                 <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
@@ -723,6 +732,9 @@
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="transactionNeedsChanged:" destination="dMo-G3-K1F" eventType="editingChanged" id="e5T-c8-wh3"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction needs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFV-UU-jAl">
                                                                 <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
@@ -759,6 +771,9 @@
                                                 <rect key="frame" x="0.0" y="681.33333333333337" width="350" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Save Expense"/>
+                                                <connections>
+                                                    <action selector="saveExpenseTapped:" destination="dMo-G3-K1F" eventType="touchUpInside" id="fFT-2j-GdH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -784,6 +799,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Expense" id="5bs-BK-PG4"/>
+                    <connections>
+                        <outlet property="saveExpenseButton" destination="dxA-tM-bhR" id="Omg-t2-IF3"/>
+                        <outlet property="transactionAmountTextField" destination="zJn-fW-xk4" id="xY8-II-QTF"/>
+                        <outlet property="transactionDateTextField" destination="dTQ-KW-DCT" id="m3M-Qw-wOP"/>
+                        <outlet property="transactionNameTextField" destination="9ym-DJ-omw" id="QYf-MG-5Y4"/>
+                        <outlet property="transactionNeedsTextField" destination="hFH-t6-h9a" id="MN7-XC-rY8"/>
+                        <outlet property="transactionNotesTextView" destination="ImI-Hp-wUe" id="kFb-Vf-49B"/>
+                        <outlet property="validateTransactionAmount" destination="urv-Ca-mFL" id="6fl-KT-rHi"/>
+                        <outlet property="validateTransactionDate" destination="WAt-dn-SbJ" id="Aht-Ud-wHM"/>
+                        <outlet property="validateTransactionName" destination="iSt-21-jLh" id="bez-Wh-8ia"/>
+                        <outlet property="validateTransactionNeeds" destination="XFV-UU-jAl" id="ftf-Y7-hr8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMO-UM-AjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
