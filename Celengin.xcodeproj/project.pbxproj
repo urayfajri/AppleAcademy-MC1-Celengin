@@ -24,6 +24,10 @@
 		14DCD32C27F32C7A001319FF /* CelenginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD32B27F32C7A001319FF /* CelenginTests.swift */; };
 		14DCD33627F32C7A001319FF /* CelenginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD33527F32C7A001319FF /* CelenginUITests.swift */; };
 		14DCD33827F32C7A001319FF /* CelenginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */; };
+		14EC81B328042C6A009325E1 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC81B028042C6A009325E1 /* Transaction+CoreDataClass.swift */; };
+		14EC81B428042C6A009325E1 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC81B128042C6A009325E1 /* Transaction+CoreDataProperties.swift */; };
+		14EC81B528042C6A009325E1 /* Goals+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC81B228042C6A009325E1 /* Goals+CoreDataProperties.swift */; };
+		14EC81B728042D18009325E1 /* Goals+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC81B628042D18009325E1 /* Goals+CoreDataClass.swift */; };
 		200AD3F327FEAAFE0056B420 /* FormAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */; };
 		201E77D92802E3830029CCC2 /* FormAddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */; };
 		2023AB3A2801389000B9550B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023AB392801389000B9550B /* Utilities.swift */; };
@@ -69,6 +73,10 @@
 		14DCD33127F32C7A001319FF /* CelenginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CelenginUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DCD33527F32C7A001319FF /* CelenginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelenginUITests.swift; sourceTree = "<group>"; };
 		14DCD33727F32C7A001319FF /* CelenginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelenginUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		14EC81B028042C6A009325E1 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Transaction+CoreDataClass.swift"; path = "Helpers/Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		14EC81B128042C6A009325E1 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		14EC81B228042C6A009325E1 /* Goals+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Goals+CoreDataProperties.swift"; path = "Helpers/Goals+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		14EC81B628042D18009325E1 /* Goals+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Goals+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		200AD3F227FEAAFE0056B420 /* FormAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddViewController.swift; sourceTree = "<group>"; };
 		201E77D82802E3830029CCC2 /* FormAddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAddIncomeViewController.swift; sourceTree = "<group>"; };
 		2023AB392801389000B9550B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -127,10 +135,10 @@
 			children = (
 				2023AB382801382200B9550B /* Helpers */,
 				14DCD31127F32C79001319FF /* AppDelegate.swift */,
-				14EC818C2803FDBA009325E1 /* Goals+CoreDataClass.swift */,
-				14EC818D2803FDBA009325E1 /* Goals+CoreDataProperties.swift */,
-				14EC81942803FE40009325E1 /* Transaction+CoreDataClass.swift */,
-				14EC81952803FE40009325E1 /* Transaction+CoreDataProperties.swift */,
+				14EC81B028042C6A009325E1 /* Transaction+CoreDataClass.swift */,
+				14EC81B628042D18009325E1 /* Goals+CoreDataClass.swift */,
+				14EC81B128042C6A009325E1 /* Transaction+CoreDataProperties.swift */,
+				14EC81B228042C6A009325E1 /* Goals+CoreDataProperties.swift */,
 				14DCD31327F32C79001319FF /* SceneDelegate.swift */,
 				14DCD31527F32C79001319FF /* ViewController.swift */,
 				BEE0191227FDF18000FC6107 /* GoalsDetailController.swift */,
@@ -314,24 +322,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14EC819F2804097B009325E1 /* Transaction+CoreDataProperties.swift in Sources */,
 				200AD3F327FEAAFE0056B420 /* FormAddViewController.swift in Sources */,
 				202BCD46280383B6005140AC /* FormAddExpenseViewController.swift in Sources */,
-				14EC81962803FE40009325E1 /* Transaction+CoreDataClass.swift in Sources */,
 				14DCD31627F32C79001319FF /* ViewController.swift in Sources */,
 				14DCD31227F32C79001319FF /* AppDelegate.swift in Sources */,
 				14A7328527FF14D800D27FC4 /* SaveMoneyController.swift in Sources */,
 				14A7328727FF14EF00D27FC4 /* WithDrawMoneyController.swift in Sources */,
+				14EC81B728042D18009325E1 /* Goals+CoreDataClass.swift in Sources */,
+				14EC81B328042C6A009325E1 /* Transaction+CoreDataClass.swift in Sources */,
 				14DCD31C27F32C79001319FF /* Celengin.xcdatamodeld in Sources */,
-				14EC819C2804097B009325E1 /* Goals+CoreDataClass.swift in Sources */,
 				14D2407227F8783D00F53282 /* GraphController.swift in Sources */,
+				14EC81B528042C6A009325E1 /* Goals+CoreDataProperties.swift in Sources */,
 				14B5D73F27FC5D2900542A31 /* goalCell.swift in Sources */,
-				14EC81912803FDBA009325E1 /* Goals+CoreDataProperties.swift in Sources */,
 				BEE0191327FDF18000FC6107 /* GoalsDetailController.swift in Sources */,
 				14DCD31427F32C79001319FF /* SceneDelegate.swift in Sources */,
-				14EC81972803FE40009325E1 /* Transaction+CoreDataProperties.swift in Sources */,
 				2023AB3A2801389000B9550B /* Utilities.swift in Sources */,
 				14A7328B28002DDC00D27FC4 /* incomeOutcomeCell.swift in Sources */,
+				14EC81B428042C6A009325E1 /* Transaction+CoreDataProperties.swift in Sources */,
 				14DCD31427F32C79001319FF /* SceneDelegate.swift in Sources */,
 				14A7328927FF154600D27FC4 /* TransactionRecordController.swift in Sources */,
 				201E77D92802E3830029CCC2 /* FormAddIncomeViewController.swift in Sources */,
