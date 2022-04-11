@@ -13,8 +13,8 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var goalName_label: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var incomes = [Income]()
-    var outcomes = [Expense]()
+    var incomes = [Transaction]()
+    var outcomes = [Transaction]()
     var segmentIndex = 0
     var goalName: String = ""
     
@@ -40,11 +40,13 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
     func fetchIncome()
     {
         incomes = []
-        var allIncome = [Income]()
-        let fetchReq: NSFetchRequest<Income> = Income.fetchRequest()
+        var allIncome = [Transaction]()
+        let fetchReq: NSFetchRequest<Transaction> = Transaction.fetchRequest()
+        let pred = NSPredicate(format: "type == Income")
         let sortByDate = NSSortDescriptor(key: "date", ascending: false)
         
         fetchReq.sortDescriptors = [sortByDate]
+        fetchReq.predicate = pred
         
         do
         {
@@ -58,7 +60,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         
         for x in 0..<allIncome.count
         {
-            if allIncome[x].goal!.name == goalName
+            if allIncome[x].goals!.name == goalName
             {
                 incomes.append(allIncome[x])
             }
@@ -68,11 +70,13 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
     func fetchOutcome()
     {
         outcomes = []
-        var allOutcome = [Expense]()
-        let fetchReq: NSFetchRequest<Expense> = Expense.fetchRequest()
+        var allOutcome = [Transaction]()
+        let fetchReq: NSFetchRequest<Transaction> = Transaction.fetchRequest()
+        let pred = NSPredicate(format: "type == Outcome")
         let sortByDate = NSSortDescriptor(key: "date", ascending: false)
         
         fetchReq.sortDescriptors = [sortByDate]
+        fetchReq.predicate = pred
         
         do
         {
@@ -86,7 +90,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         
         for x in 0..<allOutcome.count
         {
-            if allOutcome[x].goal!.name == goalName
+            if allOutcome[x].goals!.name == goalName
             {
                 outcomes.append(allOutcome[x])
             }
@@ -129,8 +133,8 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             let str_deadline = dateFormatter.string(from: (incomes[indexPath.row].date!))
             cell.date.text = str_deadline
             
-            cell.sourceORNeed.text = incomes[indexPath.row].source
-            cell.notes.text = incomes[indexPath.row].add_notes
+            cell.sourceORNeed.text = incomes[indexPath.row].resources
+            cell.notes.text = incomes[indexPath.row].notes
         }
         
         else
@@ -144,8 +148,8 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             let str_deadline = dateFormatter.string(from: outcomes[indexPath.row].date!)
             cell.date.text = str_deadline
             
-            cell.sourceORNeed.text = outcomes[indexPath.row].needs
-            cell.notes.text = outcomes[indexPath.row].add_notes
+            cell.sourceORNeed.text = outcomes[indexPath.row].resources
+            cell.notes.text = outcomes[indexPath.row].notes
         }
         return cell
     }
@@ -163,7 +167,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             }))
             
             sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {[weak self]_ in
-                self?.deleteIncome(item: item)
+                self?.deleteTransaction(item: item)
                 collectionView.reloadData()
             }))
             
@@ -180,7 +184,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             }))
             
             sheet.addAction(UIAlertAction(title: "Delete", style: .default, handler: {[weak self]_ in
-                self?.deleteExpenses(item: item)
+                self?.deleteTransaction(item: item)
                 collectionView.reloadData()
             }))
         }
@@ -188,7 +192,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
 
     }
     
-    func deleteIncome(item: Income)
+    func deleteTransaction(item: Transaction)
     {
         context.delete(item)
         
@@ -196,22 +200,6 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         {
             try context.save()
             fetchIncome()
-        }
-
-        catch
-        {
-
-        }
-    }
-    
-    
-    func deleteExpenses(item: Expense)
-    {
-        context.delete(item)
-        
-        do
-        {
-            try context.save()
             fetchOutcome()
         }
 
@@ -220,6 +208,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
 
         }
     }
+    
     
     
 }

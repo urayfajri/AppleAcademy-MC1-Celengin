@@ -170,34 +170,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         dateIncome.timeZone = TimeZone(abbreviation: "GMT")
         dateIncome.hour = 12
         dateIncome.minute = 34
-         
-        let income1 = Income(context: context)
-        income1.name = "Nabung Bulan Februari"
-        income1.amount = 2600000
-        income1.source = "Gaji Bulan Feb"
-        income1.add_notes = "Tambah 2 setengah juta"
-        income1.date = userCalendar.date(from: dateIncome)
-        income1.goal = goals2
         
-        dateIncome.month = 3
-        
-        let income2 = Income(context: context)
-        income2.name = "Nabung Bulan Maret"
-        income2.amount = 2500000
-        income2.source = "Gaji Bulan Maret"
-        income2.add_notes = "Tambah 2 setengah juta"
-        income2.date = userCalendar.date(from: dateIncome)
-        income2.goal = goals2
-        
-        dateIncome.month = 4
-        
-        let income3 = Income(context: context)
-        income3.name = "Nabung Bulan April"
-        income3.amount = 5000000
-        income3.source = "Gaji Bulan April"
-        income3.add_notes = "Tambah 5 juta"
-        income3.date = userCalendar.date(from: dateIncome)
-        income3.goal = goals2
         
     }
     
