@@ -76,8 +76,8 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
     
     func fetchOverview()
     {
-        var totalProgress: Int64 = 0
-        var totalTarget: Int64 = 0
+        var totalProgress: Double = 0
+        var totalTarget: Double = 0
         
         var alltransactions = [Transaction]()
         var goalRespectiveTransactions = [Transaction]()
@@ -132,7 +132,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             
             for x in 0..<goals.count
             {
-                totalTarget += goals[x].target
+                totalTarget += goals[x].target ?? 0.0
             }
             
             for y in 0..<goalRespectiveTransactions.count
@@ -173,8 +173,8 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 goalDate = goalComps.day!
                 goalMonth = goalComps.month!
                 goalYear = goalComps.year!
-                totalTarget = goalRespectiveTransactions[0].goals!.target
-                totalProgress = goalRespectiveTransactions[0].goals!.progress
+                totalTarget = goalRespectiveTransactions[0].goals!.target ?? 0.0
+                totalProgress = goalRespectiveTransactions[0].goals!.progress ?? 0.0
                 
                 overallOverview.text = "Saved Rp. \(totalProgress) from Rp. \(totalTarget)"
                 

@@ -27,6 +27,8 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     let breakdownList = ["Weekly", "Monthly", "Yearly"]
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -217,6 +219,26 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if goalNotesTextViewEdit.text.isEmpty
         {
             goalNotesTextViewEdit.text = ""
+        }
+        
+        // fetch object Goal yang akan di edit
+        let updateGoal = Goals(context: self.context)
+        
+        
+        updateGoal.name = goalNameTextFieldEdit.text
+        updateGoal.add_notes = goalNotesTextViewEdit.text
+        updateGoal.breakdown = goalBreakdownTextFieldEdit.text
+        updateGoal.target = Double(goalTargetTextFieldEdit.text ?? "0") ?? 0.0
+        updateGoal.deadline = datePicker.date
+        
+        do{
+            try context.save()
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        catch
+        {
+            
         }
         
         resetForm()

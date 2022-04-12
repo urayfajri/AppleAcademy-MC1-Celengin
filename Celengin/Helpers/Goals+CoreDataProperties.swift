@@ -20,9 +20,9 @@ extension Goals {
     @NSManaged public var breakdown: String?
     @NSManaged public var deadline: Date?
     @NSManaged public var name: String?
-    @NSManaged public var progress: Int64
+    @NSManaged public var progress: Double
     @NSManaged public var status: Bool
-    @NSManaged public var target: Int64
+    @NSManaged public var target: Double
     @NSManaged public var transaction: NSSet?
     @NSManaged public var createdAt: Date?
 

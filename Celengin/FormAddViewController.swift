@@ -22,6 +22,8 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var submitGoalButton: UIButton!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var datePicker: UIDatePicker!
     var pickerView = UIPickerView()
     
@@ -29,7 +31,7 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         resetForm()
         setUpElements()
@@ -69,31 +71,31 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func setUpDatePicker() {
-
+        
         datePicker = UIDatePicker.init(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200))
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(self.dateChanged), for: .allEvents)
-
+        
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = .wheels
         }
-
+        
         self.goalDeadlineTextField.inputView = datePicker
         let toolBar: UIToolbar = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
         
         let spaceButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action:nil)
-
+        
         let doneButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.tapOnDoneBut))
-
+        
         toolBar.setItems([spaceButton, doneButton], animated: true)
-
+        
         self.goalDeadlineTextField.inputAccessoryView = toolBar
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return breakdownList.count
     }
@@ -128,7 +130,7 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Default value
         goalBreakdownTextField.text = breakdownList[1]
     }
-
+    
     @objc func dateChanged(){
         let dateFormat = DateFormatter()
         
@@ -148,7 +150,7 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
         checkValidForm()
     }
-
+    
     @objc func tapOnDoneBut() {
         goalDeadlineTextField.resignFirstResponder()
     }
@@ -218,8 +220,32 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         {
             goalNotesTextView.text = ""
         }
+        
+        let newGoal = Goals(context: self.context)
+        newGoal.name = goalNameTextField.text
+        newGoal.add_notes = goalNotesTextView.text
+        newGoal.breakdown = goalBreakdownTextField.text
+        newGoal.target = Double(goalTargetTextField.text ?? "0") ?? 0.0
+        newGoal.deadline = datePicker.date
+        newGoal.createdAt = Date()
+        newGoal.progress = 0
+        newGoal.status = false
+        
+        do{
+            try context.save()
+            // balik ke satu halaman sebelumnnya
+            self.navigationController?.popViewController(animated: true)
+            
+            // balik ke root controller (halaman pertama kali launch)
+            // self.navigationController?.popToRootViewController(animated: true)
 
-        resetForm()
+        }
+        catch
+        {
+            
+        }
+        
+        //resetForm()
     }
     
     
@@ -261,7 +287,7 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         {
             return "Goal Breakdown is Required"
         }
-            
+        
         if !(value == "Weekly" || value == "Monthly" || value == "Yearly")
         {
             return "Goal Breakdown is not available"

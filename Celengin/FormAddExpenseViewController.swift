@@ -22,6 +22,8 @@ class FormAddExpenseViewController: UIViewController {
     
     @IBOutlet weak var saveExpenseButton: UIButton!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var datePicker: UIDatePicker!
     
     override func viewDidLoad() {

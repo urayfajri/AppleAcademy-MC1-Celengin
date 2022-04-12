@@ -82,7 +82,14 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     */
 
     @IBAction func buttonAddIncome(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "addIncomeForm") as! FormAddIncomeViewController
+        // vc.goalName = str_name
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     @IBAction func buttonAddExpense(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "addExpenseForm") as! FormAddExpenseViewController
+        // vc.goalName = str_name
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

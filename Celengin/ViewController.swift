@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapAdd))
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
         
-        dummyData()
+        // dummyData()
         getAllItems()
         goalTable.rowHeight = UITableView.automaticDimension
         goalTable.estimatedRowHeight = 600
@@ -41,6 +41,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getAllItems()
+    }
     
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

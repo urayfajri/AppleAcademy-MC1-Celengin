@@ -23,6 +23,8 @@ class FormAddIncomeViewController: UIViewController {
     
     @IBOutlet weak var saveIncomeButton: UIButton!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
@@ -179,7 +181,26 @@ class FormAddIncomeViewController: UIViewController {
             transactionNotesTextView.text = ""
         }
         
-        resetForm()
+        let newTransaction = Transaction(context: self.context)
+        newTransaction.name = transactionNameTextField.text
+        newTransaction.notes = transactionNotesTextView.text
+        newTransaction.amount = Double(transactionAmountTextField.text ?? "0") ?? 0.0
+        newTransaction.date = datePicker.date
+        newTransaction.resources = transactionSourceTextField.text
+        newTransaction.type = "Income"
+        newTransaction.goals = nil
+        
+        do{
+            try context.save()
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "homepage") as! ViewController
+                   self.navigationController?.pushViewController(vc, animated: true)
+        }
+        catch
+        {
+            
+        }
+        
+        // resetForm()
     }
     
     func invalidTransactionName(_ value: String) -> String? {
