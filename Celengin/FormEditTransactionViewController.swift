@@ -30,9 +30,12 @@ class FormEditTransactionViewController: UIViewController {
     
     @IBOutlet weak var saveEditsButton: UIButton!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var datePicker: UIDatePicker!
     
     var transactionType: String!
+    var transaction: Transaction?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +84,7 @@ class FormEditTransactionViewController: UIViewController {
         transactionType = "Income"
         // transactionType = "Expense"
         
-        if transactionType == "Income"
+        if transaction!.type == "Income"
         {
             transactionTypeTitle.text = "Edit Income"
             transactionTypeTitle.textColor = .systemYellow
@@ -89,7 +92,7 @@ class FormEditTransactionViewController: UIViewController {
             transactionResourceTextField.placeholder = "Edit Transaction Source"
             validateTransactionResource.text = "Transaction Source is Required"
         }
-        else if transactionType == "Expense"
+        else if transaction!.type == "Outcome"
         {
             transactionTypeTitle.text = "Edit Expense"
             transactionTypeTitle.textColor = .systemRed
@@ -220,7 +223,61 @@ class FormEditTransactionViewController: UIViewController {
             transactionNotesTextView.text = ""
         }
         
-        resetForm()
+        updateTransaction(item: transaction!)
+        
+//        resetForm()
+    }
+    
+    func updateTransaction(item: Transaction)
+    {
+        item.name = transactionNameTextField.text
+        item.notes = transactionNotesTextView.text
+        
+        let newAmount = Double(transactionAmountTextField.text ?? "0") ?? 0.0
+        
+        if item.type == "Income"
+        {
+            if item.amount < newAmount
+            {
+                item.goals?.progress += (newAmount - item.amount)
+            }
+            
+            else if item.amount > newAmount
+            {
+                item.goals?.progress -= (item.amount - newAmount)
+            }
+        }
+        
+        else
+        {
+            if item.amount < newAmount
+            {
+                item.goals?.progress -= (newAmount - item.amount)
+            }
+            
+            else if item.amount > newAmount
+            {
+                item.goals?.progress += (item.amount - newAmount)
+            }
+        }
+        
+        item.amount = newAmount
+        item.resources = transactionResourceTextField.text
+        item.date = datePicker.date
+        
+        
+        
+        do{
+            
+            try context.save()
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        catch
+        {
+            
+        }
     }
     
     func invalidTransactionName(_ value: String) -> String? {

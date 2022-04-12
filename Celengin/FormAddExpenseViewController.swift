@@ -22,6 +22,8 @@ class FormAddExpenseViewController: UIViewController {
     
     @IBOutlet weak var saveExpenseButton: UIButton!
     
+    var goal: Goals?
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var datePicker: UIDatePicker!
@@ -180,7 +182,26 @@ class FormAddExpenseViewController: UIViewController {
             transactionNotesTextView.text = ""
         }
         
-        resetForm()
+        let newTransaction = Transaction(context: self.context)
+        newTransaction.name = transactionNameTextField.text
+        newTransaction.notes = transactionNotesTextView.text
+        newTransaction.amount = Double(transactionAmountTextField.text ?? "0") ?? 0.0
+        newTransaction.date = datePicker.date
+        newTransaction.resources = transactionNeedsTextField.text
+        newTransaction.type = "Outcome"
+        
+        goal?.addToTransaction(newTransaction)
+        goal?.progress -= newTransaction.amount
+        
+        do{
+            try context.save()
+            self.navigationController?.popViewController(animated: true)
+        }
+        catch
+        {
+            
+        }
+//        resetForm()
     }
     
     func invalidTransactionName(_ value: String) -> String? {

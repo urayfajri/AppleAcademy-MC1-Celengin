@@ -95,6 +95,7 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     @IBAction func didPressRecord()
     {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "record_sb") as! TransactionRecordController
+        vc.goal = goal
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -111,13 +112,13 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
 
     @IBAction func buttonAddIncome(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "addIncomeForm") as! FormAddIncomeViewController
-        // vc.goalName = str_name
+        vc.goal = goal
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
     @IBAction func buttonAddExpense(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "addExpenseForm") as! FormAddExpenseViewController
-        // vc.goalName = str_name
+        vc.goal = goal
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -16,7 +16,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
     var incomes = [Transaction]()
     var outcomes = [Transaction]()
     var segmentIndex = 0
-    var goalName: String = ""
+    var goal: Goals?
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -24,7 +24,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Transaction Record"
-        goalName_label.text = goalName
+        goalName_label.text = goal?.name
         fetchIncome()
         fetchOutcome()
         // Do any additional setup after loading the view.
@@ -36,6 +36,11 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         collectionView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchIncome()
+        fetchOutcome()
+        collectionView.reloadData()
+    }
     
     func fetchIncome()
     {
@@ -60,7 +65,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         
         for x in 0..<allIncome.count
         {
-            if allIncome[x].goals!.name == goalName
+            if allIncome[x].goals == goal
             {
                 incomes.append(allIncome[x])
             }
@@ -90,7 +95,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         
         for x in 0..<allOutcome.count
         {
-            if allOutcome[x].goals!.name == goalName
+            if allOutcome[x].goals == goal
             {
                 outcomes.append(allOutcome[x])
             }
@@ -155,7 +160,9 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: {_ in
                 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "formEditTransaction") as! FormEditTransactionViewController
+                vc.transaction = item
                       self.navigationController?.pushViewController(vc, animated: true)
+                
             }))
             
             sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {[weak self]_ in
@@ -173,6 +180,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: {_ in
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "formEditTransaction") as! FormEditTransactionViewController
+                vc.transaction = item
                       self.navigationController?.pushViewController(vc, animated: true)
             }))
             

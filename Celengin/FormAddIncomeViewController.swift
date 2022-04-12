@@ -27,6 +27,8 @@ class FormAddIncomeViewController: UIViewController {
     
     var datePicker: UIDatePicker!
     
+    var goal: Goals?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -188,12 +190,13 @@ class FormAddIncomeViewController: UIViewController {
         newTransaction.date = datePicker.date
         newTransaction.resources = transactionSourceTextField.text
         newTransaction.type = "Income"
-        newTransaction.goals = nil
+        
+        goal?.addToTransaction(newTransaction)
+        goal?.progress += newTransaction.amount
         
         do{
             try context.save()
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "homepage") as! ViewController
-                   self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
         catch
         {
