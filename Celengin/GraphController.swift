@@ -77,6 +77,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         let set = BarChartDataSet(entries: entries)
         let data = BarChartData(dataSet: set)
         barChart.data = data
+
         view.addSubview(barChart)
     }
     
@@ -93,6 +94,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             Overview.removeAll()
             overviewTexts.removeAll()
             detailOverview.text = ""
+            entries.removeAll()
             
             var d_start = goalDate
             var d_end = goalDate + 6
@@ -142,6 +144,14 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 detailOverview.text?.append("\(overviewTexts[x])" )
             }
             
+            for x in 0..<Overview.count
+            {
+                entries.append(BarChartDataEntry(x: Double(x), y: Overview[x]))
+            }
+            
+            let set = BarChartDataSet(entries: entries)
+            let data = BarChartData(dataSet: set)
+            barChart.data = data
             barChart.notifyDataSetChanged()
         }
         
@@ -151,6 +161,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             Overview.removeAll()
             overviewTexts.removeAll()
             detailOverview.text = " "
+            entries.removeAll()
             
                 var m_count = goalMonth
                 
@@ -239,6 +250,14 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     }
                 }
                 
+            for x in 0..<Overview.count
+            {
+                entries.append(BarChartDataEntry(x: Double(x), y: Overview[x]))
+            }
+            
+            let set = BarChartDataSet(entries: entries)
+            let data = BarChartData(dataSet: set)
+            barChart.data = data
             barChart.notifyDataSetChanged()
         }
         
@@ -247,6 +266,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             Overview.removeAll()
             overviewTexts.removeAll()
             detailOverview.text = " "
+            entries.removeAll()
             
             var money: Double = 0
             
@@ -303,6 +323,15 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             {
                 detailOverview.text?.append("\(overviewTexts[x])" )
             }
+            
+            for x in 0..<Overview.count
+            {
+                entries.append(BarChartDataEntry(x: Double(x), y: Overview[x]))
+            }
+            
+            let set = BarChartDataSet(entries: entries)
+            let data = BarChartData(dataSet: set)
+            barChart.data = data
             
             barChart.notifyDataSetChanged()
             
