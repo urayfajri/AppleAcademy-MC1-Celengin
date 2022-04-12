@@ -53,7 +53,6 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         fetchOverview()
         barChart.frame = CGRect(x: 0, y: 200, width: self.view.frame.size.width, height: self.view.frame.size.width)
         barChart.center = view.center
-        view.addSubview(barChart)
         
         for x in 0..<Overview.count
         {
@@ -64,7 +63,12 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         let data = BarChartData(dataSet: set)
         barChart.data = data
         
-        
+        view.addSubview(barChart)
+    }
+    
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl)
+    {
+        segmentIndex = sender.selectedSegmentIndex
     }
     
     func fetchOverview()
@@ -94,6 +98,9 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         
         if goalTextField.text == "All Goals"
         {
+            
+            goalRespectiveTransactions = []
+            
             goalRespectiveTransactions.append(contentsOf: alltransactions)
             
             for x in 0..<goalRespectiveTransactions.count
@@ -119,6 +126,9 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         
         else
         {
+            
+            goalRespectiveTransactions = []
+            
             for x in 0..<alltransactions.count
             {
                 if alltransactions[x].goals!.name == goalTextField.text
@@ -127,26 +137,60 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 }
             }
             
-            let goalComps = calendar.dateComponents([.day, .month, .year], from: (goalRespectiveTransactions[0].goals?.createdAt)!)
+            if(!goalRespectiveTransactions.isEmpty)
+            {
+                
+                let goalComps = calendar.dateComponents([.day, .month, .year], from: (goalRespectiveTransactions[0].goals?.createdAt)!)
+                
+                goalDate = goalComps.day!
+                goalMonth = goalComps.month!
+                goalYear = goalComps.year!
+                
+            }
             
-            goalDate = goalComps.day!
-            goalMonth = goalComps.month!
-            goalYear = goalComps.year!
+            
         }
         
-      
+       
         
         if segmentIndex == 0
         {
+            Overview.removeAll()
             
+            var d_start = goalDate
+            var d_end = goalDate + 6
+            
+            while d_start <= currDate! && d_end <= currDate!
+            {
+                var money: Double = 0
+                
+                for x in 0..<goalRespectiveTransactions.count
+                {
+                    let comps =  calendar.dateComponents([.day], from: goalRespectiveTransactions[x].date!)
+                    
+                    if comps.day! >= d_start || comps.day! <= d_end
+                    {
+                        if goalRespectiveTransactions[x].type == "Income"
+                        {
+                            money += Double(goalRespectiveTransactions[x].amount)
+                        }
+                        
+                        else
+                        {
+                            money -= Double(goalRespectiveTransactions[x].amount)
+                        }
+                    }
+                }
+                
+                d_start += 7
+                d_end += 7
+            }
         }
         
         else if segmentIndex == 1
         {
+            Overview.removeAll()
             
-            
-            for y in 0..<goalRespectiveTransactions.count
-            {
                 var m_count = goalMonth
                 
                 
@@ -156,14 +200,29 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     {
                         var money: Double = 0
                         
-                        let comps = calendar.dateComponents([.month], from: goalRespectiveTransactions[y].date!)
-                        
-                        if comps.month == m_count
+                        for y in 0..<goalRespectiveTransactions.count
                         {
-                            money += Double(goalRespectiveTransactions[y].amount)
+                            let comps = calendar.dateComponents([.month], from: goalRespectiveTransactions[y].date!)
+                            
+                            if comps.month == m_count
+                            {
+                                if goalRespectiveTransactions[y].type == "Income"
+                                {
+                                    money += Double(goalRespectiveTransactions[y].amount)
+                                }
+                                
+                                else
+                                {
+                                    money -= Double(goalRespectiveTransactions[y].amount)
+                                }
+                               
+                            }
+                            
+                            
                         }
                         
                         Overview.append(money)
+                       
                         m_count += 1
                     }
                 
@@ -177,13 +236,27 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     {
                         while m_count <= currMonth!
                         {
+                            
                             var money: Double = 0
                             
-                            let comps = calendar.dateComponents([.month, .year], from: goalRespectiveTransactions[y].date!)
-                            
-                            if comps.month == m_count && comps.year == y_count
+                            for y in 0..<goalRespectiveTransactions.count
                             {
-                                money += Double(goalRespectiveTransactions[y].amount)
+                                let comps = calendar.dateComponents([.month], from: goalRespectiveTransactions[y].date!)
+                                
+                                if comps.month == m_count
+                                {
+                                    if goalRespectiveTransactions[y].type == "Income"
+                                    {
+                                        money += Double(goalRespectiveTransactions[y].amount)
+                                    }
+                                    
+                                    else
+                                    {
+                                        money -= Double(goalRespectiveTransactions[y].amount)
+                                    }
+                                   
+                                }
+                                
                             }
                             
                             Overview.append(money)
@@ -194,19 +267,57 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     }
                 }
                 
-            }
         }
         
         else
         {
+            Overview.removeAll()
             
+            var money: Double = 0
+            
+            if currYear! == goalYear
+            {
+                for x in 0..<goalRespectiveTransactions.count
+                {
+                    if goalRespectiveTransactions[x].type == "Income"
+                    {
+                        money += Double(goalRespectiveTransactions[x].amount)
+                    }
+                }
+                
+                Overview.append(money)
+            }
+            
+            else
+            {
+                var y_count = goalYear
+                
+                while y_count<=currYear!
+                {
+                    for x in 0..<goalRespectiveTransactions.count
+                    {
+                        let comps = calendar.dateComponents([.year], from: goalRespectiveTransactions[x].date!)
+                        
+                        if comps.year == y_count
+                        {
+                            if goalRespectiveTransactions[x].type == "Income"
+                            {
+                                money += Double(goalRespectiveTransactions[x].amount)
+                            }
+                            else
+                            {
+                                money -= Double(goalRespectiveTransactions[x].amount)
+                            }
+                        }
+                       
+                    }
+                    
+                    y_count+=1
+                    
+                }
+            }
         }
         
-    }
-    
-    @IBAction func didChangeSegment(_ sender: UISegmentedControl)
-    {
-        segmentIndex = sender.selectedSegmentIndex
     }
     
     func fetchGoals()
