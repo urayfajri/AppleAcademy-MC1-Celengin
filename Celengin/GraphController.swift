@@ -105,7 +105,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         if goalTextField.text == "All Goals"
         {
             
-            goalRespectiveTransactions = []
+            goalRespectiveTransactions.removeAll()
             
             goalRespectiveTransactions.append(contentsOf: alltransactions)
             
@@ -154,7 +154,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         else
         {
             
-            goalRespectiveTransactions = []
+            goalRespectiveTransactions.removeAll()
             
             for x in 0..<alltransactions.count
             {
