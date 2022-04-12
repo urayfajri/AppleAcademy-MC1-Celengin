@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -25,16 +26,21 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var datePicker: UIDatePicker!
     var pickerView = UIPickerView()
     
+    var goalName: String = ""
+    var goal: Goals?
+//    var goalTarget = [Goals]()
+    
     let breakdownList = ["Weekly", "Monthly", "Yearly"]
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = goal!.name
         // Do any additional setup after loading the view.
-        resetForm()
+//        resetForm()
         setUpElements()
+//        fetchEditedGoal()
     }
     
     func setUpElements() {
@@ -43,6 +49,12 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         Utilities.styleTextField(goalTargetTextFieldEdit)
         Utilities.styleTextView(goalNotesTextViewEdit)
         Utilities.styleFilledButton(submitGoalButtonEdit)
+        
+        let textTarget = "\(goal?.target ?? 0)"
+        
+        goalNameTextFieldEdit.text = goal?.name
+        goalTargetTextFieldEdit.text = textTarget
+        goalNotesTextViewEdit.text = goal?.add_notes
         
         setUpDatePicker()
         setBreakdown()
@@ -75,6 +87,7 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         datePicker = UIDatePicker.init(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200))
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(self.dateChanged), for: .allEvents)
+        datePicker.date = (goal?.deadline)!
         
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = .wheels
@@ -128,7 +141,7 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         goalBreakdownTextFieldEdit.inputView = pickerView
         
         // Default value
-        goalBreakdownTextFieldEdit.text = breakdownList[1]
+        goalBreakdownTextFieldEdit.text = goal?.breakdown
     }
     
     @objc func dateChanged(){
@@ -222,16 +235,22 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
         // fetch object Goal yang akan di edit
-        let updateGoal = Goals(context: self.context)
         
+        updateGoal(item: goal!)
         
-        updateGoal.name = goalNameTextFieldEdit.text
-        updateGoal.add_notes = goalNotesTextViewEdit.text
-        updateGoal.breakdown = goalBreakdownTextFieldEdit.text
-        updateGoal.target = Double(goalTargetTextFieldEdit.text ?? "0") ?? 0.0
-        updateGoal.deadline = datePicker.date
+//        resetForm()
+    }
+    
+    func updateGoal(item: Goals)
+    {
+        item.name = goalNameTextFieldEdit.text
+        item.add_notes = goalNotesTextViewEdit.text
+        item.breakdown = goalBreakdownTextFieldEdit.text
+        item.target = Double(goalTargetTextFieldEdit.text ?? "0") ?? 0.0
+        item.deadline = datePicker.date
         
         do{
+            
             try context.save()
             
             self.navigationController?.popViewController(animated: true)
@@ -240,8 +259,6 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         {
             
         }
-        
-        resetForm()
     }
     
     
@@ -302,4 +319,23 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
     }
+    
+//    func fetchEditedGoal()
+//    {
+//
+//        let fetchRequest: NSFetchRequest<Goals> = Goals.fetchRequest()
+//        let predicate = NSPredicate(format: "name CONTAINS \(goalName)")
+//
+//        fetchRequest.predicate = predicate
+//
+//        do
+//        {
+//            goalTarget = try context.fetch(fetchRequest)
+//        }
+//
+//        catch
+//        {
+//
+//        }
+//    }
 }

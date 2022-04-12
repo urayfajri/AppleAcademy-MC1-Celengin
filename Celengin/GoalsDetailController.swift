@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class GoalsDetailController: UIViewController, UINavigationBarDelegate {
    
@@ -18,13 +19,10 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     @IBOutlet weak var notes: UILabel!
     @IBOutlet weak var savingProgress: UILabel!
     
-    
-    var str_totalTarget: String = ""
-    var str_deadline: String = ""
-    var str_name: String = ""
-    var str_notes: String = ""
-    var str_progress: String = ""
-    var progress: Float = 0
+    var goal: Goals?
+
+    var progress: Double = 0
+    var goalTarget : Double = 0
     
     @IBOutlet weak var transactionRecordButton: UIButton!
     
@@ -35,14 +33,44 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(tapEdit))
         navigationItem.rightBarButtonItems = [trashButton, editButton]
         
-        goalsName.text = str_name
-        totalTarget.text = str_totalTarget
+        goalsName.text = goal?.name
+        goalTarget = goal?.target ?? 0.0
+        totalTarget.text = "Rp. \(goalTarget)"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM, YY"
+        let str_deadline = dateFormatter.string(from: (goal?.deadline!)!)
         deadline.text = str_deadline
-        notes.text = str_notes
-        savingProgress.text = str_progress
-        overallProgress.progress = progress
+        notes.text = goal?.add_notes
+        
+        let goalProgress = Float(Float(goal?.progress ?? 0.0)/Float(goal?.target ?? 0.0))
+        
+        progress = goal?.progress ?? 0.0
+        
+        savingProgress.text = "Anda telah menabung Rp. \(progress) dari total Rp. \(goalTarget)"
+        overallProgress.progress = goalProgress
         
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        goalsName.text = goal?.name
+        goalTarget = goal?.target ?? 0.0
+        totalTarget.text = "Rp. \(goalTarget)"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM, YY"
+        let str_deadline = dateFormatter.string(from: (goal?.deadline!)!)
+        deadline.text = str_deadline
+        notes.text = goal?.add_notes
+        
+        let goalProgress = Float(Float(goal?.progress ?? 0.0)/Float(goal?.target ?? 0.0))
+        
+        progress = goal?.progress ?? 0.0
+        
+        savingProgress.text = "Anda telah menabung Rp. \(progress) dari total Rp. \(goalTarget)"
+        overallProgress.progress = goalProgress
+    }
+    
     @objc func tapTrash(){
 //        let vc = UIViewController()
 //        navigationController?.pushViewController(vc, animated: true)
@@ -60,13 +88,13 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     @objc func tapEdit(){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "edit_goal") as! EditGoalsController
         navigationController?.pushViewController(vc, animated: true)
-        vc.title = "Edit Goals"
+//        vc.title = "Edit Goals"
+        vc.goal = goal
     }
     
     @IBAction func didPressRecord()
     {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "record_sb") as! TransactionRecordController
-        vc.goalName = str_name
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

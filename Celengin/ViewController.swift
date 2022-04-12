@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var goalTable: UITableView!
     @IBOutlet weak var searchView: UISearchBar!
     private var datas = [Goals]()
+    var testID: Int = 0
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -24,7 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapAdd))
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
         
-        // dummyData()
+//        dummyData()
         getAllItems()
         goalTable.rowHeight = UITableView.automaticDimension
         goalTable.estimatedRowHeight = 600
@@ -111,19 +112,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.deselectRow(at: indexPath, animated: true)
         let currData = datas[indexPath.row]
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "goal_detail") as! GoalsDetailController
-        vc.str_name = currData.name!
-        vc.str_totalTarget = "Rp. \(currData.target)"
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM, YY"
-        let str_deadline = dateFormatter.string(from: currData.deadline!)
-        vc.str_deadline = "\(str_deadline)"
-        vc.str_notes = currData.add_notes!
-
-        let progress = Float(Float(currData.progress) / Float(currData.target))
-
-        vc.progress = progress
-        vc.str_progress = "Anda telah menabung Rp. \(currData.progress) dari total Rp. \(currData.target)"
+        vc.goal = datas[indexPath.row]
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -152,7 +142,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         goals3.progress = 5000000
         goals3.status = true
         goals3.add_notes = "Semangat"
-        
+    
         var dateComp = DateComponents()
         dateComp.year = 2022
         dateComp.month = 9
