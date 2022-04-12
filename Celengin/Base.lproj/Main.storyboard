@@ -1468,7 +1468,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
-                                                                    <action selector="goalNameChanged:" destination="kBN-HL-Kh5" eventType="editingChanged" id="lnP-tW-7Ku"/>
+                                                                    <action selector="goalNameChanged:" destination="7F5-Ut-D1J" eventType="editingChanged" id="L7I-xu-93M"/>
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="validate Goal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myI-U1-AIU">
@@ -1493,7 +1493,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
-                                                                    <action selector="goalTargetChanged:" destination="kBN-HL-Kh5" eventType="editingChanged" id="Ked-xG-rjr"/>
+                                                                    <action selector="goalTargetChanged:" destination="7F5-Ut-D1J" eventType="editingChanged" id="X7O-Zg-aYc"/>
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="validate Goal Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIY-ev-FXX">
@@ -1518,7 +1518,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
-                                                                    <action selector="goalDeadlineChanged:" destination="kBN-HL-Kh5" eventType="editingChanged" id="MRQ-Br-nGK"/>
+                                                                    <action selector="goalDeadlineChanged:" destination="7F5-Ut-D1J" eventType="editingChanged" id="9cD-Z6-W1m"/>
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="validate Goal Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hob-bY-CHg">
@@ -1543,7 +1543,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
-                                                                    <action selector="goalBreakdownChanged:" destination="kBN-HL-Kh5" eventType="editingChanged" id="cJA-Xo-xlv"/>
+                                                                    <action selector="goalBreakdownChanged:" destination="7F5-Ut-D1J" eventType="editingChanged" id="aZk-il-klh"/>
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate Goal Breakdwon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-nX-NyM">
@@ -1582,6 +1582,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Submit Goal"/>
                                                 <connections>
+                                                    <action selector="submitGoalTapped:" destination="7F5-Ut-D1J" eventType="touchUpInside" id="Inv-TY-Zfw"/>
                                                     <action selector="submitGoalTapped:" destination="kBN-HL-Kh5" eventType="touchUpInside" id="VU9-fz-EwU"/>
                                                 </connections>
                                             </button>
