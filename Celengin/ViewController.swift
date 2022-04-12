@@ -70,10 +70,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
         let pinActionTitle = goals.status ? "Unpin" : "Pin"
         
-        let pinAction = UITableViewRowAction(style: .normal, title: pinActionTitle) { _ , indexPath in
+        let pinAction = UITableViewRowAction(style: .normal, title: pinActionTitle) { [self]_ , indexPath in
             self.datas[indexPath.row].status.toggle()
             let cell = (self.goalTable.cellForRow(at: indexPath) as? goalCell)!
             cell.pin.isHidden = self.datas[indexPath.row].status ? false: true
+            do
+            {
+                try context.save()
+            }
+            catch
+            {
+                
+            }
             self.getAllItems()
         }
         

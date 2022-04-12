@@ -25,6 +25,19 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
     var segmentIndex: Int = 1
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var totalProgress: Double = 0
+    var totalTarget: Double = 0
+    
+    var alltransactions = [Transaction]()
+    var goalRespectiveTransactions = [Transaction]()
+    var goalDate: Int = 3
+    var goalMonth: Int = 3
+    var goalYear: Int = 2022
+    
+    let currentDate = Date()
+    let calendar = Calendar.current
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +68,6 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         Overview = []
         fetchOverview()
         barChart.frame = CGRect(x: 0, y: 200, width: self.view.frame.size.width, height: self.view.frame.size.width)
-        barChart.center = view.center
         
         for x in 0..<Overview.count
         {
@@ -71,129 +83,17 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl)
     {
-        segmentIndex = sender.selectedSegmentIndex
-    }
-    
-    func fetchOverview()
-    {
-        var totalProgress: Double = 0
-        var totalTarget: Double = 0
-        
-        var alltransactions = [Transaction]()
-        var goalRespectiveTransactions = [Transaction]()
-        var goalDate: Int = 3
-        var goalMonth: Int = 3
-        var goalYear: Int = 2022
-        
-        let currentDate = Date()
-        let calendar = Calendar.current
         let components = calendar.dateComponents([.day,.month, .year], from: currentDate)
         let currDate = components.day
         let currMonth = components.month
         let currYear = components.year
+        segmentIndex = sender.selectedSegmentIndex
         
-        
-        do
-        {
-            alltransactions  = try context.fetch(Transaction.fetchRequest())
-        }
-        
-        catch
-        {
-            
-        }
-        
-        if goalTextField.text == "All Goals"
-        {
-            
-            goalRespectiveTransactions.removeAll()
-            
-            goalRespectiveTransactions.append(contentsOf: alltransactions)
-            
-            for x in 0..<goalRespectiveTransactions.count
-            {
-                let goalComps = calendar.dateComponents([.day, .month, .year], from: (goalRespectiveTransactions[x].goals?.createdAt)!)
-                
-                if goalDate > goalComps.day!
-                {
-                    goalDate = goalComps.day!
-                }
-                
-                if goalMonth > goalComps.month!
-                {
-                    goalMonth = goalComps.month!
-                }
-                
-                if goalYear > goalComps.year!
-                {
-                    goalYear = goalComps.year!
-                }
-            }
-            
-            for x in 0..<goals.count
-            {
-                totalTarget += goals[x].target ?? 0.0
-            }
-            
-            for y in 0..<goalRespectiveTransactions.count
-            {
-                if goalRespectiveTransactions[y].type == "Income"
-                {
-                    totalProgress += goalRespectiveTransactions[y].amount
-                }
-                
-                else
-                {
-                    totalProgress -= goalRespectiveTransactions[y].amount
-                }
-               
-            }
-            
-            overallOverview.text = "Saved Rp. \(totalProgress) from Rp. \(totalTarget)"
-        }
-        
-        else
-        {
-            
-            goalRespectiveTransactions.removeAll()
-            
-            for x in 0..<alltransactions.count
-            {
-                if alltransactions[x].goals!.name == goalTextField.text
-                {
-                    goalRespectiveTransactions.append(alltransactions[x])
-                }
-            }
-            
-            if(!goalRespectiveTransactions.isEmpty)
-            {
-                
-                let goalComps = calendar.dateComponents([.day, .month, .year], from: (goalRespectiveTransactions[0].goals?.createdAt)!)
-                
-                goalDate = goalComps.day!
-                goalMonth = goalComps.month!
-                goalYear = goalComps.year!
-                totalTarget = goalRespectiveTransactions[0].goals!.target ?? 0.0
-                totalProgress = goalRespectiveTransactions[0].goals!.progress ?? 0.0
-                
-                overallOverview.text = "Saved Rp. \(totalProgress) from Rp. \(totalTarget)"
-                
-            }
-            
-            else
-            {
-                overallOverview.text = " "
-            }
-            
-            
-        }
-        
-       
-        
-        if segmentIndex == 0
+        if sender.selectedSegmentIndex == 0
         {
             Overview.removeAll()
             overviewTexts.removeAll()
+            detailOverview.text = ""
             
             var d_start = goalDate
             var d_end = goalDate + 6
@@ -222,7 +122,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 }
                 
                 Overview.append(money)
-                overviewTexts.append("Minggu \(d_count): Rp. \(money)")
+                overviewTexts.append("Minggu \(d_count): Rp. \(money)\n")
                 d_start += 7
                 d_end += 7
                 d_count += 1
@@ -235,10 +135,12 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             }
         }
         
-        else if segmentIndex == 1
+        else if sender.selectedSegmentIndex == 1
         {
+            
             Overview.removeAll()
             overviewTexts.removeAll()
+            detailOverview.text = " "
             
                 var m_count = goalMonth
                 
@@ -271,7 +173,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                         }
                         
                         Overview.append(money)
-                        overviewTexts.append("Bulan \(m_count): Rp. \(money)")
+                        overviewTexts.append("Bulan \(m_count): Rp. \(money)\n")
                         m_count += 1
                     }
                     
@@ -314,7 +216,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                             }
                             
                             Overview.append(money)
-                            overviewTexts.append("Bulan \(m_count): Rp. \(money)")
+                            overviewTexts.append("Bulan \(m_count): Rp. \(money)\n")
                             m_count += 1
                         }
                         
@@ -333,6 +235,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         {
             Overview.removeAll()
             overviewTexts.removeAll()
+            detailOverview.text = " "
             
             var money: Double = 0
             
@@ -343,6 +246,11 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     if goalRespectiveTransactions[x].type == "Income"
                     {
                         money += Double(goalRespectiveTransactions[x].amount)
+                    }
+                    
+                    else
+                    {
+                        money -= Double(goalRespectiveTransactions[x].amount)
                     }
                 }
                 
@@ -374,7 +282,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                        
                     }
                     
-                    overviewTexts.append("Tahun \(y_count): Rp. \(money)")
+                    overviewTexts.append("Tahun \(y_count): Rp. \(money)\n")
                     y_count+=1
                     
                 }
@@ -386,6 +294,294 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             }
             
         }
+    }
+    
+    func fetchOverview()
+    {
+        let components = calendar.dateComponents([.day,.month, .year], from: currentDate)
+        let currDate = components.day
+        let currMonth = components.month
+        let currYear = components.year
+        
+        do
+        {
+            alltransactions  = try context.fetch(Transaction.fetchRequest())
+        }
+        
+        catch
+        {
+            
+        }
+        
+        if goalTextField.text == "All Goals"
+        {
+            
+            goalRespectiveTransactions.removeAll()
+            
+            goalRespectiveTransactions.append(contentsOf: alltransactions)
+            
+            for x in 0..<goalRespectiveTransactions.count
+            {
+                let goalComps = calendar.dateComponents([.day, .month, .year], from: (goalRespectiveTransactions[x].goals?.createdAt)!)
+                
+                if goalDate > goalComps.day!
+                {
+                    goalDate = goalComps.day!
+                }
+                
+                if goalMonth > goalComps.month!
+                {
+                    goalMonth = goalComps.month!
+                }
+                
+                if goalYear > goalComps.year!
+                {
+                    goalYear = goalComps.year!
+                }
+            }
+            
+            for x in 0..<goals.count
+            {
+                totalTarget += goals[x].target 
+            }
+            
+            for y in 0..<goalRespectiveTransactions.count
+            {
+                if goalRespectiveTransactions[y].type == "Income"
+                {
+                    totalProgress += goalRespectiveTransactions[y].amount
+                }
+                
+                else
+                {
+                    totalProgress -= goalRespectiveTransactions[y].amount
+                }
+               
+            }
+            
+            overallOverview.text = "Saved Rp. \(totalProgress) from Rp. \(totalTarget)"
+        }
+        
+        else
+        {
+            
+            goalRespectiveTransactions.removeAll()
+            
+            for x in 0..<alltransactions.count
+            {
+                if alltransactions[x].goals!.name == goalTextField.text
+                {
+                    goalRespectiveTransactions.append(alltransactions[x])
+                }
+            }
+            
+            if(!goalRespectiveTransactions.isEmpty)
+            {
+                
+                let goalComps = calendar.dateComponents([.day, .month, .year], from: (goalRespectiveTransactions[0].goals?.createdAt)!)
+                
+                goalDate = goalComps.day!
+                goalMonth = goalComps.month!
+                goalYear = goalComps.year!
+                totalTarget = goalRespectiveTransactions[0].goals!.target
+                totalProgress = goalRespectiveTransactions[0].goals!.progress 
+                
+                overallOverview.text = "Saved Rp. \(totalProgress) from Rp. \(totalTarget)"
+                
+            }
+            
+            else
+            {
+                overallOverview.text = " "
+            }
+            
+            
+        }
+        
+        if segmentIndex == 0
+        {
+            Overview.removeAll()
+            overviewTexts.removeAll()
+            detailOverview.text = ""
+            
+            var d_start = goalDate
+            var d_end = goalDate + 6
+            var d_count = 1
+            
+            while d_start <= currDate! && d_end <= currDate! 
+            {
+                var money: Double = 0
+                
+                for x in 0..<goalRespectiveTransactions.count
+                {
+                    let comps =  calendar.dateComponents([.day], from: goalRespectiveTransactions[x].date!)
+                    
+                    if comps.day! >= d_start || comps.day! <= d_end
+                    {
+                        if goalRespectiveTransactions[x].type == "Income"
+                        {
+                            money += Double(goalRespectiveTransactions[x].amount)
+                        }
+                        
+                        else
+                        {
+                            money -= Double(goalRespectiveTransactions[x].amount)
+                        }
+                    }
+                }
+                
+                Overview.append(money)
+                d_start += 7
+                d_end += 7
+                
+            }
+        }
+        
+        else if segmentIndex == 1
+        {
+            
+            Overview.removeAll()
+            overviewTexts.removeAll()
+            detailOverview.text = " "
+            
+                var m_count = goalMonth
+                
+                
+                if currYear! == goalYear
+                {
+                    while m_count <= currMonth!
+                    {
+                        var money: Double = 0
+                        
+                        for y in 0..<goalRespectiveTransactions.count
+                        {
+                            let comps = calendar.dateComponents([.month], from: goalRespectiveTransactions[y].date!)
+                            
+                            if comps.month == m_count
+                            {
+                                if goalRespectiveTransactions[y].type == "Income"
+                                {
+                                    money += Double(goalRespectiveTransactions[y].amount)
+                                }
+                                
+                                else
+                                {
+                                    money -= Double(goalRespectiveTransactions[y].amount)
+                                }
+                               
+                            }
+                            
+                            
+                        }
+                        
+                        Overview.append(money)
+                        m_count += 1
+                    }
+                
+                
+                }
+                
+                else
+                {
+                    var y_count = goalYear
+                    
+                    while y_count <= currYear!
+                    {
+                        while m_count <= currMonth!
+                        {
+                            
+                            var money: Double = 0
+                            
+                            for y in 0..<goalRespectiveTransactions.count
+                            {
+                                let comps = calendar.dateComponents([.month], from: goalRespectiveTransactions[y].date!)
+                                
+                                if comps.month == m_count
+                                {
+                                    if goalRespectiveTransactions[y].type == "Income"
+                                    {
+                                        money += Double(goalRespectiveTransactions[y].amount)
+                                    }
+                                    
+                                    else
+                                    {
+                                        money -= Double(goalRespectiveTransactions[y].amount)
+                                    }
+                                   
+                                }
+                                
+                            }
+                            
+                            Overview.append(money)
+                            m_count += 1
+                        }
+                        
+                        y_count += 1
+                    }
+                
+                }
+                
+        }
+        
+        else
+        {
+            Overview.removeAll()
+            overviewTexts.removeAll()
+            detailOverview.text = " "
+            
+            var money: Double = 0
+            
+            if currYear! == goalYear
+            {
+                for x in 0..<goalRespectiveTransactions.count
+                {
+                    if goalRespectiveTransactions[x].type == "Income"
+                    {
+                        money += Double(goalRespectiveTransactions[x].amount)
+                    }
+                    else
+                    {
+                        money -= Double(goalRespectiveTransactions[x].amount)
+                    }
+                }
+                
+                overviewTexts.append("Tahun 1: Rp. \(money)")
+                Overview.append(money)
+            }
+            
+            else
+            {
+                var y_count = goalYear
+                
+                while y_count<=currYear!
+                {
+                    for x in 0..<goalRespectiveTransactions.count
+                    {
+                        let comps = calendar.dateComponents([.year], from: goalRespectiveTransactions[x].date!)
+                        
+                        if comps.year == y_count
+                        {
+                            if goalRespectiveTransactions[x].type == "Income"
+                            {
+                                money += Double(goalRespectiveTransactions[x].amount)
+                            }
+                            else
+                            {
+                                money -= Double(goalRespectiveTransactions[x].amount)
+                            }
+                        }
+                       
+                    }
+                    
+                    Overview.append(money)
+                    y_count+=1
+                    
+                }
+            }
+            
+        }
+        
+       
         
     }
     
