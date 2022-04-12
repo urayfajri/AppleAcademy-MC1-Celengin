@@ -12,6 +12,8 @@ import CoreData
 class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
    
     @IBOutlet weak var goalTextField: UITextField!
+    @IBOutlet weak var overallOverview: UILabel!
+    @IBOutlet weak var detailOverview: UILabel!
     
     var barChart = BarChartView()
     var goals = [Goals]()
@@ -19,6 +21,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
     var entries = [BarChartDataEntry]()
     var Overview = [Double]()
     var pickerView = UIPickerView()
+    var overviewTexts = [String]()
     var segmentIndex: Int = 1
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -26,8 +29,8 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         goalTextField.inputView = pickerView
-        
         fetchGoals()
+        
         
         let count = goals.count
         
@@ -73,6 +76,9 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
     
     func fetchOverview()
     {
+        var totalProgress: Int64 = 0
+        var totalTarget: Int64 = 0
+        
         var alltransactions = [Transaction]()
         var goalRespectiveTransactions = [Transaction]()
         var goalDate: Int = 3
@@ -122,6 +128,27 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     goalYear = goalComps.year!
                 }
             }
+            
+            for x in 0..<goals.count
+            {
+                totalTarget += goals[x].target
+            }
+            
+            for y in 0..<goalRespectiveTransactions.count
+            {
+                if goalRespectiveTransactions[y].type == "Income"
+                {
+                    totalProgress += goalRespectiveTransactions[y].amount
+                }
+                
+                else
+                {
+                    totalProgress -= goalRespectiveTransactions[y].amount
+                }
+               
+            }
+            
+            overallOverview.text = "Saved Rp. \(totalProgress) from Rp. \(totalTarget)"
         }
         
         else
@@ -145,7 +172,16 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 goalDate = goalComps.day!
                 goalMonth = goalComps.month!
                 goalYear = goalComps.year!
+                totalTarget = goalRespectiveTransactions[0].goals!.target
+                totalProgress = goalRespectiveTransactions[0].goals!.progress
                 
+                overallOverview.text = "Saved Rp. \(totalProgress) from Rp. \(totalTarget)"
+                
+            }
+            
+            else
+            {
+                overallOverview.text = " "
             }
             
             
@@ -156,9 +192,11 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         if segmentIndex == 0
         {
             Overview.removeAll()
+            overviewTexts.removeAll()
             
             var d_start = goalDate
             var d_end = goalDate + 6
+            var d_count = 1
             
             while d_start <= currDate! && d_end <= currDate!
             {
@@ -182,14 +220,24 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     }
                 }
                 
+                Overview.append(money)
+                overviewTexts.append("Minggu \(d_count): Rp. \(money)")
                 d_start += 7
                 d_end += 7
+                d_count += 1
+                
+            }
+            
+            for x in 0..<overviewTexts.count
+            {
+                detailOverview.text?.append("\(overviewTexts[x])" )
             }
         }
         
         else if segmentIndex == 1
         {
             Overview.removeAll()
+            overviewTexts.removeAll()
             
                 var m_count = goalMonth
                 
@@ -222,8 +270,13 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                         }
                         
                         Overview.append(money)
-                       
+                        overviewTexts.append("Bulan \(m_count): Rp. \(money)")
                         m_count += 1
+                    }
+                    
+                    for x in 0..<overviewTexts.count
+                    {
+                        detailOverview.text?.append("\(overviewTexts[x])" )
                     }
                 
                 }
@@ -260,10 +313,16 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                             }
                             
                             Overview.append(money)
+                            overviewTexts.append("Bulan \(m_count): Rp. \(money)")
                             m_count += 1
                         }
                         
                         y_count += 1
+                    }
+                    
+                    for x in 0..<overviewTexts.count
+                    {
+                        detailOverview.text?.append("\(overviewTexts[x])" )
                     }
                 }
                 
@@ -272,6 +331,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         else
         {
             Overview.removeAll()
+            overviewTexts.removeAll()
             
             var money: Double = 0
             
@@ -285,6 +345,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     }
                 }
                 
+                overviewTexts.append("Tahun 1: Rp. \(money)")
                 Overview.append(money)
             }
             
@@ -312,11 +373,23 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                        
                     }
                     
+                    overviewTexts.append("Tahun \(y_count): Rp. \(money)")
                     y_count+=1
                     
                 }
             }
+            
+            for x in 0..<overviewTexts.count
+            {
+                detailOverview.text?.append("\(overviewTexts[x])" )
+            }
+            
         }
+        
+    }
+    
+    func setSummary()
+    {
         
     }
     
