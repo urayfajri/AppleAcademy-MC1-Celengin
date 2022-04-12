@@ -10,8 +10,6 @@ import Charts
 
 class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
    
-    
-    @IBOutlet weak var showButton: UIButton!
     @IBOutlet weak var goalTextField: UITextField!
     
     var barChart = BarChartView()
@@ -25,6 +23,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         goalTextField.inputView = pickerView
+        
         fetchGoals()
         
         let count = goals.count
@@ -36,10 +35,12 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             pickerTitle.append(goals[x].name!)
         }
         
+        goalTextField.text = pickerTitle[0]
+        goalTextField.textAlignment = .center
+        
         barChart.delegate = self
         pickerView.delegate = self
         pickerView.dataSource = self
-        showButton.backgroundColor = .darkGray
         // Do any additional setup after loading the view.
     }
     
@@ -102,5 +103,12 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerTitle[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        goalTextField.text = pickerTitle[row]
+        goalTextField.resignFirstResponder()
+    }
+    
+    
     
 }
