@@ -43,7 +43,7 @@ class Utilities {
 
         // Filled rounded corner style
         button.layer.cornerRadius = 25.0
-        button.tintColor = UIColor.blue
+        button.tintColor = UIColor.systemYellow
     }
     
     

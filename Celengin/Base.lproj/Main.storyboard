@@ -625,6 +625,9 @@
                                                                         <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <connections>
+                                                                            <action selector="transactionDateTapped:" destination="NSW-Ai-QN9" eventType="editingChanged" id="ByM-ez-Z47"/>
+                                                                        </connections>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgi-OW-zqA">
                                                                         <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
@@ -647,6 +650,9 @@
                                                                         <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <connections>
+                                                                            <action selector="transactionResourceTapped:" destination="NSW-Ai-QN9" eventType="editingChanged" id="0hd-mN-Dob"/>
+                                                                        </connections>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validate transaction resource" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ox-gS-9DV">
                                                                         <rect key="frame" x="0.0" y="67" width="350" height="13.333333333333329"/>
@@ -718,10 +724,17 @@
                     <connections>
                         <outlet property="saveEditsButton" destination="4Sc-75-Wqn" id="6Tn-rI-7kw"/>
                         <outlet property="transactionAmountTextField" destination="Ja0-ED-9yH" id="UY3-gE-mZz"/>
+                        <outlet property="transactionDateTextField" destination="bw8-cR-GhU" id="hnM-PI-tGx"/>
                         <outlet property="transactionNameTextField" destination="eEk-7Z-5Vb" id="hOk-hP-IKJ"/>
+                        <outlet property="transactionNotesTextView" destination="bEY-5u-Hsp" id="huG-Nm-UNl"/>
+                        <outlet property="transactionResourceLabel" destination="KTO-EB-GgE" id="jBG-YJ-1O6"/>
+                        <outlet property="transactionResourceTextField" destination="217-tP-dcl" id="eWi-ft-mcZ"/>
                         <outlet property="transactionTypeLabel" destination="qm8-0X-7vg" id="iFF-lo-Znv"/>
+                        <outlet property="transactionTypeTitle" destination="qm8-0X-7vg" id="KgM-NT-zPq"/>
                         <outlet property="validateTransactionAmount" destination="mt5-3p-yOu" id="BdM-hP-wnV"/>
+                        <outlet property="validateTransactionDate" destination="vgi-OW-zqA" id="L8I-SJ-Tzl"/>
                         <outlet property="validateTransactionName" destination="IST-8Z-9kt" id="bNg-6b-Wwk"/>
+                        <outlet property="validateTransactionResource" destination="5ox-gS-9DV" id="dvf-7W-pig"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1En-po-Wi4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -858,7 +871,7 @@
                                 <rect key="frame" x="20" y="88" width="350" height="702"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="7H4-e0-5bK">
-                                        <rect key="frame" x="0.0" y="20" width="350" height="712.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="20" width="350" height="731.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-qg-auO">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="631.33333333333337"/>
@@ -987,7 +1000,10 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLf-Gc-8Bd">
-                                                <rect key="frame" x="0.0" y="681.33333333333337" width="350" height="31"/>
+                                                <rect key="frame" x="0.0" y="681.33333333333337" width="350" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="sRq-Qe-XzM"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Save Income"/>
                                                 <connections>
@@ -1047,7 +1063,7 @@
                                 <rect key="frame" x="20" y="88" width="350" height="702"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="qNv-VZ-wLH">
-                                        <rect key="frame" x="0.0" y="20" width="350" height="712.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="20" width="350" height="731.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="axM-tA-V0m">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="631.33333333333337"/>
@@ -1176,7 +1192,10 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxA-tM-bhR">
-                                                <rect key="frame" x="0.0" y="681.33333333333337" width="350" height="31"/>
+                                                <rect key="frame" x="0.0" y="681.33333333333337" width="350" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="aqF-8V-goK"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Save Expense"/>
                                                 <connections>
@@ -1236,7 +1255,7 @@
                                 <rect key="frame" x="20" y="88" width="350" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Dto-QQ-csc">
-                                        <rect key="frame" x="0.0" y="20" width="350" height="712.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="20" width="350" height="731.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rMb-Ew-tiC">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="631.33333333333337"/>
@@ -1365,7 +1384,10 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzB-ip-UaP">
-                                                <rect key="frame" x="0.0" y="681.33333333333337" width="350" height="31"/>
+                                                <rect key="frame" x="0.0" y="681.33333333333337" width="350" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="U9o-6T-KiN"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Submit Goal"/>
                                                 <connections>
