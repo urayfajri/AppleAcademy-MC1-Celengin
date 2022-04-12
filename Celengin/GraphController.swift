@@ -92,6 +92,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         let currMonth = components.month
         let currYear = components.year
         
+        
         do
         {
             alltransactions  = try context.fetch(Transaction.fetchRequest())
