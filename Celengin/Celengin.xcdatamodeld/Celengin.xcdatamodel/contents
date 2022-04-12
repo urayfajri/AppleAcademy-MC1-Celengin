@@ -3,6 +3,7 @@
     <entity name="Goals" representedClassName=".Goals" syncable="YES">
         <attribute name="add_notes" optional="YES" attributeType="String"/>
         <attribute name="breakdown" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="deadline" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="progress" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -20,7 +21,7 @@
         <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goals" inverseName="transaction" inverseEntity="Goals"/>
     </entity>
     <elements>
-        <element name="Goals" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="Goals" positionX="-63" positionY="-18" width="128" height="164"/>
         <element name="Transaction" positionX="-54" positionY="63" width="128" height="134"/>
     </elements>
 </model>
