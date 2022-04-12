@@ -118,16 +118,6 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             cell.transactionName.setTitle(incomes[indexPath.row].name, for: .normal)
             cell.money.text = "Rp. \(incomes[indexPath.row].amount)"
             
-            var dateIncome = DateComponents()
-            dateIncome.year = 2022
-            dateIncome.month = 2
-            dateIncome.day = 20
-            dateIncome.timeZone = TimeZone(abbreviation: "GMT")
-            dateIncome.hour = 12
-            dateIncome.minute = 34
-            
-            let userCalendar = Calendar(identifier: .gregorian)
-            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "d MMMM YYYY"
             let str_deadline = dateFormatter.string(from: (incomes[indexPath.row].date!))
