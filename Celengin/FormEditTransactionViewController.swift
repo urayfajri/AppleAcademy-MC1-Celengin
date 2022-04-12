@@ -53,6 +53,13 @@ class FormEditTransactionViewController: UIViewController {
         Utilities.styleTextView(transactionNotesTextView)
         Utilities.styleFilledButton(saveEditsButton)
         
+        transactionNameTextField.text = transaction?.name
+        
+        let amountMoney = "\(transaction?.amount ?? 0)"
+        transactionAmountTextField.text = amountMoney
+        transactionResourceTextField.text = transaction?.resources
+        transactionNotesTextView.text = transaction?.notes
+        
         setUpDatePicker()
     }
     
@@ -114,6 +121,7 @@ class FormEditTransactionViewController: UIViewController {
         datePicker = UIDatePicker.init(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200))
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(self.dateChanged), for: .allEvents)
+        datePicker.date = (transaction?.date)!
 
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = .wheels

@@ -24,6 +24,8 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     var progress: Double = 0
     var goalTarget : Double = 0
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBOutlet weak var transactionRecordButton: UIButton!
     
     override func viewDidLoad() {
@@ -78,8 +80,9 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
         alertControl.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
             alertControl.dismiss(animated: true, completion: nil)
         }))
-        alertControl.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
-            alertControl.dismiss(animated: true, completion: nil)
+        alertControl.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [self]_ in
+            self.deleteItem(item: goal!)
+            self.navigationController?.popViewController(animated: true)
         }))
         
         self.present(alertControl, animated: true)
@@ -99,16 +102,19 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func deleteItem(item: Goals)
+    {
+        context.delete(item)
+        
+        do
+        {
+            try context.save()
+        }
+        catch
+        {
+            
+        }
     }
-    */
 
     @IBAction func buttonAddIncome(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "addIncomeForm") as! FormAddIncomeViewController

@@ -166,6 +166,8 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             }))
             
             sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {[weak self]_ in
+                
+                item.goals?.progress -= item.amount
                 self?.deleteTransaction(item: item)
                 collectionView.reloadData()
             }))
@@ -185,6 +187,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
             }))
             
             sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {[weak self]_ in
+                item.goals?.progress += item.amount
                 self?.deleteTransaction(item: item)
                 collectionView.reloadData()
             }))
