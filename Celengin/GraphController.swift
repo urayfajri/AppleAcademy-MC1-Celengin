@@ -77,7 +77,6 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         let set = BarChartDataSet(entries: entries)
         let data = BarChartData(dataSet: set)
         barChart.data = data
-        
         view.addSubview(barChart)
     }
     
@@ -98,41 +97,52 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             var d_start = goalDate
             var d_end = goalDate + 6
             var d_count = 1
+            var m_count = goalMonth
             
-            while d_start <= currDate! && d_end <= currDate!
+            while m_count <= currMonth!
             {
-                var money: Double = 0
-                
-                for x in 0..<goalRespectiveTransactions.count
+                while d_start <= 30 && d_end <= 30
                 {
-                    let comps =  calendar.dateComponents([.day], from: goalRespectiveTransactions[x].date!)
+                    var money: Double = 0
                     
-                    if comps.day! >= d_start || comps.day! <= d_end
+                    for x in 0..<goalRespectiveTransactions.count
                     {
-                        if goalRespectiveTransactions[x].type == "Income"
-                        {
-                            money += Double(goalRespectiveTransactions[x].amount)
-                        }
+                        let comps =  calendar.dateComponents([.day, .month], from: goalRespectiveTransactions[x].date!)
                         
-                        else
+                        if comps.day! >= d_start && comps.day! <= d_end && comps.month == m_count
                         {
-                            money -= Double(goalRespectiveTransactions[x].amount)
+                            if goalRespectiveTransactions[x].type == "Income"
+                            {
+                                money += Double(goalRespectiveTransactions[x].amount)
+                            }
+                            
+                            else
+                            {
+                                money -= Double(goalRespectiveTransactions[x].amount)
+                            }
                         }
                     }
+                    
+                    Overview.append(money)
+                    overviewTexts.append("Minggu \(d_count): Rp. \(money)\n")
+                    d_start += 7
+                    d_end += 7
+                    d_count += 1
+                    
                 }
                 
-                Overview.append(money)
-                overviewTexts.append("Minggu \(d_count): Rp. \(money)\n")
-                d_start += 7
-                d_end += 7
-                d_count += 1
-                
+                m_count += 1
+                d_start = 1
+                d_end = 7
             }
+            
             
             for x in 0..<overviewTexts.count
             {
                 detailOverview.text?.append("\(overviewTexts[x])" )
             }
+            
+            barChart.notifyDataSetChanged()
         }
         
         else if sender.selectedSegmentIndex == 1
@@ -229,6 +239,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     }
                 }
                 
+            barChart.notifyDataSetChanged()
         }
         
         else
@@ -293,11 +304,15 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 detailOverview.text?.append("\(overviewTexts[x])" )
             }
             
+            barChart.notifyDataSetChanged()
+            
         }
     }
     
     func fetchOverview()
     {
+        totalTarget = 0
+        totalProgress = 0
         let components = calendar.dateComponents([.day,.month, .year], from: currentDate)
         let currDate = components.day
         let currMonth = components.month
@@ -406,35 +421,43 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             
             var d_start = goalDate
             var d_end = goalDate + 6
-            var d_count = 1
+            var m_count = goalMonth
             
-            while d_start <= currDate! && d_end <= currDate! 
+            while m_count <= currMonth!
             {
-                var money: Double = 0
-                
-                for x in 0..<goalRespectiveTransactions.count
+                while d_start <= 30 && d_end <= 30
                 {
-                    let comps =  calendar.dateComponents([.day], from: goalRespectiveTransactions[x].date!)
+                    var money: Double = 0
                     
-                    if comps.day! >= d_start || comps.day! <= d_end
+                    for x in 0..<goalRespectiveTransactions.count
                     {
-                        if goalRespectiveTransactions[x].type == "Income"
-                        {
-                            money += Double(goalRespectiveTransactions[x].amount)
-                        }
+                        let comps =  calendar.dateComponents([.day, .month], from: goalRespectiveTransactions[x].date!)
                         
-                        else
+                        if comps.day! >= d_start && comps.day! <= d_end && comps.month == m_count
                         {
-                            money -= Double(goalRespectiveTransactions[x].amount)
+                            if goalRespectiveTransactions[x].type == "Income"
+                            {
+                                money += Double(goalRespectiveTransactions[x].amount)
+                            }
+                            
+                            else
+                            {
+                                money -= Double(goalRespectiveTransactions[x].amount)
+                            }
                         }
                     }
+                    
+                    Overview.append(money)
+                    d_start += 7
+                    d_end += 7
+                    
                 }
                 
-                Overview.append(money)
-                d_start += 7
-                d_end += 7
-                
+                m_count += 1
+                d_start = 1
+                d_end = 7
             }
+            barChart.notifyDataSetChanged()
         }
         
         else if segmentIndex == 1
@@ -477,7 +500,8 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                         Overview.append(money)
                         m_count += 1
                     }
-                
+                    
+                    barChart.notifyDataSetChanged()
                 
                 }
                 
@@ -518,6 +542,8 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                         
                         y_count += 1
                     }
+                    
+                    barChart.notifyDataSetChanged()
                 
                 }
                 
@@ -547,6 +573,8 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 
                 overviewTexts.append("Tahun 1: Rp. \(money)")
                 Overview.append(money)
+                
+                barChart.notifyDataSetChanged()
             }
             
             else
@@ -575,6 +603,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     
                     Overview.append(money)
                     y_count+=1
+                    barChart.notifyDataSetChanged()
                     
                 }
             }
@@ -620,6 +649,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         goalTextField.text = pickerTitle[row]
         goalTextField.resignFirstResponder()
         fetchOverview()
+        barChart.notifyDataSetChanged()
     }
     
     
