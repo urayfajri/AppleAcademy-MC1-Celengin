@@ -38,6 +38,7 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // title = goal!.name
         // Do any additional setup after loading the view.
         fetchEditedGoal()
+        self.navigationController?.navigationBar.tintColor = UIColor.brown
         updateForm()
         setUpElements()
     }

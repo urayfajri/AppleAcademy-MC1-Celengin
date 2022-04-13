@@ -74,9 +74,10 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             entries.append(BarChartDataEntry(x: Double(x), y: Overview[x]))
         }
         
-        let set = BarChartDataSet(entries: entries)
+        let set = BarChartDataSet(entries: entries, label: "Tabungan per Bulan")
         let data = BarChartData(dataSet: set)
         barChart.data = data
+        set.colors = [UIColor.brown]
 
         view.addSubview(barChart)
     }
@@ -113,7 +114,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                         
                         if comps.day! >= d_start && comps.day! <= d_end && comps.month == m_count
                         {
-                            if goalRespectiveTransactions[x].type == "Income"
+                            if goalRespectiveTransactions[x].type == "Pemasukan"
                             {
                                 money += Double(goalRespectiveTransactions[x].amount)
                             }
@@ -149,9 +150,10 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 entries.append(BarChartDataEntry(x: Double(x), y: Overview[x]))
             }
             
-            let set = BarChartDataSet(entries: entries)
+            let set = BarChartDataSet(entries: entries, label: "Tabungan per minggu")
             let data = BarChartData(dataSet: set)
             barChart.data = data
+            set.colors = [UIColor.brown]
             barChart.notifyDataSetChanged()
         }
         
@@ -178,7 +180,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                             
                             if comps.month == m_count
                             {
-                                if goalRespectiveTransactions[y].type == "Income"
+                                if goalRespectiveTransactions[y].type == "Pemasukan"
                                 {
                                     money += Double(goalRespectiveTransactions[y].amount)
                                 }
@@ -222,7 +224,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                                 
                                 if comps.month == m_count
                                 {
-                                    if goalRespectiveTransactions[y].type == "Income"
+                                    if goalRespectiveTransactions[y].type == "Pemasukan"
                                     {
                                         money += Double(goalRespectiveTransactions[y].amount)
                                     }
@@ -255,9 +257,10 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 entries.append(BarChartDataEntry(x: Double(x), y: Overview[x]))
             }
             
-            let set = BarChartDataSet(entries: entries)
+            let set = BarChartDataSet(entries: entries, label: "Tabungan per bulan")
             let data = BarChartData(dataSet: set)
             barChart.data = data
+            set.colors = [UIColor.brown]
             barChart.notifyDataSetChanged()
         }
         
@@ -274,7 +277,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             {
                 for x in 0..<goalRespectiveTransactions.count
                 {
-                    if goalRespectiveTransactions[x].type == "Income"
+                    if goalRespectiveTransactions[x].type == "Pemasukan"
                     {
                         money += Double(goalRespectiveTransactions[x].amount)
                     }
@@ -301,7 +304,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                         
                         if comps.year == y_count
                         {
-                            if goalRespectiveTransactions[x].type == "Income"
+                            if goalRespectiveTransactions[x].type == "Pemasukan"
                             {
                                 money += Double(goalRespectiveTransactions[x].amount)
                             }
@@ -329,10 +332,10 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 entries.append(BarChartDataEntry(x: Double(x), y: Overview[x]))
             }
             
-            let set = BarChartDataSet(entries: entries)
+            let set = BarChartDataSet(entries: entries, label: "Tabungan per tahun")
             let data = BarChartData(dataSet: set)
             barChart.data = data
-            
+            set.colors = [UIColor.brown]
             barChart.notifyDataSetChanged()
             
         }
@@ -391,7 +394,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             
             for y in 0..<goalRespectiveTransactions.count
             {
-                if goalRespectiveTransactions[y].type == "Income"
+                if goalRespectiveTransactions[y].type == "Pemasukan"
                 {
                     totalProgress += goalRespectiveTransactions[y].amount
                 }
@@ -464,7 +467,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                         
                         if comps.day! >= d_start && comps.day! <= d_end && comps.month == m_count
                         {
-                            if goalRespectiveTransactions[x].type == "Income"
+                            if goalRespectiveTransactions[x].type == "Pemasukan"
                             {
                                 money += Double(goalRespectiveTransactions[x].amount)
                             }
@@ -511,7 +514,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                             
                             if comps.month == m_count
                             {
-                                if goalRespectiveTransactions[y].type == "Income"
+                                if goalRespectiveTransactions[y].type == "Pemasukan"
                                 {
                                     money += Double(goalRespectiveTransactions[y].amount)
                                 }
@@ -551,7 +554,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                                 
                                 if comps.month == m_count
                                 {
-                                    if goalRespectiveTransactions[y].type == "Income"
+                                    if goalRespectiveTransactions[y].type == "Pemasukan"
                                     {
                                         money += Double(goalRespectiveTransactions[y].amount)
                                     }
@@ -590,7 +593,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             {
                 for x in 0..<goalRespectiveTransactions.count
                 {
-                    if goalRespectiveTransactions[x].type == "Income"
+                    if goalRespectiveTransactions[x].type == "Pemasukan"
                     {
                         money += Double(goalRespectiveTransactions[x].amount)
                     }
@@ -618,7 +621,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                         
                         if comps.year == y_count
                         {
-                            if goalRespectiveTransactions[x].type == "Income"
+                            if goalRespectiveTransactions[x].type == "Pemasukan"
                             {
                                 money += Double(goalRespectiveTransactions[x].amount)
                             }

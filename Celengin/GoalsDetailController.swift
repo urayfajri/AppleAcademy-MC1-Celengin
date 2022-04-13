@@ -33,14 +33,18 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addIncomeButton.tintColor = UIColor.systemGreen
+        addIncomeButton.tintColor = UIColor.systemYellow
         addExpenseButton.tintColor = UIColor.systemRed
-        transactionRecordButton.tintColor = UIColor.systemGray
+        transactionRecordButton.tintColor = UIColor.brown
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.brown
         
         let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(tapTrash))
+        trashButton.tintColor = UIColor.systemRed
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(tapEdit))
+        editButton.tintColor = UIColor.brown
         navigationItem.rightBarButtonItems = [trashButton, editButton]
-        
+    
         goalsName.text = goal?.name
         goalTarget = goal?.target ?? 0.0
         totalTarget.text = "Rp. \(goalTarget)"

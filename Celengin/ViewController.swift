@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var searchView: UISearchBar!
     private var datas = [Goals]()
     var testID: Int = 0
+    var label : UILabel!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -26,15 +27,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
         
 //        dummyData()
+        label = UILabel()
         getAllItems()
         goalTable.rowHeight = UITableView.automaticDimension
         goalTable.estimatedRowHeight = 600
+    
         
         if(datas.isEmpty)
         {
-            goalTable.isHidden = true
-            let label = UILabel()
-            label.text = "Kamu belum menambahkan goal. Ayo tambahkan goal pertamamu sekarang!"
+            label.text = "Ayo tambahkan goal pertamamu sekarang!"
             label.textColor = .gray
             label.textAlignment = .center
             label.frame = CGRect(x: 0, y: view.frame.size.height / 2, width: view.frame.size.width, height: 100)
@@ -44,6 +45,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         getAllItems()
+        
+        if(!datas.isEmpty)
+        {
+            label.isHidden = true
+        }
+        
     }
     
     
@@ -280,7 +287,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let fetchRequest: NSFetchRequest<Goals> = Goals.fetchRequest()
         
         let pinnedSort = NSSortDescriptor(key: "status", ascending: false)
-        let deadlineSort = NSSortDescriptor(key: "deadline", ascending: false)
+        let deadlineSort = NSSortDescriptor(key: "deadline", ascending: true)
         let progressSort = NSSortDescriptor(key: "progress", ascending: false)
         
         fetchRequest.sortDescriptors = [pinnedSort, deadlineSort, progressSort]

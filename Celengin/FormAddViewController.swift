@@ -33,6 +33,7 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.tintColor = UIColor.brown
         resetForm()
         setUpElements()
     }
