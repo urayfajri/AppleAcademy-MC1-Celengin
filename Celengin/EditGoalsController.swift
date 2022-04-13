@@ -28,7 +28,6 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var goalName: String = ""
     var goal: Goals?
-//    var goalTarget = [Goals]()
     
     let breakdownList = ["Weekly", "Monthly", "Yearly"]
     
@@ -36,11 +35,11 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = goal!.name
+        // title = goal!.name
         // Do any additional setup after loading the view.
-//        resetForm()
+        fetchEditedGoal()
+        updateForm()
         setUpElements()
-//        fetchEditedGoal()
     }
     
     func setUpElements() {
@@ -50,36 +49,61 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         Utilities.styleTextView(goalNotesTextViewEdit)
         Utilities.styleFilledButton(submitGoalButtonEdit)
         
-        let textTarget = "\(goal?.target ?? 0)"
-        
-        goalNameTextFieldEdit.text = goal?.name
-        goalTargetTextFieldEdit.text = textTarget
-        goalNotesTextViewEdit.text = goal?.add_notes
-        
         setUpDatePicker()
         setBreakdown()
     }
     
-    func resetForm() {
-        submitGoalButtonEdit.isEnabled = false
+    func updateForm() {
         
-        validateGoalNameEdit.isHidden = false
-        validateGoalTargetEdit.isHidden = false
-        validateGoalDeadlineEdit.isHidden = false
-        validateGoalBreakdownEdit.isHidden = true
+        if let goalName = goalNameTextFieldEdit.text
+        {
+            if let errorMessage = invalidGoalName(goalName)
+            {
+                validateGoalNameEdit.text = errorMessage
+                validateGoalNameEdit.isHidden = false
+            } else
+            {
+                validateGoalNameEdit.isHidden = true
+            }
+        }
         
-        // message validation
-        validateGoalNameEdit.text = "Goal Name is Required"
-        validateGoalTargetEdit.text = "Goal Target is Required"
-        validateGoalDeadlineEdit.text = "Goal Deadline is Required"
+        if let goalTarget = goalTargetTextFieldEdit.text
+        {
+            if let errorMessage = invalidGoalTarget(goalTarget)
+            {
+                validateGoalTargetEdit.text = errorMessage
+                validateGoalTargetEdit.isHidden = false
+            } else
+            {
+                validateGoalTargetEdit.isHidden = true
+            }
+        }
         
-        // empty text field
-        goalNameTextFieldEdit.text = ""
-        goalTargetTextFieldEdit.text = ""
-        goalDeadlineTextFieldEdit.text = ""
-        goalBreakdownTextFieldEdit.text = "Monthly"
-        goalNotesTextViewEdit.text = ""
+        if let goalDeadline = goalDeadlineTextFieldEdit.text
+        {
+            if let errorMessage = invalidGoalDeadline(goalDeadline)
+            {
+                validateGoalDeadlineEdit.text = errorMessage
+                validateGoalDeadlineEdit.isHidden = false
+            } else
+            {
+                validateGoalDeadlineEdit.isHidden = true
+            }
+        }
         
+        if let goalBreakdown = goalBreakdownTextFieldEdit.text
+        {
+            if let errorMessage = invalidGoalBreakdown(goalBreakdown)
+            {
+                validateGoalBreakdownEdit.text = errorMessage
+                validateGoalBreakdownEdit.isHidden = false
+            } else
+            {
+                validateGoalBreakdownEdit.isHidden = true
+            }
+        }
+        
+        checkValidForm()
     }
     
     func setUpDatePicker() {
@@ -87,6 +111,8 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         datePicker = UIDatePicker.init(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200))
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(self.dateChanged), for: .allEvents)
+        
+        // fetch goal deadline to date picker
         datePicker.date = (goal?.deadline)!
         
         if #available(iOS 13.4, *) {
@@ -140,8 +166,14 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         goalBreakdownTextFieldEdit.inputView = pickerView
         
-        // Default value
-        goalBreakdownTextFieldEdit.text = goal?.breakdown
+        let choosedBreakdown = (goal?.breakdown)!
+        
+        let indexBreakdown = breakdownList.firstIndex(where: {$0 == choosedBreakdown})
+//        print((goal?.breakdown)!)
+//        print(indexBreakdown!)
+        
+        pickerView.selectRow(indexBreakdown!, inComponent: 0, animated: true)
+        pickerView(pickerView, didSelectRow: indexBreakdown!, inComponent: 0)
     }
     
     @objc func dateChanged(){
@@ -235,10 +267,8 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
         // fetch object Goal yang akan di edit
-        
         updateGoal(item: goal!)
         
-//        resetForm()
     }
     
     func updateGoal(item: Goals)
@@ -320,22 +350,21 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
     }
     
-//    func fetchEditedGoal()
-//    {
-//
-//        let fetchRequest: NSFetchRequest<Goals> = Goals.fetchRequest()
-//        let predicate = NSPredicate(format: "name CONTAINS \(goalName)")
-//
-//        fetchRequest.predicate = predicate
-//
-//        do
-//        {
-//            goalTarget = try context.fetch(fetchRequest)
-//        }
-//
-//        catch
-//        {
-//
-//        }
-//    }
+    func fetchEditedGoal()
+    {
+        goalNameTextFieldEdit.text = goal?.name
+        // goalBreakdownTextFieldEdit.text = goal?.breakdown
+        goalNotesTextViewEdit.text = goal?.add_notes
+        
+        // fetch goal target
+        let textTarget = "\(Int(goal?.target ?? 0))"
+        goalTargetTextFieldEdit.text = textTarget
+        
+        
+        // fetch goal date
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .medium
+        goalDeadlineTextFieldEdit.text = dateFormat.string(from: (goal?.deadline)!)
+
+    }
 }

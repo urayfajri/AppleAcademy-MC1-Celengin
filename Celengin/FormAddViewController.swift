@@ -127,8 +127,10 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         goalBreakdownTextField.inputView = pickerView
         
-        // Default value
-        goalBreakdownTextField.text = breakdownList[1]
+        // default set value
+        pickerView.selectRow(1, inComponent: 0, animated: true)
+        pickerView(pickerView, didSelectRow: 1, inComponent: 0)
+        
     }
     
     @objc func dateChanged(){

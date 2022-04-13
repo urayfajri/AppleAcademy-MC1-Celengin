@@ -34,14 +34,15 @@ class FormEditTransactionViewController: UIViewController {
     
     var datePicker: UIDatePicker!
     
-    var transactionType: String!
     var transaction: Transaction?
+    var transactionType: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        resetForm()
+        fetchEditedTransaction()
+        updateForm()
         setUpElements()
     }
     
@@ -52,46 +53,67 @@ class FormEditTransactionViewController: UIViewController {
         Utilities.styleTextField(transactionResourceTextField)
         Utilities.styleTextView(transactionNotesTextView)
         Utilities.styleFilledButton(saveEditsButton)
-        
-        transactionNameTextField.text = transaction?.name
-        
-        let amountMoney = "\(transaction?.amount ?? 0)"
-        transactionAmountTextField.text = amountMoney
-        transactionResourceTextField.text = transaction?.resources
-        transactionNotesTextView.text = transaction?.notes
-        
+    
         setUpDatePicker()
     }
     
-    func resetForm() {
+    func updateForm() {
         setTransactionResource()
         
-        saveEditsButton.isEnabled = false
+        if let transactionName = transactionNameTextField.text
+        {
+            if let errorMessage = invalidTransactionName(transactionName)
+            {
+                validateTransactionName.text = errorMessage
+                validateTransactionName.isHidden = false
+            } else
+            {
+                validateTransactionName.isHidden = true
+            }
+        }
         
-        validateTransactionName.isHidden = false
-        validateTransactionAmount.isHidden = false
-        validateTransactionDate.isHidden = false
-        validateTransactionResource.isHidden = false
+        if let transactionAmount = transactionAmountTextField.text
+        {
+            if let errorMessage = invalidTransactionAmount(transactionAmount)
+            {
+                validateTransactionAmount.text = errorMessage
+                validateTransactionAmount.isHidden = false
+            } else
+            {
+                validateTransactionAmount.isHidden = true
+            }
+        }
         
-        // message validation
-        validateTransactionName.text = "Transaction Name is Required"
-        validateTransactionAmount.text = "Transaction Amount is Required"
-        validateTransactionDate.text = "Transaction Date is Required"
+        if let transactionDate = transactionDateTextField.text
+        {
+            if let errorMessage = invalidTransactionDate(transactionDate)
+            {
+                validateTransactionDate.text = errorMessage
+                validateTransactionDate.isHidden = false
+            } else
+            {
+                validateTransactionDate.isHidden = true
+            }
+        }
         
-        // empty text field
-        transactionNameTextField.text = ""
-        transactionAmountTextField.text = ""
-        transactionDateTextField.text = ""
-        transactionResourceTextField.text = ""
-        transactionNotesTextView.text = ""
+        if let transactionResource = transactionResourceTextField.text
+        {
+            if let errorMessage = invalidTransactionResource(transactionResource)
+            {
+                validateTransactionResource.text = errorMessage
+                validateTransactionResource.isHidden = false
+            } else
+            {
+                validateTransactionResource.isHidden = true
+            }
+        }
+        
+        checkValidForm()
     }
     
     func setTransactionResource() {
-        //masih dummy
-        transactionType = "Income"
-        // transactionType = "Expense"
-        
-        if transaction!.type == "Income"
+    
+        if transactionType == "Income"
         {
             transactionTypeTitle.text = "Edit Income"
             transactionTypeTitle.textColor = .systemYellow
@@ -99,7 +121,7 @@ class FormEditTransactionViewController: UIViewController {
             transactionResourceTextField.placeholder = "Edit Transaction Source"
             validateTransactionResource.text = "Transaction Source is Required"
         }
-        else if transaction!.type == "Outcome"
+        else if transactionType == "Outcome"
         {
             transactionTypeTitle.text = "Edit Expense"
             transactionTypeTitle.textColor = .systemRed
@@ -328,7 +350,7 @@ class FormEditTransactionViewController: UIViewController {
                 return "Transaction Source is Required"
             }
         }
-        if transactionType == "Expense"
+        if transactionType == "Outcome"
         {
             if value.isEmpty{
                 return "Transaction Needs is Required"
@@ -346,5 +368,23 @@ class FormEditTransactionViewController: UIViewController {
         {
             saveEditsButton.isEnabled = false
         }
+    }
+    
+    func fetchEditedTransaction()
+    {
+        transactionNameTextField.text = transaction?.name
+        transactionResourceTextField.text = transaction?.resources
+        transactionNotesTextView.text = transaction?.notes
+        transactionType = transaction?.type
+        
+        // fetch transaction amount
+        let amountMoney = "\(Int(transaction?.amount ?? 0))"
+        transactionAmountTextField.text = amountMoney
+        
+        // fetch goal date
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .medium
+        transactionDateTextField.text = dateFormat.string(from: (transaction?.date)!)
+
     }
 }
