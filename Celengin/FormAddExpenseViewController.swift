@@ -32,6 +32,7 @@ class FormAddExpenseViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = "Tambah Pengeluaran"
         resetForm()
         setUpElements()
     }

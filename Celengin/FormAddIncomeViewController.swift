@@ -33,6 +33,7 @@ class FormAddIncomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = "Tambah Pemasukan"
         resetForm()
         setUpElements()
     }
