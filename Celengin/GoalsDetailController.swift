@@ -82,11 +82,11 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     @objc func tapTrash(){
 //        let vc = UIViewController()
 //        navigationController?.pushViewController(vc, animated: true)
-        let alertControl = UIAlertController(title: "Delete Item", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
-        alertControl.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
+        let alertControl = UIAlertController(title: "Hapus Goal", message: "Apakah kamu yakin ingin menghapus goal ini?", preferredStyle: .alert)
+        alertControl.addAction(UIAlertAction(title: "Tidak", style: .cancel, handler: {_ in
             alertControl.dismiss(animated: true, completion: nil)
         }))
-        alertControl.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [self]_ in
+        alertControl.addAction(UIAlertAction(title: "Iya", style: .destructive, handler: { [self]_ in
             self.deleteItem(item: goal!)
             self.navigationController?.popViewController(animated: true)
         }))

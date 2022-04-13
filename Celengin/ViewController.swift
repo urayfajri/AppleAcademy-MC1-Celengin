@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             goalTable.isHidden = true
             let label = UILabel()
-            label.text = "You haven't created any goal. Start creating one now!"
+            label.text = "Kamu belum menambahkan goal. Ayo tambahkan goal pertamamu sekarang!"
             label.textColor = .gray
             label.textAlignment = .center
             label.frame = CGRect(x: 0, y: view.frame.size.height / 2, width: view.frame.size.width, height: 100)
@@ -54,13 +54,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let goals = datas[indexPath.row]
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { _ , indexPath in
-            let alertControl = UIAlertController(title: "Delete Item", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
-            alertControl.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Hapus") { _ , indexPath in
+            let alertControl = UIAlertController(title: "Hapus Goal", message: "Apakah kamu yakin ingin menghapus goal ini?", preferredStyle: .alert)
+            alertControl.addAction(UIAlertAction(title: "Iya", style: .destructive, handler: {_ in
                 self.deleteItem(item: goals)
+                self.datas.remove(at: indexPath.row)
             }))
             
-            alertControl.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
+            alertControl.addAction(UIAlertAction(title: "Tidak", style: .cancel, handler: {_ in
                 alertControl.dismiss(animated: true, completion: nil)
             }))
             
@@ -68,7 +69,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
     
-        let pinActionTitle = goals.status ? "Unpin" : "Pin"
+        let pinActionTitle = goals.status ? "Lepas Pin" : "Pin"
         
         let pinAction = UITableViewRowAction(style: .normal, title: pinActionTitle) { [self]_ , indexPath in
             self.datas[indexPath.row].status.toggle()

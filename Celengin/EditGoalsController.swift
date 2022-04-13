@@ -296,7 +296,7 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         if value.isEmpty
         {
-            return "Goal Name is Required"
+            return "Nama goal harus diisi"
         }
         return nil
     }
@@ -306,11 +306,11 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let set = CharacterSet(charactersIn: value)
         if !CharacterSet.decimalDigits.isSuperset(of: set)
         {
-            return "Goal Target must contain only digits"
+            return "Target goal hanya bisa diisi angka"
         }
         if value.isEmpty
         {
-            return "Goal Target is Required"
+            return "Target goal harus diisi"
         }
         return nil
     }
@@ -319,7 +319,7 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         if value.isEmpty
         {
-            return "Goal Deadline is Required"
+            return "Deadline goal harus diisi"
         }
         return nil
     }
@@ -328,12 +328,12 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         if value.isEmpty
         {
-            return "Goal Breakdown is Required"
+            return "Pembagian goal harus diisi"
         }
         
         if !(value == "Weekly" || value == "Monthly" || value == "Yearly")
         {
-            return "Goal Breakdown is not available"
+            return "Pembagian goal tidak tersedia"
         }
         return nil
     }
