@@ -127,7 +127,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                     }
                     
                     Overview.append(money)
-                    overviewTexts.append("Minggu \(d_count): Rp. \(money)\n")
+                    overviewTexts.append("Minggu \(Overview.count): Rp. \(money)\n")
                     d_start += 7
                     d_end += 7
                     d_count += 1
@@ -167,7 +167,6 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             
                 var m_count = goalMonth
                 
-                
                 if currYear! == goalYear
                 {
                     while m_count <= currMonth!
@@ -196,7 +195,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                         }
                         
                         Overview.append(money)
-                        overviewTexts.append("Bulan \(m_count): Rp. \(money)\n")
+                        overviewTexts.append("Bulan \(Overview.count): Rp. \(money)\n")
                         m_count += 1
                     }
                     
@@ -239,7 +238,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                             }
                             
                             Overview.append(money)
-                            overviewTexts.append("Bulan \(m_count): Rp. \(money)\n")
+                            overviewTexts.append("Bulan \(Overview.count): Rp. \(money)\n")
                             m_count += 1
                         }
                         
@@ -316,7 +315,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                        
                     }
                     
-                    overviewTexts.append("Tahun \(y_count): Rp. \(money)\n")
+                    overviewTexts.append("Tahun \(Overview.count): Rp. \(money)\n")
                     y_count+=1
                     
                 }

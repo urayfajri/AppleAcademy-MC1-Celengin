@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapAdd))
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
         
-//        dummyData()
+        dummyData()
         label = UILabel()
         getAllItems()
         goalTable.rowHeight = UITableView.automaticDimension
@@ -198,7 +198,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         income1.date = userCalendar.date(from: dateIncome)
         income1.resources = "Gaji Feb"
         income1.notes = "Nambah 2 setengah"
-        income1.type = "Income"
+        income1.type = "Pemasukan"
         
         let outcome1 = Transaction(context: context)
         outcome1.name = "Beli pulsa"
@@ -206,7 +206,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         outcome1.date = userCalendar.date(from: dateIncome)
         outcome1.resources = "Pulsa Telkomsel"
         outcome1.notes = "Beli pulsa telkomsel 100000"
-        outcome1.type = "Outcome"
+        outcome1.type = "Pengeluaran"
         
         var dateIncome2 = DateComponents()
         dateIncome2.year = 2022
@@ -222,7 +222,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         income2.date = userCalendar.date(from: dateIncome2)
         income2.resources = "Gaji Januari"
         income2.notes = "Nambah 2.6 juta"
-        income2.type = "Income"
+        income2.type = "Pemasukan"
         
         let outcome2 = Transaction(context: context)
         outcome2.name = "Beli pulsa"
@@ -230,7 +230,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         outcome2.date = userCalendar.date(from: dateIncome2)
         outcome2.resources = "Pulsa Telkomsel"
         outcome2.notes = "Beli pulsa telkomsel 100000"
-        outcome2.type = "Outcome"
+        outcome2.type = "Pengeluaran"
         
         var dateIncome3 = DateComponents()
         dateIncome3.year = 2022
@@ -246,7 +246,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         income3.date = userCalendar.date(from: dateIncome3)
         income3.resources = "Gaji Maret"
         income3.notes = "Nambah 5.2 juta"
-        income3.type = "Income"
+        income3.type = "Pemasukan"
         
         let outcome3 = Transaction(context: context)
         outcome3.name = "Beli pulsa"
@@ -254,7 +254,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         outcome3.date = userCalendar.date(from: dateIncome3)
         outcome3.resources = "Pulsa Telkomsel"
         outcome3.notes = "Beli pulsa telkomsel 100000"
-        outcome3.type = "Outcome"
+        outcome3.type = "Pengeluaran"
         
         let income4 = Transaction(context: context)
         income4.name = "Nabung ke Paris"
@@ -262,7 +262,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         income4.date = userCalendar.date(from: dateIncome2)
         income4.resources = "Gaji Januari"
         income4.notes = "No Notes"
-        income4.type = "Income"
+        income4.type = "Pemasukan"
         
         let income5 = Transaction(context: context)
         income5.name = "Nabung lagi"
@@ -270,7 +270,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         income5.date = userCalendar.date(from: dateIncome3)
         income5.resources = "Angpao Imlek"
         income5.notes = "Dapet angpao"
-        income5.type = "Income"
+        income5.type = "Pemasukan"
         
         goals2.addToTransaction(income1)
         goals2.addToTransaction(outcome1)
