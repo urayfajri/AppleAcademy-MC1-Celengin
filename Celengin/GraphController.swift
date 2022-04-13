@@ -13,7 +13,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
    
     @IBOutlet weak var goalTextField: UITextField!
     @IBOutlet weak var overallOverview: UILabel!
-    @IBOutlet weak var detailOverview: UILabel!
+    @IBOutlet weak var detailOverview: UITextView!
     
     var barChart = BarChartView()
     var goals = [Goals]()

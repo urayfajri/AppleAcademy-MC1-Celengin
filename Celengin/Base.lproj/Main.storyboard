@@ -783,60 +783,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-U8-VT8">
-                                <rect key="frame" x="16" y="88" width="358" height="673"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XcL-dI-Cmf">
+                                <rect key="frame" x="16" y="88" width="358" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="K4W-Be-Pry">
+                                <rect key="frame" x="16" y="127" width="358" height="32"/>
+                                <segments>
+                                    <segment title="Mingguan"/>
+                                    <segment title="Bulanan"/>
+                                    <segment title="Tahunan"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didChangeSegment:" destination="nq8-O0-pNW" eventType="valueChanged" id="Bc9-Cs-Q9M"/>
+                                </connections>
+                            </segmentedControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-U8-VT8">
+                                <rect key="frame" x="16" y="601" width="358" height="140"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XcL-dI-Cmf">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="K4W-Be-Pry">
-                                        <rect key="frame" x="0.0" y="42" width="358" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="Mingguan"/>
-                                            <segment title="Bulanan"/>
-                                            <segment title="Tahunan"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="didChangeSegment:" destination="nq8-O0-pNW" eventType="valueChanged" id="Bc9-Cs-Q9M"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SUMMARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC9-Zx-1aY">
-                                        <rect key="frame" x="8" y="460" width="103" height="111"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved Money" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvX-fE-YXk">
-                                        <rect key="frame" x="8" y="523" width="350" height="66"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZl-Sc-JXS">
-                                        <rect key="frame" x="8" y="579" width="342" height="137"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="d7I-kG-cJk">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="1071.3333333333333"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUMMARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC9-Zx-1aY">
+                                                <rect key="frame" x="0.0" y="0.0" width="358" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="hDe-QE-X8p">
+                                                <rect key="frame" x="0.0" y="44" width="358" height="1027.3333333333333"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved Money" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvX-fE-YXk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xZu-Jf-KYj">
+                                                        <rect key="frame" x="0.0" y="27.333333333333371" width="358" height="1000.0000000000001"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1000" id="X22-jp-tDE"/>
+                                                        </constraints>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="d7I-kG-cJk" firstAttribute="bottom" secondItem="Z0F-Jz-sjA" secondAttribute="bottom" id="F8v-sY-LoB"/>
+                                    <constraint firstItem="d7I-kG-cJk" firstAttribute="width" secondItem="rAx-0c-Jkl" secondAttribute="width" id="KBE-Xw-gbt"/>
+                                    <constraint firstAttribute="height" constant="140" id="L6m-PZ-BYz"/>
+                                    <constraint firstItem="d7I-kG-cJk" firstAttribute="trailing" secondItem="Z0F-Jz-sjA" secondAttribute="trailing" id="TZE-4e-Dzi"/>
+                                    <constraint firstItem="d7I-kG-cJk" firstAttribute="top" secondItem="Z0F-Jz-sjA" secondAttribute="top" id="cWj-fa-bBn"/>
+                                    <constraint firstItem="d7I-kG-cJk" firstAttribute="leading" secondItem="Z0F-Jz-sjA" secondAttribute="leading" id="dfj-An-Cej"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Z0F-Jz-sjA"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="rAx-0c-Jkl"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zv7-2t-z1g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zv7-2t-z1g" firstAttribute="trailing" secondItem="XcL-dI-Cmf" secondAttribute="trailing" constant="16" id="OtT-DO-ozt"/>
+                            <constraint firstItem="K4W-Be-Pry" firstAttribute="leading" secondItem="zv7-2t-z1g" secondAttribute="leading" constant="16" id="Tz6-2J-O9X"/>
+                            <constraint firstItem="XcL-dI-Cmf" firstAttribute="top" secondItem="zv7-2t-z1g" secondAttribute="top" id="a5N-15-2pD"/>
+                            <constraint firstItem="zv7-2t-z1g" firstAttribute="trailing" secondItem="K4W-Be-Pry" secondAttribute="trailing" constant="16" id="g1M-1f-DmM"/>
+                            <constraint firstItem="0bU-U8-VT8" firstAttribute="leading" secondItem="zv7-2t-z1g" secondAttribute="leading" constant="16" id="gK2-Yr-Aa0"/>
+                            <constraint firstItem="zv7-2t-z1g" firstAttribute="bottom" secondItem="0bU-U8-VT8" secondAttribute="bottom" constant="20" id="gRk-wo-ixD"/>
+                            <constraint firstItem="K4W-Be-Pry" firstAttribute="top" secondItem="XcL-dI-Cmf" secondAttribute="bottom" constant="5" id="jFL-As-NKv"/>
+                            <constraint firstItem="zv7-2t-z1g" firstAttribute="trailing" secondItem="0bU-U8-VT8" secondAttribute="trailing" constant="16" id="vHV-SV-884"/>
+                            <constraint firstItem="XcL-dI-Cmf" firstAttribute="leading" secondItem="zv7-2t-z1g" secondAttribute="leading" constant="16" id="wJ3-Ag-dc7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4uo-dc-h1s"/>
                     <connections>
-                        <outlet property="detailOverview" destination="aZl-Sc-JXS" id="KDo-Hh-Job"/>
+                        <outlet property="detailOverview" destination="xZu-Jf-KYj" id="1pe-xn-rEQ"/>
                         <outlet property="goalTextField" destination="XcL-dI-Cmf" id="4Ta-Fl-nia"/>
                         <outlet property="overallOverview" destination="dvX-fE-YXk" id="Dwg-AM-PWt"/>
                     </connections>
