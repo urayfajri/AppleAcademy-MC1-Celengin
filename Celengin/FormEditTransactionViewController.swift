@@ -314,7 +314,7 @@ class FormEditTransactionViewController: UIViewController {
         
         if value.isEmpty
         {
-            return "Transaction Name is Required"
+            return "Nama Transaksi Harus Diisi"
         }
         return nil
     }
@@ -324,11 +324,11 @@ class FormEditTransactionViewController: UIViewController {
         let set = CharacterSet(charactersIn: value)
         if !CharacterSet.decimalDigits.isSuperset(of: set)
         {
-            return "Amount must contain only digits"
+            return "Jumlah Uang Diisi Angka"
         }
         if value.isEmpty
         {
-            return "Transaction Amount is Required"
+            return "Jumlah Transaksi Harus Diisi"
         }
         return nil
     }
@@ -337,7 +337,7 @@ class FormEditTransactionViewController: UIViewController {
         
         if value.isEmpty
         {
-            return "TransactionDate is Required"
+            return "Tanggal Transaksi Harus Diisi"
         }
         return nil
     }
@@ -347,13 +347,13 @@ class FormEditTransactionViewController: UIViewController {
         if transactionType == "Pemasukan"
         {
             if value.isEmpty{
-                return "Transaction Source is Required"
+                return "Sumber Transaksi Harus Diisi"
             }
         }
         if transactionType == "Pengeluaran"
         {
             if value.isEmpty{
-                return "Transaction Needs is Required"
+                return "Keperluan Transaksi Harus Diisi"
             }
         }
         return nil
