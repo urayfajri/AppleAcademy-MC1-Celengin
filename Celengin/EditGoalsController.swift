@@ -261,13 +261,22 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func submitGoalTapped(_ sender: Any) {
-        if goalNotesTextViewEdit.text.isEmpty
-        {
-            goalNotesTextViewEdit.text = ""
-        }
         
-        // fetch object Goal yang akan di edit
-        updateGoal(item: goal!)
+        let alertControl = UIAlertController(title: "Edit Goal", message: "Apakah kamu yakin ingin mengedit goal ini?", preferredStyle: .alert)
+        alertControl.addAction(UIAlertAction(title: "Tidak", style: .cancel, handler: {_ in
+            alertControl.dismiss(animated: true, completion: nil)
+        }))
+        alertControl.addAction(UIAlertAction(title: "Iya", style: .destructive, handler: { [self]_ in
+            if goalNotesTextViewEdit.text.isEmpty
+            {
+                goalNotesTextViewEdit.text = ""
+            }
+            
+            // fetch object Goal yang akan di edit
+            updateGoal(item: goal!)
+        }))
+        
+        self.present(alertControl, animated: true)
         
     }
     

@@ -218,35 +218,43 @@ class FormAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func submitGoalTapped(_ sender: Any) {
-        if goalNotesTextView.text.isEmpty
-        {
-            goalNotesTextView.text = ""
-        }
         
-        let newGoal = Goals(context: self.context)
-        newGoal.name = goalNameTextField.text
-        newGoal.add_notes = goalNotesTextView.text
-        newGoal.breakdown = goalBreakdownTextField.text
-        newGoal.target = Double(goalTargetTextField.text ?? "0") ?? 0.0
-        newGoal.deadline = datePicker.date
-        newGoal.createdAt = Date()
-        newGoal.progress = 0
-        newGoal.status = false
-        
-        do{
-            try context.save()
-            // balik ke satu halaman sebelumnnya
-            self.navigationController?.popViewController(animated: true)
+        let alertControl = UIAlertController(title: "Tambah Goal", message: "Apakah kamu yakin ingin menambah goal ini?", preferredStyle: .alert)
+        alertControl.addAction(UIAlertAction(title: "Tidak", style: .cancel, handler: {_ in
+            alertControl.dismiss(animated: true, completion: nil)
+        }))
+        alertControl.addAction(UIAlertAction(title: "Iya", style: .destructive, handler: { [self]_ in
+            if goalNotesTextView.text.isEmpty
+            {
+                goalNotesTextView.text = ""
+            }
             
-            // balik ke root controller (halaman pertama kali launch)
-            // self.navigationController?.popToRootViewController(animated: true)
+            let newGoal = Goals(context: self.context)
+            newGoal.name = goalNameTextField.text
+            newGoal.add_notes = goalNotesTextView.text
+            newGoal.breakdown = goalBreakdownTextField.text
+            newGoal.target = Double(goalTargetTextField.text ?? "0") ?? 0.0
+            newGoal.deadline = datePicker.date
+            newGoal.createdAt = Date()
+            newGoal.progress = 0
+            newGoal.status = false
+            
+            do{
+                try context.save()
+                // balik ke satu halaman sebelumnnya
+                self.navigationController?.popViewController(animated: true)
+                
+                // balik ke root controller (halaman pertama kali launch)
+                // self.navigationController?.popToRootViewController(animated: true)
 
-        }
-        catch
-        {
-            
-        }
+            }
+            catch
+            {
+                
+            }
+        }))
         
+        self.present(alertControl, animated: true)
         //resetForm()
     }
     

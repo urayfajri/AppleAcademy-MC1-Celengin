@@ -179,30 +179,40 @@ class FormAddIncomeViewController: UIViewController {
     
     @IBAction func saveIncomeTapped(_ sender: Any) {
         
-        if transactionNotesTextView.text.isEmpty
-        {
-            transactionNotesTextView.text = ""
-        }
-        
-        let newTransaction = Transaction(context: self.context)
-        newTransaction.name = transactionNameTextField.text
-        newTransaction.notes = transactionNotesTextView.text
-        newTransaction.amount = Double(transactionAmountTextField.text ?? "0") ?? 0.0
-        newTransaction.date = datePicker.date
-        newTransaction.resources = transactionSourceTextField.text
-        newTransaction.type = "Pemasukan"
-        
-        goal?.addToTransaction(newTransaction)
-        goal?.progress += newTransaction.amount
-        
-        do{
-            try context.save()
-            self.navigationController?.popViewController(animated: true)
-        }
-        catch
-        {
+        let alertControl = UIAlertController(title: "Tambah Pemasukan", message: "Apakah kamu yakin ingin menambah pemasukan baru?", preferredStyle: .alert)
+        alertControl.addAction(UIAlertAction(title: "Tidak", style: .cancel, handler: {_ in
+            alertControl.dismiss(animated: true, completion: nil)
+        }))
+        alertControl.addAction(UIAlertAction(title: "Iya", style: .destructive, handler: { [self]_ in
             
-        }
+            if transactionNotesTextView.text.isEmpty
+            {
+                transactionNotesTextView.text = ""
+            }
+            
+            let newTransaction = Transaction(context: self.context)
+            newTransaction.name = transactionNameTextField.text
+            newTransaction.notes = transactionNotesTextView.text
+            newTransaction.amount = Double(transactionAmountTextField.text ?? "0") ?? 0.0
+            newTransaction.date = datePicker.date
+            newTransaction.resources = transactionSourceTextField.text
+            newTransaction.type = "Pemasukan"
+            
+            goal?.addToTransaction(newTransaction)
+            goal?.progress += newTransaction.amount
+            
+            do{
+                try context.save()
+                self.navigationController?.popViewController(animated: true)
+            }
+            catch
+            {
+                
+            }
+        }))
+        
+        self.present(alertControl, animated: true)
+        
         
         // resetForm()
     }

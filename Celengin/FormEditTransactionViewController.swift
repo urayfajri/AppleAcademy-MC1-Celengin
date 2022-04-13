@@ -248,12 +248,22 @@ class FormEditTransactionViewController: UIViewController {
     
     @IBAction func saveEditsTapped(_ sender: Any) {
         
-        if transactionNotesTextView.text.isEmpty
-        {
-            transactionNotesTextView.text = ""
-        }
+        let alertControl = UIAlertController(title: "Tambah Pengeluaran", message: "Apakah kamu yakin ingin menambah pengeluaran baru?", preferredStyle: .alert)
+        alertControl.addAction(UIAlertAction(title: "Tidak", style: .cancel, handler: {_ in
+            alertControl.dismiss(animated: true, completion: nil)
+        }))
+        alertControl.addAction(UIAlertAction(title: "Iya", style: .destructive, handler: { [self]_ in
+            
+            if transactionNotesTextView.text.isEmpty
+            {
+                transactionNotesTextView.text = ""
+            }
+            
+            updateTransaction(item: transaction!)
+        }))
         
-        updateTransaction(item: transaction!)
+        self.present(alertControl, animated: true)
+    
         
 //        resetForm()
     }
