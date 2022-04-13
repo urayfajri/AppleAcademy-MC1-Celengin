@@ -166,6 +166,14 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         goalBreakdownTextFieldEdit.inputView = pickerView
         
+        let choosedBreakdown = (goal?.breakdown)!
+        
+        let indexBreakdown = breakdownList.firstIndex(where: {$0 == choosedBreakdown})
+//        print((goal?.breakdown)!)
+//        print(indexBreakdown!)
+        
+        pickerView.selectRow(indexBreakdown!, inComponent: 0, animated: true)
+        pickerView(pickerView, didSelectRow: indexBreakdown!, inComponent: 0)
     }
     
     @objc func dateChanged(){
@@ -345,7 +353,7 @@ class EditGoalsController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func fetchEditedGoal()
     {
         goalNameTextFieldEdit.text = goal?.name
-        goalBreakdownTextFieldEdit.text = goal?.breakdown
+        // goalBreakdownTextFieldEdit.text = goal?.breakdown
         goalNotesTextViewEdit.text = goal?.add_notes
         
         // fetch goal target
