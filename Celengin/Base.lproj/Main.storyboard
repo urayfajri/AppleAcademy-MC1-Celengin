@@ -122,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODC-PF-ibi">
-                                <rect key="frame" x="25" y="118" width="340" height="622"/>
+                                <rect key="frame" x="25" y="118" width="340" height="672"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="hEa-s7-kid">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="623.66666666666663"/>
@@ -280,7 +280,6 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzR-f5-P9I">
                                                                 <rect key="frame" x="0.0" y="0.0" width="145" height="50"/>
-                                                                <color key="tintColor" systemColor="systemGreenColor"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled">
                                                                     <attributedString key="attributedTitle">
@@ -297,7 +296,6 @@
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68V-W8-z05">
                                                                 <rect key="frame" x="195" y="0.0" width="145" height="50"/>
-                                                                <color key="tintColor" systemColor="systemRedColor"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled">
                                                                     <attributedString key="attributedTitle">
@@ -322,7 +320,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="aBf-gU-R1c"/>
                                                         </constraints>
-                                                        <color key="tintColor" systemColor="systemGrayColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled">
                                                             <attributedString key="attributedTitle">
@@ -359,12 +356,14 @@
                         <constraints>
                             <constraint firstItem="ODC-PF-ibi" firstAttribute="leading" secondItem="s6G-hJ-Y2v" secondAttribute="leading" constant="25" id="2QB-7W-yvg"/>
                             <constraint firstItem="s6G-hJ-Y2v" firstAttribute="trailing" secondItem="ODC-PF-ibi" secondAttribute="trailing" constant="25" id="MOw-sK-WeG"/>
-                            <constraint firstItem="s6G-hJ-Y2v" firstAttribute="bottom" secondItem="ODC-PF-ibi" secondAttribute="bottom" constant="70" id="dO3-mR-GQG"/>
+                            <constraint firstItem="s6G-hJ-Y2v" firstAttribute="bottom" secondItem="ODC-PF-ibi" secondAttribute="bottom" constant="20" id="dO3-mR-GQG"/>
                             <constraint firstItem="ODC-PF-ibi" firstAttribute="top" secondItem="s6G-hJ-Y2v" secondAttribute="top" constant="30" id="rBV-8Y-YkL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LdV-ro-OaM"/>
                     <connections>
+                        <outlet property="addExpenseButton" destination="68V-W8-z05" id="ow9-er-qgG"/>
+                        <outlet property="addIncomeButton" destination="CzR-f5-P9I" id="e0M-Fl-dma"/>
                         <outlet property="deadline" destination="kcU-x3-YjV" id="F7Y-kE-vBx"/>
                         <outlet property="goalsName" destination="Y6Q-WZ-39f" id="iiX-8g-fh3"/>
                         <outlet property="notes" destination="gvA-o4-87g" id="QBt-xb-UcX"/>
@@ -1670,12 +1669,6 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

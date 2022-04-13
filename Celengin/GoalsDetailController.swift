@@ -27,9 +27,15 @@ class GoalsDetailController: UIViewController, UINavigationBarDelegate {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var transactionRecordButton: UIButton!
+    @IBOutlet weak var addIncomeButton: UIButton!
+    @IBOutlet weak var addExpenseButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addIncomeButton.tintColor = UIColor.systemGreen
+        addExpenseButton.tintColor = UIColor.systemRed
+        transactionRecordButton.tintColor = UIColor.systemGray
         
         let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(tapTrash))
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(tapEdit))
