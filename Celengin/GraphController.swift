@@ -47,7 +47,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
         
         let count = goals.count
         
-        pickerTitle.append("All Goals")
+        pickerTitle.append("Semua Goal")
         
         for x in 0..<count
         {
@@ -357,7 +357,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
             
         }
         
-        if goalTextField.text == "All Goals"
+        if goalTextField.text == "Semua Goal"
         {
             
             goalRespectiveTransactions.removeAll()
@@ -403,7 +403,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                
             }
             
-            overallOverview.text = "Saved Rp. \(totalProgress) from Rp. \(totalTarget)"
+            overallOverview.text = "Tabungan Rp. \(totalProgress) dari total Rp. \(totalTarget)"
         }
         
         else
@@ -430,7 +430,7 @@ class GraphController: UIViewController, ChartViewDelegate, UIPickerViewDelegate
                 totalTarget = goalRespectiveTransactions[0].goals!.target
                 totalProgress = goalRespectiveTransactions[0].goals!.progress 
                 
-                overallOverview.text = "Saved Rp. \(totalProgress) from Rp. \(totalTarget)"
+                overallOverview.text = "Tabungan Rp. \(totalProgress) dari total Rp. \(totalTarget)"
                 
             }
             

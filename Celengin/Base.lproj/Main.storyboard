@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search goals..." translatesAutoresizingMaskIntoConstraints="NO" id="oPw-se-mep">
+                            <searchBar contentMode="redraw" placeholder="Cari goal..." translatesAutoresizingMaskIntoConstraints="NO" id="oPw-se-mep">
                                 <rect key="frame" x="4" y="156" width="382" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ktG-ni-jXz"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWb-xu-03t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Goals Saya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWb-xu-03t">
                                 <rect key="frame" x="20" y="104" width="279" height="39"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <nil key="textColor"/>
@@ -245,7 +245,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KbL-5B-4jK">
                                                                 <rect key="frame" x="50" y="0.0" width="290" height="40"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Progress" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgm-xd-DTH">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress Keseluruhan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgm-xd-DTH">
                                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="20.333333333333332"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20.333333333333332" id="afZ-QL-XBT"/>
@@ -283,9 +283,10 @@
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled">
                                                                     <attributedString key="attributedTitle">
-                                                                        <fragment content="Add Income">
+                                                                        <fragment content="Simpan Uang">
                                                                             <attributes>
                                                                                 <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             </attributes>
                                                                         </fragment>
                                                                     </attributedString>
@@ -299,9 +300,10 @@
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled">
                                                                     <attributedString key="attributedTitle">
-                                                                        <fragment content="Add Expense">
+                                                                        <fragment content="Tarik Uang">
                                                                             <attributes>
                                                                                 <font key="NSFont" size="16" name="Helvetica-Bold"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             </attributes>
                                                                         </fragment>
                                                                     </attributedString>
@@ -323,7 +325,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled">
                                                             <attributedString key="attributedTitle">
-                                                                <fragment content="See Transaction Record">
+                                                                <fragment content="Lihat Riwayat Transaksi">
                                                                     <attributes>
                                                                         <font key="NSFont" size="18" name="Helvetica-Bold"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -738,11 +740,11 @@
             </objects>
             <point key="canvasLocation" x="2556.9230769230767" y="3217.5355450236966"/>
         </scene>
-        <!--My Goals-->
+        <!--Goal Saya-->
         <scene sceneID="lBO-l9-iu9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ml8-bL-ddE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Goals" image="list.bullet" catalog="system" selectedImage="list.bullet" id="oZA-G2-a0q"/>
+                    <tabBarItem key="tabBarItem" title="Goal Saya" image="list.bullet" catalog="system" selectedImage="list.bullet" id="oZA-G2-a0q"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tHB-iD-61p">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -779,9 +781,9 @@
                                         <rect key="frame" x="0.0" y="42" width="358" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
-                                            <segment title="Week"/>
-                                            <segment title="Month"/>
-                                            <segment title="Year"/>
+                                            <segment title="Mingguan"/>
+                                            <segment title="Bulanan"/>
+                                            <segment title="Tahunan"/>
                                         </segments>
                                         <connections>
                                             <action selector="didChangeSegment:" destination="nq8-O0-pNW" eventType="valueChanged" id="Bc9-Cs-Q9M"/>
@@ -846,11 +848,11 @@
             </objects>
             <point key="canvasLocation" x="319" y="69"/>
         </scene>
-        <!--Overall Progress-->
+        <!--Progress Keseluruhan-->
         <scene sceneID="eBZ-ck-9KG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sgs-ae-4UV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Overall Progress" image="chart.pie.fill" catalog="system" selectedImage="chart.pie.fill" id="pbN-zj-dIS"/>
+                    <tabBarItem key="tabBarItem" title="Progress Keseluruhan" image="chart.pie.fill" catalog="system" selectedImage="chart.pie.fill" id="pbN-zj-dIS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bVe-F6-0cD">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -1249,7 +1251,7 @@
             </objects>
             <point key="canvasLocation" x="2556.9230769230767" y="2431.990521327014"/>
         </scene>
-        <!--Add Goal-->
+        <!--Goal Baru-->
         <scene sceneID="vO9-9V-eyE">
             <objects>
                 <viewController id="kBN-HL-Kh5" customClass="FormAddViewController" customModule="Celengin" customModuleProvider="target" sceneMemberID="viewController">
@@ -1269,13 +1271,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bUG-5r-MeH">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="80.333333333333329"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2W-pE-y1j">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2W-pE-y1j">
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Goal Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goE-cA-YM3">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Masukan nama goal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goE-cA-YM3">
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1300,7 +1302,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Target" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-L9-tvS">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Masukan Target Tabungan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-L9-tvS">
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1325,7 +1327,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lGl-Es-ZYa">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih Tanggal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lGl-Es-ZYa">
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1344,7 +1346,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-eW-zXN">
                                                         <rect key="frame" x="0.0" y="301" width="350" height="80.333333333333314"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Breakdown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPw-5k-JRf">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pembagian Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPw-5k-JRf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                 <nil key="textColor"/>
@@ -1395,7 +1397,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="U9o-6T-KiN"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Submit Goal"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Buat Goal"/>
                                                 <connections>
                                                     <action selector="submitGoalTapped:" destination="kBN-HL-Kh5" eventType="touchUpInside" id="baL-Sr-bbb"/>
                                                 </connections>
@@ -1424,7 +1426,7 @@
                             <constraint firstItem="nGR-qk-wYm" firstAttribute="trailing" secondItem="zj2-Pl-hoT" secondAttribute="trailing" constant="20" id="ILc-kW-C2y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Goal" id="mDd-Gh-Edo"/>
+                    <navigationItem key="navigationItem" title="Goal Baru" id="mDd-Gh-Edo"/>
                     <connections>
                         <outlet property="goalBreakdownTextField" destination="8bZ-kM-qUK" id="ZSl-iE-F24"/>
                         <outlet property="goalDeadlineTextField" destination="lGl-Es-ZYa" id="Qc1-No-B34"/>
@@ -1463,13 +1465,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ddy-mt-ZmF">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="80.333333333333329"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHC-6O-xff">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHC-6O-xff">
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="23"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Goal Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDK-bw-Mpl">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Masukan nama goal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDK-bw-Mpl">
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1494,7 +1496,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Target" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4c5-lg-K9a">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Masukan target tabungan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4c5-lg-K9a">
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1519,7 +1521,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLy-4R-iJc">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih tanggal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLy-4R-iJc">
                                                                 <rect key="frame" x="0.0" y="28" width="350" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1586,7 +1588,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEH-eq-Lm3">
                                                 <rect key="frame" x="0.0" y="681.33333333333337" width="350" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Submit Goal"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Edit Goal"/>
                                                 <connections>
                                                     <action selector="submitGoalTapped:" destination="7F5-Ut-D1J" eventType="touchUpInside" id="Inv-TY-Zfw"/>
                                                     <action selector="submitGoalTapped:" destination="kBN-HL-Kh5" eventType="touchUpInside" id="VU9-fz-EwU"/>
