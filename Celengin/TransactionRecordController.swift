@@ -23,7 +23,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Transaction Record"
+        title = "Riwayat Transaksi"
         goalName_label.text = goal?.name
         fetchIncome()
         fetchOutcome()
@@ -47,7 +47,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         incomes = []
         var allIncome = [Transaction]()
         let fetchReq: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-        let pred = NSPredicate(format: "type CONTAINS 'Income'")
+        let pred = NSPredicate(format: "type CONTAINS 'Pemasukan'")
         let sortByDate = NSSortDescriptor(key: "date", ascending: false)
         
         fetchReq.sortDescriptors = [sortByDate]
@@ -77,7 +77,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         outcomes = []
         var allOutcome = [Transaction]()
         let fetchReq: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-        let pred = NSPredicate(format: "type CONTAINS 'Outcome'")
+        let pred = NSPredicate(format: "type CONTAINS 'Pengeluaran'")
         let sortByDate = NSSortDescriptor(key: "date", ascending: false)
         
         fetchReq.sortDescriptors = [sortByDate]
@@ -155,9 +155,9 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         if segmentIndex == 0
         {
             let item = incomes[indexPath.row]
-            let sheet = UIAlertController(title: "Edit", message: nil, preferredStyle: .actionSheet)
-            sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: {_ in
+            let sheet = UIAlertController(title: "Ubah", message: nil, preferredStyle: .actionSheet)
+            sheet.addAction(UIAlertAction(title: "Batal", style: .cancel, handler: nil))
+            sheet.addAction(UIAlertAction(title: "Ubah", style: .default, handler: {_ in
                 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "formEditTransaction") as! FormEditTransactionViewController
                 vc.transaction = item
@@ -165,7 +165,7 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
                 
             }))
             
-            sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {[weak self]_ in
+            sheet.addAction(UIAlertAction(title: "Hapus", style: .destructive, handler: {[weak self]_ in
                 
                 item.goals?.progress -= item.amount
                 self?.deleteTransaction(item: item)
@@ -178,9 +178,9 @@ class TransactionRecordController: UIViewController, UICollectionViewDataSource,
         else
         {
             let item = outcomes[indexPath.row]
-            let sheet = UIAlertController(title: "Edit", message: nil, preferredStyle: .actionSheet)
-            sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: {_ in
+            let sheet = UIAlertController(title: "Ubah", message: nil, preferredStyle: .actionSheet)
+            sheet.addAction(UIAlertAction(title: "Batal", style: .cancel, handler: nil))
+            sheet.addAction(UIAlertAction(title: "Ubah", style: .default, handler: {_ in
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "formEditTransaction") as! FormEditTransactionViewController
                 vc.transaction = item
                       self.navigationController?.pushViewController(vc, animated: true)

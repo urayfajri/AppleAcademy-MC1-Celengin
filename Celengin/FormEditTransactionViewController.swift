@@ -113,24 +113,24 @@ class FormEditTransactionViewController: UIViewController {
     
     func setTransactionResource() {
     
-        if transactionType == "Income"
+        if transactionType == "Pemasukan"
         {
-            transactionTypeTitle.text = "Edit Income"
+            transactionTypeTitle.text = "Ubah Pemasukan"
             transactionTypeTitle.textColor = .systemYellow
-            transactionResourceLabel.text = "Source"
-            transactionResourceTextField.placeholder = "Edit Transaction Source"
+            transactionResourceLabel.text = "Sumber Pemasukan"
+            transactionResourceTextField.placeholder = "Ubah Transaksi Pemasukan"
             validateTransactionResource.text = "Transaction Source is Required"
         }
-        else if transactionType == "Outcome"
+        else if transactionType == "Pengeluaran"
         {
-            transactionTypeTitle.text = "Edit Expense"
+            transactionTypeTitle.text = "Ubah Pengeluaran"
             transactionTypeTitle.textColor = .systemRed
-            transactionResourceLabel.text = "Needs"
-            transactionResourceTextField.placeholder = "Edit Transaction Needs"
+            transactionResourceLabel.text = "Keperluan"
+            transactionResourceTextField.placeholder = "Ubah Transaksi Keperluan"
             validateTransactionResource.text = "Transaction Needs is Required"
         }
         else {
-            transactionTypeTitle.text = "Edit Resource"
+            transactionTypeTitle.text = "Ubah Sumber Transaksi"
             transactionResourceLabel.text = "Transaction Resource"
             transactionResourceTextField.placeholder = "Edit Transaction Resource"
             validateTransactionResource.text = "Transaction Resource is Required"
@@ -265,7 +265,7 @@ class FormEditTransactionViewController: UIViewController {
         
         let newAmount = Double(transactionAmountTextField.text ?? "0") ?? 0.0
         
-        if item.type == "Income"
+        if item.type == "Pemasukan"
         {
             if item.amount < newAmount
             {
@@ -344,13 +344,13 @@ class FormEditTransactionViewController: UIViewController {
     
     func invalidTransactionResource(_ value: String) -> String? {
         
-        if transactionType == "Income"
+        if transactionType == "Pemasukan"
         {
             if value.isEmpty{
                 return "Transaction Source is Required"
             }
         }
-        if transactionType == "Outcome"
+        if transactionType == "Pengeluaran"
         {
             if value.isEmpty{
                 return "Transaction Needs is Required"
