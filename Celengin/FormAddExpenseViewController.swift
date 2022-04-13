@@ -56,10 +56,10 @@ class FormAddExpenseViewController: UIViewController {
         validateTransactionNeeds.isHidden = false
         
         // message validation
-        validateTransactionName.text = "Transaction Name is Required"
-        validateTransactionAmount.text = "Transaction Amount is Required"
-        validateTransactionDate.text = "Transaction Date is Required"
-        validateTransactionNeeds.text = "Transaction Needs is Required"
+        validateTransactionName.text = "Nama Transaksi Harus Diisi"
+        validateTransactionAmount.text = "Jumlah Transaksi Harus Diisi"
+        validateTransactionDate.text = "Tanggal Transaksi Harus Diisi"
+        validateTransactionNeeds.text = "Keperluan Transaksi Harus Diisi"
         
         // empty text field
         transactionNameTextField.text = ""
@@ -188,7 +188,7 @@ class FormAddExpenseViewController: UIViewController {
         newTransaction.amount = Double(transactionAmountTextField.text ?? "0") ?? 0.0
         newTransaction.date = datePicker.date
         newTransaction.resources = transactionNeedsTextField.text
-        newTransaction.type = "Outcome"
+        newTransaction.type = "Pengeluaran"
         
         goal?.addToTransaction(newTransaction)
         goal?.progress -= newTransaction.amount
@@ -208,7 +208,7 @@ class FormAddExpenseViewController: UIViewController {
         
         if value.isEmpty
         {
-            return "Transaction Name is Required"
+            return "Nama Transaksi Harus Diisi"
         }
         return nil
     }
@@ -218,11 +218,11 @@ class FormAddExpenseViewController: UIViewController {
         let set = CharacterSet(charactersIn: value)
         if !CharacterSet.decimalDigits.isSuperset(of: set)
         {
-            return "Amount must contain only digits"
+            return "Jumlah Uang Diisi Angka"
         }
         if value.isEmpty
         {
-            return "Transaction Amount is Required"
+            return "Jumlah Transaksi Harus Diisi"
         }
         return nil
     }
@@ -231,7 +231,7 @@ class FormAddExpenseViewController: UIViewController {
         
         if value.isEmpty
         {
-            return "TransactionDate is Required"
+            return "Tanggal Transaksi Harus Diisi"
         }
         return nil
     }
@@ -240,7 +240,7 @@ class FormAddExpenseViewController: UIViewController {
         
         if value.isEmpty
         {
-            return "Transaction Needs is Required"
+            return "Keperluan Transaksi Harus Diisi"
         }
         return nil
     }
